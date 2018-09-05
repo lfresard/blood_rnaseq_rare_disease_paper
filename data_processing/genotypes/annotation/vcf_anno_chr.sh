@@ -1,8 +1,8 @@
 #!/bin/bash
 chr=$1
 njob=15
-gnomAD_dir=/mnt/lab_data/montgomery/lfresard/gnomad_data/vcf/genomes
-cadd_dir=/users/lfresard/CADD
+gnomAD_dir=<gnomad_data_dir>
+cadd_dir=<CADD_data_dir>
 # for each chromosome:
 	#parse the vcf files
 	# get the AF from gnomAD
@@ -29,7 +29,7 @@ echo 'fields=["phred", "raw"]'>> conf.toml
 
 
 ls RD*_homogenized_chr${chr}.vcf.gz | sed 's/\_/\t/'| awk '{print $1}' | parallel --jobs $njob \
-	"bash /users/lfresard/repos/rare_disease/scripts/vcf_handling/vcfanno.sh {} ${chr}"
+	"bash vcfanno.sh {} ${chr}"
 
 wait
 
