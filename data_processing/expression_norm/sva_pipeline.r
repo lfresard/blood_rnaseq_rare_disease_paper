@@ -17,6 +17,7 @@ library(splines)
 library(RColorBrewer)
 library(plyr)
 
+## Function to return all SVs associated with a given predictor, at specified p-value cutoff
 predictor_sig <- function(sva_object, predictor, cutoff) {
 	return(which(apply(sva_object, 2, function(x) 
 		any(summary(lm(x ~ factor(predictor)))[[4]][-1,4] < cutoff)))) 
