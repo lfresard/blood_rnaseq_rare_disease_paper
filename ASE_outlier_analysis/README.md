@@ -17,10 +17,10 @@ collapse_GTEx_ASE.R - requires all GTEx v7 ASE files per tissue and outputs, RDS
 
 get_ASE_outliers_withGTEx.R - requires `gtexV7_ase_filteredSitesForRDS_maxPerTissue.txt` from above and RDS ase data, merges the data frames and scales reference ratios to obtain z-scores, outputting those values to `RDS_GTEX_ASE_zscores.txt` and outlier counts to `RDS_ASE_outlier_counts.txt`
 
-permute_amelie_calls_ASEoutliers.R - Takes in z-scores from above, as well as RDS metadata and HPO information and runs Amelie to obtain phenotype association scores for all ASE outlier genes, and then runs 100 iterations of selecting random genes to score and produces a plot of the distribution of scores when genes are matched vs random
+permute_amelie_calls_ASEoutliers.R - Reads in z-scores from above, as well as RDS metadata and HPO information and runs Amelie to obtain phenotype association scores for all ASE outlier genes, and then runs 100 iterations of selecting random genes to score and produces a plot of the distribution of scores when genes are matched vs random
 
 ```
-Rscript collapse_GTEx_ASE.R &
-Rscript get_ASE_outliers_withGTEx.R &
-Rscript permute_amelie_calls_ASEoutliers.R &
+Rscript collapse_GTEx_ASE.R --asedir [ase directory] --datadir [data output directory] --rdsdir [RDS data directory] &
+Rscript get_ASE_outliers_withGTEx.R --datadir [data output directory] &
+Rscript permute_amelie_calls_ASEoutliers.R --datadir [data output directory] --ameliedir [Directory with amelie scripts] &
 ```

@@ -3,10 +3,17 @@ library(dplyr)
 library(ggplot2)
 require(doMC)
 require(foreach)
+library(argparse)
+
+parser = ArgumentParser()
+parser$add_argument('--datadir', help = 'Window name.')
+parser$add_argument('--ameliedir', help = 'Window name.')
+args = parser$parse_args()
+
+data_dir = args$datadir
+amelie_dir = args$ameliedir
 
 registerDoMC(cores = 20)
-
-data_dir = '/users/nferraro/data/rds_data/'
 
 # Read in output of get_ASE_outliers_withGTEx.R
 gtex_rds_ase_zscores = fread(paste0(data_dir, 'RDS_GTEX_ASE_zscores.txt'))
@@ -68,10 +75,10 @@ write.table(filter(as.data.frame(amelie_output), HPO != ''), file=paste0(data_di
             sep='\t', quote=F,row.names=F,col.names=F)
 
 outfile = paste0(data_dir, 'amelie_permutations/RDScases_aseOutliers_amelie.txt')
-scommand = paste0('bash /users/nferraro/projects/rds_ase_analysis/scripts/call_amelie.sh ', outfile, ' 0')
+scommand = paste0('bash ', amelie_dir, 'call_amelie.sh ', outfile, ' 0')
 system(scommand,ignore.stdout=T)
 
-allRDFiles = dir('/users/nferraro/projects/rds_ase_analysis/scripts/', '*_amelie_rank.txt',full=T)
+allRDFiles = dir(amelie_dir, '*_amelie_rank.txt',full=T)
 
 getAllScores <- function(rdf) {
   tryCatch({
@@ -112,9 +119,9 @@ allRandomScores = foreach(i = 1:100, .combine = rbind) %dopar% {
   write.table(filter(as.data.frame(amelie_output), HPO != ''), file=paste0(data_dir, 'amelie_permutations/RDSrandom', i, '_aseOutliers_amelie.txt'),
               sep='\t', quote=F,row.names=F,col.names=F)
   outfile = paste0(data_dir, 'amelie_permutations/RDSrandom', i, '_aseOutliers_amelie.txt')
-  scommand = paste0('bash /users/nferraro/projects/rds_ase_analysis/scripts/call_amelie.sh ', outfile, ' ', i)
+  scommand = paste0('bash ', amelie_dir, 'call_amelie.sh ', outfile, ' ', i)
   system(scommand,ignore.stdout=T,ignore.stderr=T)
-  allRDFiles = dir('/users/nferraro/projects/rds_ase_analysis/scripts/', paste0(i,'RD*'),full=T)
+  allRDFiles = dir(amelie_dir, paste0(i,'RD*'),full=T)
   allScoreData = do.call(rbind, lapply(allRDFiles, function(x) getAllScores(x)))
   colnames(allScoreData) = c('Gene', 'TopScore', 'ID')
   allScoreData = as.data.frame(allScoreData)
@@ -141,7 +148,7 @@ amelieRandom$Iteration = sapply(amelieRandom$V3, function(x)
 colnames(amelieRandom)[1:3] = c('Gene','AmelieScore','ID')
 
 # Read in Amelie output
-permuteData = fread('/users/nferraro/projects/rds_ase_analysis/scripts/permute.log')
+permuteData = fread(paste0(amelie_dir, 'permute.log'))
 kinds = which(permuteData[,2] == 'N over 50 in random sample:')
 kinds2 = c(1,kinds+1)
 permuteNumber = permuteData[kinds2,2]
@@ -162,7 +169,7 @@ ggplot(permuteNumber, aes(x=Permutation,y=Number,Group=HPO_Terms)) +
         legend.title=element_text(size=20),
         legend.text=element_text(size=18))
 
-allRDFiles = dir('/users/nferraro/projects/rds_ase_analysis/scripts/', '*rank.txt',full=T)
+allRDFiles = dir(amelie_dir, '*rank.txt',full=T)
 
 allRandomScoreData = do.call(rbind, lapply(allRDFiles, function(x) getAllScores(x)))
 

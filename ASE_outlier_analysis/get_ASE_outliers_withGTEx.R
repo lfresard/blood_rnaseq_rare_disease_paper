@@ -1,7 +1,13 @@
 library(data.table)
 library(dplyr)
 
-data_dir = '/users/nferraro/data/rds_data/'
+library(argparse)
+
+parser = ArgumentParser()
+parser$add_argument('--datadir', help = 'Window name.')
+args = parser$parse_args()
+
+data_dir = args$datadir
 
 # Read in the output from collapse_GTEx_ASE.R
 ase.all = fread(paste0(data_dir, 'gtexV7_ase_filteredSitesForRDS_maxPerTissue.txt'), data.table=F)

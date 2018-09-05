@@ -6,9 +6,9 @@
 
 njobs=10
 
-bed_files_dir=/srv/scratch/restricted/rare_diseases/data/bed/for_freeze_exac_filt/
-RV_directory=/srv/scratch/restricted/rare_diseases/analysis/outlier_analysis/splicing/for_freeze
-sample_script=/users/lfresard/repos/rare_disease/scripts/splicing_analysis/outlier/process_sample_RV_annotated_junctions_window.sh
+#bed_files_dir contains annotated bed transformed variant data
+#RV_directory is directory used for output
+sample_script=process_sample_RV_annotated_junctions_window.sh
 
 date
 echo "Filter each sample for RV within 20bp of for annotated junctions"

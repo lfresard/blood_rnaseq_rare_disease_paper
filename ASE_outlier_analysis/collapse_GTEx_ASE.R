@@ -5,11 +5,17 @@ library(data.table)
 library(dplyr)
 library(ggplot2)
 require(RColorBrewer)
+library(argparse)
 
-GTEXDIR = '/mnt/lab_data/montgomery/shared/datasets/gtex/GTEx_Analysis_2016-01-15_v7'
-ASEDIR = paste0(GTEXDIR, '/ase/phe000024.v1.GTEx_ASE_SNPs.expression-matrixfmt-ase.c1')
-data_dir = '/users/nferraro/data/rds_data/'
-rds_dir = '/srv/scratch/restricted/rare_diseases/data/'
+parser = ArgumentParser()
+parser$add_argument('--asedir', help = 'Prefix of outlier files.')
+parser$add_argument('--datadir', help = 'Window name.')
+parser$add_argument('--rdsdir', default = 0.01, help = 'FDR threshold.')
+args = parser$parse_args()
+
+ASEDIR = args$asedir
+data_dir = args$datadir
+rds_dir = args$rdsdir
 
 ########### FUNCTIONS - adopted from GTEx ASE analysis (Emily Tsang)
 ## Function to read in ASE data from a file and apply certain QC filters
