@@ -14,9 +14,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 Take batch number as variable.
 Need to create output directories before running script
-FASTQ_DIR=$<fastq_dir>/batch${batch_number}
-BAM_DIR=<$bam_dir>/batch${batch_number}
-EXP_DIR=<$expression_dir>/rsem
+FASTQ_DIR=$<fastq_dir>/batch${batch_number}\\
+BAM_DIR=<$bam_dir>/batch${batch_number}\\
+EXP_DIR=<$expression_dir>/rsem\\
 
 ```
 bash RD_analysis.sh <batch_number> > log_file_name.txt 2>&1 &
