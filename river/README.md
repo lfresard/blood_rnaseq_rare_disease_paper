@@ -19,7 +19,6 @@ Outliers (the response variable) are defined as those with absolute Z-score > 2.
 Ref1: The impact of rare variation on gene expression across tissues. X Li, Y Kim, EK Tsang, JR Davis. Nature, 2017
 Ref2: Stegle, O., Parts, L., Piipari, M., Winn, J. & Durbin, R. Using probabilistic estimation of expression residuals (PEER) to obtain increased power and interpretability of gene expression analyses. Nat. Protoc. 7, 500–507 (2012).
 RIVER: https://github.com/ipw012/RIVER
-Feature generation: https://github.com/xinli-git/udn
 
 
 
