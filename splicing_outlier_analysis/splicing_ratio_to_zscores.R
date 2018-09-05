@@ -71,7 +71,6 @@ RD_samples=metadata$sample_id
 
 
 ## get ratio data
-#ratio_file="/srv/scratch/restricted/rare_diseases/analysis/outlier_analysis/splicing/for_freeze/RD_freeze_junc_ratios.txt"
 
 print("read in ratio data")
 
