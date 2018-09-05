@@ -35,7 +35,7 @@ ls *merge_R1.trimmed.fastq.gz | sed 's/_/\t/'| awk '{print $1}' |awk -v fastq_di
 
 wait
 
-STAR --genomeDir /srv/scratch/restricted/rare_diseases/data/mapping/STAR_INDEX_OVERHANG_150 --genomeLoad Remove
+STAR --genomeDir $<index_dir>/STAR_INDEX_OVERHANG_150 --genomeLoad Remove
 
 echo "mapping finished"
 echo ""
