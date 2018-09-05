@@ -1,22 +1,18 @@
 #!/bin/bash
-#January 2018
-#LF
 
 batch_number=$1
 
 #run quantification piepeline for each sample of PIVUS project
 
 
-FASTQ_DIR=/srv/scratch/restricted/rare_diseases/data/fastq/batch${batch_number}
-cutadapt_script=/users/lfresard/repos/rare_disease/scripts/fastq_handling/trim_adapters_150bpreads.sh
-STAR_script=/users/lfresard/repos/rare_disease/scripts/mapping/STAR_alignment_rare_disease.sh #include path
+FASTQ_DIR=<fastq_dir>/batch${batch_number}
+cutadapt_script=trim_adapters_150bpreads.sh #include path to script
+STAR_script=STAR_alignment_rare_disease.sh #include path to script
 
-BAM_DIR=/srv/scratch/restricted/rare_diseases/data/mapping/batch${batch_number}
-FILTER_script=/users/lfresard/repos/rare_disease/scripts/mapping/Filters_bam_uniq_mq30_duplicates_rare_disease_transcriptome.sh
-#SORT_SCRIPT=/users/lfresard/repos/rare_disease/scripts/mapping/sort_bam_readname.sh
-
-EXP_DIR=/srv/scratch/restricted/rare_diseases/data/quantification/rsem
-RSEM_script=/users/lfresard/repos/rare_disease/scripts/quantification/rsem_calculate_expression_raredisease.sh #with PATH
+BAM_DIR=<bam_dir>/batch${batch_number}
+FILTER_script=Filters_bam_uniq_mq30_duplicates_rare_disease_transcriptome.sh #include path to script
+EXP_DIR=<quantification_dir>rsem
+RSEM_script=rsem_calculate_expression_raredisease.sh  #include path to script
 
 date
 
@@ -35,11 +31,11 @@ echo ""
 
 
 ls *merge_R1.trimmed.fastq.gz | sed 's/_/\t/'| awk '{print $1}' |awk -v fastq_dir=$FASTQ_DIR -v bam_dir=$BAM_DIR 'BEGIN{OFS="\t"}{print fastq_dir"/"$1"_merge_R1.trimmed.fastq.gz", fastq_dir"/"$1"_merge_R2.trimmed.fastq.gz",bam_dir"/"$1}' |\
-	parallel --jobs 5 --col-sep "\t" "${STAR_script} {1} {2} {3} /srv/scratch/restricted/rare_diseases/data/mapping/STAR_INDEX_OVERHANG_150/ 150"
+	parallel --jobs 5 --col-sep "\t" "${STAR_script} {1} {2} {3} $<index_dir>/STAR_INDEX_OVERHANG_150/ 150"
 
 wait
 
-STAR --genomeDir /srv/scratch/restricted/rare_diseases/data/mapping/STAR_INDEX_OVERHANG_75 --genomeLoad Remove
+STAR --genomeDir /srv/scratch/restricted/rare_diseases/data/mapping/STAR_INDEX_OVERHANG_150 --genomeLoad Remove
 
 echo "mapping finished"
 echo ""
