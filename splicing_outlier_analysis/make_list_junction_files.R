@@ -7,7 +7,7 @@
 
 
 ###
-### Example usage: /users/lfresard/R_3.3.2/bin/Rscript /users/lfresard/repos/rare_disease/scripts/splicing_analysis/junctions/make_list_case_controls.R --meta <metadata_file> --tissue <tissue_to_analyze> --outdir <path_to_results> --juncdir <path_to_junc_files> --freeze FALSE
+### Example usage: /users/lfresard/R_3.3.2/bin/Rscript make_list_case_controls.R --meta <metadata_file> --tissue <tissue_to_analyze> --outdir <path_to_results> --juncdir <path_to_junc_files> --freeze FALSE
 ###
 
 
@@ -44,8 +44,6 @@ option_list = list(
   make_option(c("-f", "--freeze"), type="logical", default=FALSE, help="wether the analysis is conducted on the freeze", metavar="character"),
   make_option(c("-d", "--DGN"), type="logical", default=FALSE, help="wether the analysis is conducted on with or without DGN", metavar="character"),
   make_option(c("-p", "--PIVUS"), type="logical", default=FALSE, help="wether the analysis is conducted on with or without PIVUS", metavar="character")
-  #make_option(c("-s", "--sampling_mode"), type="logical", default=FALSE, help="wether to resample the number of cases to match the number of controls", metavar="character") 
-  #make_option(c("-sn", "--sampling_number"), type="integer", default=1, help="number of sampling", metavar="character") 
 ) 
  
 opt_parser = OptionParser(option_list=option_list);
@@ -67,11 +65,11 @@ sampling_mode=opt$sampling_mode
 # Filter metadata depending if studying freeze data or not.
 # If positive, integrate DGN samples in analysis
 if(DGN_included==TRUE){
-	DGN_samples=data.frame(sample_id=gsub(".SJ.out_filtered_uniq_10.tab", "", list.files('/srv/scratch/restricted/rare_diseases/data/splicing/juncfiles/all_filteredjunc', pattern="LD")),affected_status=rep("Control", length(list.files('/srv/scratch/restricted/rare_diseases/data/splicing/juncfiles/all_filteredjunc', pattern="LD"))))
+	DGN_samples=data.frame(sample_id=gsub(".SJ.out_filtered_uniq_10.tab", "", list.files('<junc_dir>/all_filteredjunc', pattern="LD")),affected_status=rep("Control", length(list.files('<junc_dir>/all_filteredjunc', pattern="LD"))))
 } else {DGN_samples=NULL}
 
 if(PIVUS_included==TRUE){
-	PIVUS_samples=data.frame(sample_id=gsub(".SJ.out_filtered_uniq_10.tab", "", list.files('/srv/scratch/restricted/rare_diseases/data/splicing/juncfiles/all_filteredjunc', pattern="PIVUS")),affected_status=rep("Control", length(list.files('/srv/scratch/restricted/rare_diseases/data/splicing/juncfiles/all_filteredjunc', pattern="PIVUS"))))
+	PIVUS_samples=data.frame(sample_id=gsub(".SJ.out_filtered_uniq_10.tab", "", list.files('<junc_dir>/all_filteredjunc', pattern="PIVUS")),affected_status=rep("Control", length(list.files('<junc_dir>/all_filteredjunc', pattern="PIVUS"))))
 } else {PIVUS_samples=NULL}
 
 if (freeze_analysis==TRUE){
@@ -84,14 +82,7 @@ if (freeze_analysis==TRUE){
 	metadata=rbind(metadata,DGN_samples,PIVUS_samples)
 }
 
-#if(sampling_mode == TRUE){
 
-#	metadata = read_tsv(metadata) %>% filter(in_freeze == 'yes')
-#	n_samples=metadata %>% select(affected_status) %>% group_by(affected_status)%>% summarize(number=n()) %>% slice(2) %>% select(number)
-#	n_samples=as.integer(n_samples)
-#	metadata= metadata %>% select(sample_id,affected_status) %>% group_by(affected_status)%>%sample_n(n_samples, replace=F) %>% ungroup
-#	metadata=rbind(metadata,DGN_samples)
-#}
 #--- MAIN
 
 setwd(output_dir)
