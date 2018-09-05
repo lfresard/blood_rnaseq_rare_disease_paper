@@ -14,10 +14,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 Take batch number as variable.
 Need to create output directories before running script
-FASTQ_DIR=/srv/scratch/restricted/rare_diseases/data/fastq/batch${batch_number}
-BAM_DIR=/srv/scratch/restricted/rare_diseases/data/mapping/batch${batch_number}
-EXP_DIR=/srv/scratch/restricted/rare_diseases/data/quantification/rsem
+FASTQ_DIR=$<fastq_dir>/batch${batch_number}
+BAM_DIR=<$bam_dir>/batch${batch_number}
+EXP_DIR=<$expression_dir>/rsem
 
 ```
-bash /users/lfresard/repos/rare_disease/scripts/fastq_handling/RD_analysis.sh 9 > log_RDbatch9_analysis_2018_03_22.txt 2>&1 &
+bash RD_analysis.sh <batch_number> > log_file_name.txt 2>&1 &
 ```
