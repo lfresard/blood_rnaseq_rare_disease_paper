@@ -10,7 +10,7 @@ import argparse
 from collections import defaultdict
 from operator import truediv
 
-junc_path='/srv/scratch/restricted/rare_diseases/data/splicing/juncfiles/all_filteredjunc/'
+junc_path='<junc_dir>/all_filteredjunc/'
 
 ##-------- FUNCTIONS
 ## Get the junction file list
