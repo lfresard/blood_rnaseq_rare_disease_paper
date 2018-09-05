@@ -112,7 +112,7 @@ global_out <- outlier_count[which(as.numeric(outlier_count[, 2]) > medz_ind_filt
 gene_zscore_scale_filter <- gene_zscore_scale[-which(rownames(gene_zscore_scale) %in% global_out), ] # remove global outliers from matrix
 ids_filter <- ids[which(ids$sample_id %in% rownames(gene_zscore_scale_filter)), ] # update IDs to remove IDs not in filtered matrix
 
-## Set **percentile** threshold iterator
+## Set percentile threshold iterator
 iterator <- c(0.5, 0.25, 0.1, (10/nrow(ids_filter)), (5/nrow(ids_filter)), (2/nrow(ids_filter)), (1/nrow(ids_filter))) # percentile thresholds
 iterator <- unique(c(iterator, 1-iterator))
 iterator <- iterator[order(iterator)]
@@ -207,14 +207,14 @@ for (k in pred) {
 
 ## Unlist permutations and compare with real coefficients
 plot_collect <- data.frame(percentile=integer(),
-							mean_coefficient=double(),
-							error_low=double(),
-							error_high=double(),
-							emp_p=double(),
-							real_coefficient=double(),
-							predictor=character(),
-							stringsAsFactors=FALSE)
-	
+				mean_coefficient=double(),
+				error_low=double(),
+				error_high=double(),
+				emp_p=double(),
+				real_coefficient=double(),
+				predictor=character(),
+				stringsAsFactors=FALSE)
+
 for (i in pred) {
 	tmp <- data.frame(array(NA, c(length(iterator), 9)))
 	colnames(tmp) <- c("threshold", "mean_coefficient", "error_low", "error_high",
