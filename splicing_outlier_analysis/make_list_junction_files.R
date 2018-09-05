@@ -37,7 +37,7 @@ library(biobroom)
 
 #--- OPTION PARSER
 option_list = list(
-  make_option(c("-m", "--meta"), type="character", default="/srv/scratch/restricted/rare_diseases/data/metadata/2017_11_22_Rare_Disease_Metadata.tsv", help="metadata file name", metavar="character"),
+  make_option(c("-m", "--meta"), type="character", default="/srv/scratch/restricted/rare_diseases/data/metadata/metadata.tsv", help="metadata file name", metavar="character"),
   make_option(c("-t", '--tissue'), type="character", default=NULL, help="tissue to analyze", metavar="character"),
   make_option(c("-o", '--outdir'), type="character", default=".", help="path to output [default= %default]", metavar="character"),
   make_option(c("-j", '--juncdir'), type="character", default=".", help="path to junctions [default= %default]", metavar="character"),
