@@ -1,0 +1,149 @@
+#!/bin/R
+# LF
+# November 2017
+
+
+# Code to generate figure 1.
+# Figure 1A: pie chart of broad disease categories
+# Figure 1B: Expression in blood of disease genes
+# Figure 1C: %genes expressed in blood when gene is expressed in only one tissue vs more than one tissue
+# Figure 1D: expression in blood of genes with pLI>=9
+
+
+#rm(list=ls())
+load('Figure1.RData')
+
+#--- Libraries
+
+library(cowplot)
+library(ggplot2)
+library(RColorBrewer)
+library(ggpubr)
+library(dplyr)
+
+#--- Functions
+
+source('/users/lfresard/repos/rare_disease/scripts/manuscript_analyses/Figures_source.R')
+
+
+#--- Main
+
+#--- Figures
+fsize=15
+RD_theme=theme_classic()+
+	theme(axis.text.x= element_text(size=fsize),
+	axis.text.y= element_text(size=fsize), 
+	axis.title = element_text(size = fsize), 
+    legend.text = element_text(size = fsize-1), 
+    legend.title = element_text(size = fsize), 
+    axis.ticks = element_line(size = 0.1))
+
+
+# Figure 1A
+blank_theme <- theme_minimal()+
+  theme(
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  plot.title=element_text(size=fsize, face="bold"),axis.text.x= element_text(size=fsize),
+	axis.text.y= element_text(size=fsize), 
+	axis.title = element_text(size = fsize), 
+    legend.text = element_text(size = fsize-1), 
+    legend.title = element_text(size = fsize), 
+    axis.ticks = element_line(size = 0.1)
+  )
+
+# grey scale plot
+y.breaks <- cumsum(categ_case$counts) - categ_case$counts/2
+categ_case =categ_case %>% mutate(cumulative=cumsum(counts),midpoint=cumulative-(counts/2))
+categ_case_greyscale_plot= ggplot(categ_case, aes(x="", y=counts, fill=disease_category))+
+	geom_bar(width = 1, stat = "identity")+
+	coord_polar("y", start=0)+ 
+	scale_fill_grey(start = 0.6, end = 1) +  
+	blank_theme + theme(legend.position="top")+
+	labs(fill="Disease category")+
+	scale_y_continuous(
+        breaks=y.breaks,   # where to place the labels
+        labels=categ_case$disease_category)+# the labels
+    theme(legend.position="", axis.text = element_text(colour="black", size = 10))+ 
+    geom_text(aes(x=1.2, y=midpoint, label=counts), color="black", fontface="bold", size=3)
+
+
+ggsave('Figure1A_nf_greyscale.pdf', categ_case_greyscale_plot, path='./figures/', width=6, height=6)
+
+
+
+# Figure 1B
+col_panelB=c(grey.colors(n=11,start = 0.6, end = 1)[1:3],disease_colors[10])
+
+pct_in_blood_df=pct_in_blood_df %>% select(PCT_20,PCT_50,PCT_90,DISEASE)
+pct_in_blood_df$DISEASE=rownames(pct_in_blood_df)
+pct_in_blood_df$DISEASE=rownames(pct_in_blood_df)
+
+
+disease_barplot3_greyscale= ggplot(pct_in_blood_bin_median_df, aes(x=bin, y=pct_genes, fill=DISEASE))+
+	geom_bar(stat="identity", position="dodge", color="black")+ 
+	scale_fill_manual(values=col_panelB,name="",guide = guide_legend(nrow=2)) +
+	labs(x='Average TPM', y='% Genes expressed in blood')+
+	geom_text(stat='identity',aes(label=pct_in_blood_bin_df$DISEASE),vjust=1.6,hjust=1 ,color="white", size=fsize/3, position = position_dodge(width=1))+
+	RD_theme+
+	coord_flip()+
+	#geom_text(aes(x=bin, y=6, label=pct_in_blood_bin_df$DISEASE), color="white", fontface="bold", size=3.3, position = position_dodge())+
+	theme(legend.position="")
+ggsave('Figure1B_nf_greyscale.pdf', disease_barplot3_greyscale, path='./figures/', width=6, height=6)
+
+
+disease_barplot3_greyscale_cumsum= ggplot(pct_in_blood_bin_median_df3, aes(x=bin, y=pct_genes, fill=DISEASE))+
+	geom_bar(stat="identity", position="dodge", color="black")+ 
+	scale_fill_manual(values=col_panelB,name="",guide = guide_legend(nrow=2)) +
+	labs(x='Median TPM', y='% Genes expressed in blood')+
+	geom_text(stat='identity',aes(label=pct_in_blood_bin_median_df3$DISEASE),vjust=1.6,hjust=1 ,color="white", size=fsize/3, position = position_dodge(width=1))+
+	RD_theme+
+	coord_flip()+
+	#geom_text(aes(x=bin, y=6, label=pct_in_blood_bin_df$DISEASE), color="white", fontface="bold", size=3.3, position = position_dodge())+
+	theme(legend.position="")
+
+ggsave('Figure1B_nf_greyscale_cumsum.pdf', disease_barplot3_greyscale_cumsum, path='./figures/', width=6, height=6)
+
+
+# Figure 1C
+col_1C_grey=c("#C0BCB6",  disease_colors[10])
+exp_multtissues_genes_plot_greyscale=ggplot(exp_multtissues_genes.m, aes(x=variable, y=value, fill=multi)) +
+	geom_boxplot(outlier.colour="black", notch=TRUE)+
+	RD_theme +
+	labs(x='', y='Value')+
+	scale_fill_manual(values=col_1C_grey,name="Expression", labels=c("Single tissue\nGTEx v7 (N=1)","Multiple tissues\nGTEx v7(N>1)"))+
+	theme(legend.position=c(0.2,0.7))+
+	ylim(-15, 25)+ylab("Z-score")+xlab("Variant category")+
+	scale_x_discrete(labels=c("Synonymous", "Missense", "LoF"))+stat_compare_means(aes(group = multi,label = paste0("p = ", ..p.format..), size=fsize))
+
+exp_multtissues_genes_plot_greyscale
+ggsave('Figure1C_nf_greyscale.pdf', exp_multtissues_genes_plot_greyscale, path='./figures/', width=6, height=6)
+
+
+## Figure 1D 
+
+exp_blood_pLI_plot=ggplot(tpms_df_avg, aes(x=bin))+
+	geom_bar( width=0.4,fill= disease_colors[10], position = position_dodge(width = 0.1), color="black")+ 
+	geom_text(stat='count',aes(label=..count..),vjust=1.3, color="white", size=fsize/3)+
+	RD_theme +  scale_x_discrete(labels=c("[0,0.1)" = "[0,0.1)", "[0.1,10)" = "[0.1,10)", "[10,1e+04)" = "[10,1e+05)"))+
+	labs(x= "Average TPM", y="Number of LoF intolerant genes")
+	#coord_flip()
+exp_blood_pLI_plot
+
+ggsave('Figure1D_nf.pdf', exp_blood_pLI_plot, path='./figures/', width=6, height=6)
+
+
+# Figure 1
+combined_plots_greyscale=ggdraw()+draw_plot(categ_case_greyscale_plot, 0,1/2,1/2,1/2)+
+	draw_plot(disease_barplot3_greyscale_cumsum, 1/2,1/2,1/2,1/2)+
+	draw_plot(exp_multtissues_genes_plot_greyscale, 0,0,1/2,1/2)+
+	draw_plot(exp_blood_pLI_plot, 1/2,0,1/2,1/2)+
+
+	draw_plot_label(c('A', 'B', 'C', 'D'), c(0,1/2,0, 1/2), c(1,1,1/2,1/2), size = 15)
+
+#combined_plots
+pdf('./figures/Figure1v12.pdf', w=9, h=9)
+combined_plots_greyscale
+dev.off()
+
+
