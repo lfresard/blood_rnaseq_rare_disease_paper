@@ -4,7 +4,6 @@
 
 library(cowplot)
 library(ggplot2)
-library(gridExtra)
 
 setwd("[path/to/working/directory/]") # set working directory
 
@@ -74,7 +73,7 @@ fig2c <- ggplot(plot_collect) +
 	scale_colour_manual(values=c("gray40", "gray1"))
 
 # 2D
-load("[fig2d].RData")
+load("Figure2D.out.RData")
 fig2d <- filter_withsglt.exp.case.10kb.plot + theme(legend.position="")
 
 ## Write combined plots
