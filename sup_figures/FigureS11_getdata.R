@@ -1,8 +1,5 @@
 #!/bin/R
 
-
-
-
 #Libraries
 library(ggplot2)
 library(dplyr)
@@ -24,8 +21,8 @@ library(qvalue)
 library(ggpubr)
 library(missMDA)
 
-rm(list=ls())
 
+rm(list=ls())
 
 # Master directory
 dir = Sys.getenv('RARE_DIS_DIR')
@@ -84,5 +81,5 @@ sample_outlier.df=sample_outlier.df %>% left_join(affected_status_df, by=c("samp
 sample_outlier.df.m=melt(sample_outlier.df,id.vars=c("sample_id","affected_status", "cohort"))
 sample_outlier.df.m$variable=c(rep(2,152),rep(3,152),rep(4,152), rep(5,152), rep(6,152))
 
-
+# Save data
 save.image(file = paste(dir,"/data/FigureS11.in.RData",sep=""))
