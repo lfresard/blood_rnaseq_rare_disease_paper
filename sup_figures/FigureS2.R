@@ -35,18 +35,11 @@ load(file = paste(dir,"/data/FigureS2.in.RData",sep=""))
 
 
 #--- Libraries
-library(readr)
-library(dplyr)
-library(reshape2)
+
 library(cowplot)
-library(annotables)
 library(ggplot2)
 library(RColorBrewer)
-library(scales)
-library(tximport)
-library(stringr)
-library(gtools)
-library(ggpubr)
+
 
 fsize=15
 RD_theme=theme_classic()+
