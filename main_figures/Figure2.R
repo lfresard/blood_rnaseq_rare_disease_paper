@@ -30,9 +30,9 @@ emp_ast <- function(pvalues) {
 ## Make plots
 
 # 2A
-2a_dat <- read.table("[figure_2a_data].txt", header=T)
+fig2a_dat <- read.table("[figure_2a_data].txt", header=T)
 
-fig2a <- ggplot(2a_dat, aes(x=quantile, y=coefficient)) + geom_hline(yintercept = 0) + 
+fig2a <- ggplot(fig2a_dat, aes(x=quantile, y=coefficient)) + geom_hline(yintercept = 0) + 
 	geom_pointrange(aes(ymin=error_low, ymax=error_high, colour=predictor)) +
 	facet_grid(. ~ predictor, scales="fixed") +
 	labs(x="Percentile", y="Log Odds") +
