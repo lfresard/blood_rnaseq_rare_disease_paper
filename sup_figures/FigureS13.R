@@ -17,10 +17,16 @@
 # Master directory
 dir = Sys.getenv('RARE_DIS_DIR')
 
-
+#Libraries
 library(ggplot2)
 library(cowplot)
 library(RColorBrewer)
+
+
+#  Load input data
+load(file = paste(dir,"/data/FigureS13.in.RData",sep=""))
+
+
 
 fsize=15
 RD_theme=	theme(axis.text.x= element_text(size=fsize),

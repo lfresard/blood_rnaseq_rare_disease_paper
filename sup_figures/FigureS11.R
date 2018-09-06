@@ -76,7 +76,7 @@ sup_zscore_thres_plot=ggdraw()+draw_plot(zscore_thres_case_control_plot, 0,1/2,1
 	draw_plot_label(c('A', 'B'), c(0,0), c(1,1/2), size = 20)
 
 
-pdf(paste(dir,"/analysis/manuscript/figures/", sep=""), w=8, h=10)
+pdf(paste(dir,"/analysis/manuscript/figures/FigureS11.pdf", sep=""), w=8, h=10)
 sup_zscore_thres_plot
 dev.off()
 
