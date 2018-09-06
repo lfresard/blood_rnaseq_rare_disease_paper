@@ -14,6 +14,9 @@
 #
 # =======================================================================================================
 
+# Master directory
+dir = Sys.getenv('RARE_DIS_DIR')
+
 
 library(ggplot2)
 library(cowplot)
