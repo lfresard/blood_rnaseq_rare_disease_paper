@@ -9,7 +9,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Steps
 * Adaptor trimming (cutadapt)
 * Mapping (STAR)
-* Filter for ampping quality >=30 and remove PCR duplicates (Picard)
+* Filter for mapping quality >=30 and remove PCR duplicates (Picard)
 * Quantify
 
 Take batch number as variable.

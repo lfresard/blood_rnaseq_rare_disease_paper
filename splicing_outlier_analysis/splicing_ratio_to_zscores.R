@@ -1,5 +1,4 @@
 #!/bin/R
-# Laure Fresard
 
 # transform splicing ratios to Z-scores after imputing missing values.
 # output - zscore file for each tested junction
@@ -27,20 +26,20 @@ library(ggpubr)
 library(missMDA)
 
 
-source('/users/lfresard/repos/rare_disease/scripts/manuscript_analyses/Figures_source.R')
+source('Figures_source.R')
 
-setwd('/srv/scratch/restricted/rare_diseases/analysis/outlier_analysis/splicing/for_freeze')
+setwd('<analysis_dir>')
 
 #--- MAIN
 # Get metadata
 print("read in metadata")
-metadata = "/srv/scratch/restricted/rare_diseases/data/metadata/2018_06_12_Rare_Disease_Metadata.tsv"
+metadata = "Metadata.tsv"
 metadata = read_tsv(metadata) %>% filter(in_freeze=="yes") %>% filter(source_of_RNA=="Blood")
 
 # Get metadata info for pivus and dgn
-meta_pivus="/srv/scratch/restricted/rare_diseases/data/metadata/PIVUS_RNASequencingInfo.csv"
+meta_pivus="PIVUS_RNASequencingInfo.csv"
 meta_pivus=read_csv(meta_pivus) %>% filter(Age=="70") %>% filter(RunOK=="Yes")
-meta_pivus2="/srv/scratch/restricted/rare_diseases/data/metadata/Pivus_expCovariatesAll_unscaled.txt"
+meta_pivus2="Pivus_expCovariatesAll_unscaled.txt"
 meta_pivus2=read_tsv(meta_pivus2)%>% filter(Age==0) #%>% filter(RunOK=="Yes")
 
 
@@ -51,7 +50,7 @@ sample_with_data=metadata %>% filter(variant_data=="exome" | variant_data=="geno
 # Get annotated junctions
 print("read in annotated junctions")
 
-annot_junc="/srv/scratch/restricted/rare_diseases/data/splicing/juncfiles/gencodev19_intronsstartplus1_proteincoding.genenames_uniqjunc.tsv"
+annot_junc="annotated_junctions.tsv"
 annot_junc=read_tsv(annot_junc, col_names=FALSE)
 colnames(annot_junc)=c("chr", "junc_start", "junc_end", "gene")
 annot_junctions=paste(annot_junc$chr, annot_junc$junc_start, annot_junc$junc_end, annot_junc$gene, sep="_")
@@ -61,7 +60,7 @@ annot_junctions=paste(annot_junc$chr, annot_junc$junc_start, annot_junc$junc_end
 ## affected status data
 print("read in affected status")
 
-affected_status_df=read.table('/srv/scratch/restricted/rare_diseases/analysis/outlier_analysis/splicing/for_freeze/ifrun9/sample_affected_status_freeze_RD_PIVUS.tsv', header=F)
+affected_status_df=read.table('sample_affected_status_freeze_RD_PIVUS.tsv', header=F)
 colnames(affected_status_df)=c('sample', 'status')
 
 affected_status_df$cohort=c(rep("RD",87), rep("PIVUS", 68))
@@ -72,11 +71,10 @@ RD_samples=metadata$sample_id
 
 
 ## get ratio data
-#ratio_file="/srv/scratch/restricted/rare_diseases/analysis/outlier_analysis/splicing/for_freeze/RD_freeze_junc_ratios.txt"
 
 print("read in ratio data")
 
-ratio_file="/srv/scratch/restricted/rare_diseases/analysis/outlier_analysis/splicing/for_freeze/ifrun9/RD_PIVUS_freeze_junc_ratios.txt"
+ratio_file="RD_PIVUS_freeze_junc_ratios.txt"
 ratios=as.data.frame(read.table(ratio_file,  header=T, sep="\t"))
 
 all_samples=c(metadata$sample_id, meta_pivus$RNAseq_ID)
@@ -85,7 +83,6 @@ all_samples=c(metadata$sample_id, meta_pivus$RNAseq_ID)
 ratios=ratios %>% select(-Cluster) %>% distinct
 # make junction names out of coordinates
 junctions=paste(ratios$chr,ratios$junction_start, ratios$junction_end, ratios$gene, sep="_")
-#samples_batch8=metadata%>% filter(batch==8)%>% select(sample_id) %>% pull
 
 
 ratio.df=data.frame( ratios[,all_samples])
