@@ -1,5 +1,4 @@
 #!/bin/bash
-#LF
 
 # This script handle the splice junction analysis for every rare disease case on a given tissue
 # start point is metadata file
@@ -35,7 +34,7 @@ fi
 # Organize results directory and create case control lists
 echo "Organize results directory and create case control lists"
 echo ""
-/users/lfresard/R_3.3.2/bin/Rscript /users/lfresard/repos/rare_disease/scripts/splicing_analysis/outlier/make_list_junction_files.R --meta $metadata_file --tissue $tissue --outdir $out_dir --juncdir $junc_dir --freeze $freeze --DGN $DGN --PIVUS $PIVUS
+/users/lfresard/R_3.3.2/bin/Rscript make_list_junction_files.R --meta $metadata_file --tissue $tissue --outdir $out_dir --juncdir $junc_dir --freeze $freeze --DGN $DGN --PIVUS $PIVUS
 
 
 wait
@@ -60,8 +59,7 @@ else
 	meta_file=sample_affected_status_freeze_RD.tsv
 fi 
 
-python /users/lfresard/repos/rare_disease/scripts/splicing_analysis/outlier/splicing_outlier.py --juncfiles ${list_junc} --outprefix ${outPrefix} --meta_file ${meta_file} --rundir ${out_dir}
-#python /users/lfresard/repos/rare_disease/scripts/splicing_analysis/outlier/splicing_outlier.py --juncfiles list_junctions_freeze_RD.txt --outprefix ${outPrefix_RD} --meta_file sample_affected_status_freeze_RD.tsv --rundir ${out_dir} --outprefix {}
+python splicing_outlier.py --juncfiles ${list_junc} --outprefix ${outPrefix} --meta_file ${meta_file} --rundir ${out_dir}
 wait
 
 
