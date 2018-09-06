@@ -1,5 +1,5 @@
 #!/bin/R
-#LF
+#
 
 # Functions used to generate Figures
 
@@ -1551,3 +1551,12 @@ ggplot_build_z <- function(dat, iterator, emp, ngenes) {
 	return(p1)
 }
 
+# Process junction files for figure s2
+process_junc_file=function(sample, junction_dir,junc_suffix){
+	print(sample)
+	temp_junc=paste0(junction_dir,sample,junc_suffix)
+	temp_junc=read_tsv(temp_junc, col_names=F) 
+	colnames(temp_junc)=c("chr", "intron_start", "intron_end", "strand", "intron_motif", "annotation_status", "uniquely_mapped", "multi_mapping", "max_alignment_overhang", "gene_chr", "gene_start", "gene_end", "gene_name")
+	temp_junc=temp_junc %>% filter(annotation_status==1)%>% mutate(junction=paste(chr, intron_start,intron_end,gene_name, sep="_"))%>% select(junction, uniquely_mapped) 
+	return(temp_junc)
+}
