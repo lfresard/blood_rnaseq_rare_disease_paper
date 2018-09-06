@@ -64,7 +64,7 @@ p2 <- ggplot(fig2b_dat_subset, aes(x=factor(quantile), y=coefficient)) +
 # 2C
 fig2c_dat <- read.table("[figure_2c_data].txt", header=T)
 
-fig2c <- ggplot(plot_collect) + 
+fig2c <- ggplot(fig2c_dat) + 
 	geom_boxplot(aes(x=Cutoff, y=OutlierCount+1, group=interaction(Cutoff, Direction), colour=Direction),
 	 width=0.8, position=position_dodge(width=0.85)) +
 	labs(x="Z-score", y="Number of Outlier Genes") +
