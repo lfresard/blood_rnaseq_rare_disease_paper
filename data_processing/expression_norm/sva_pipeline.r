@@ -7,14 +7,11 @@
 ## Load required libraries
 library(data.table)
 library(sva)
-library(ggplot2)
-library(ggfortify)
 library(tximport)
 library(dplyr)
 library(readr)
 library(stringr)
 library(splines)
-library(RColorBrewer)
 library(plyr)
 
 ## Function to return all SVs associated with a given predictor, at specified p-value cutoff
@@ -24,7 +21,7 @@ predictor_sig <- function(sva_object, predictor, cutoff) {
 }
 
 ## Set working directory
-setwd("/path/to/working/directory/")
+setwd("[/path/to/working/directory/]")
 
 ## Load sample info
 metadata_file <- "[metadata_file].txt"
@@ -35,7 +32,7 @@ sample_id <- c(metadata$sample_id, DGN_names)
 
 # Get list of files from directory containing RSEM output
 # assumes one *.genes.results file per sample
-dir <- "/path/to/rsem/gene/counts/"
+dir <- "[/path/to/rsem/gene/counts/]"
 file_list <- list.files(dir)
 
 ## Read data
@@ -100,12 +97,6 @@ modsv_no_spline <- modsv
 for (i in sig_sv) modsv <- cbind(modsv, bs(sva_fit$sv[, i], df=60, degree=1))
 fitsv <- lm.fit(modsv, t(dat_filter_log_scale))
 
-## Write corrected data
-write_dat <- cbind(rownames(fitsv$residuals), fitsv$residuals)
-colnames(write_dat)[1] <- "gene_name"
-write.table(write_dat, "gene_counts_corrected_freeze_spline.txt", sep=",", row.names=F, col.names=T) # write corrected matrix
-write.table(as.data.frame(sva_fit[1]), "gene_sig_svs_freeze_spline.txt", sep=",", row.names=F, col.names=T) # write surrogate variables
-
 ## Likehood ratio test
 lrt_fit <- apply(t(dat_filter_log_scale), 2, function(x) {
 	collect <- matrix(NA, nrow=1, ncol=5)
@@ -123,91 +114,28 @@ colnames(lrt_fit) <- c("pvalue", "r2_no_spline", "adj_r2_no_spline", "r2_spline"
 lrt_fit$r2_diff <- lrt_fit$r2_spline - lrt_fit$r2_no_spline
 lrt_fit$adj_r2_diff <- lrt_fit$adj_r2_spline - lrt_fit$adj_r2_no_spline
 
-adj_pvals <- p.adjust(lrt_fit[,1], method="BH")
+adj_pvals <- p.adjust(lrt_fit[,1], method="BH") # multiple hypothesis correction
 adj_pvals_thresh <- sum(adj_pvals<0.05)
-
-## Plot LRT pvalue result
 lrt_plot <- data.frame(factor(1:nrow(lrt_fit)), lrt_fit[, 1])
 colnames(lrt_plot) <- c("gene", "pvalue")
 
-p_lrt <- ggplot(lrt_plot, aes(pvalue)) +
-	geom_histogram(binwidth=0.02, fill="gray40") +
-	labs(x="P Value", y="Count") +
-	theme_bw() +
-	theme(strip.background=element_blank(),
-		panel.grid.major=element_blank(),
-		panel.grid.minor=element_blank(),
-		axis.text=element_text(size=9),
-		panel.border=element_blank()) +
-	annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf, size=1) +
-	annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf, size=1)
-ggsave("lrt_plot.pdf", p_lrt, width=3.5, height=2)
-
-## Plot R squared
-r2_plot <- cbind(1:nrow(lrt_fit), lrt_fit[, c("r2_diff", "adj_r2_diff")])
-colnames(r2_plot)[1] <- "gene_id"
-r2_plot <- melt(r2_plot, id="gene_id")
-
-plot_current <- subset(r2_plot, variable=="r2_diff")[order(subset(r2_plot, variable=="r2_diff")$value, decreasing=T), ]
-plot_current$gene_id <- 1:nrow(plot_current)
-
-p_r2 <- ggplot(data=plot_current, aes(x=gene_id, y=value)) + #
-	geom_bar(stat="identity", fill="blue") +
-	geom_hline(yintercept=0) +
-	labs(x="Genes", y="Change in R^2") +
-	scale_x_continuous(breaks=c(1, seq(5000, nrow(lrt_fit), 5000))) +
-	theme_bw() +
-	theme(strip.background=element_blank(),
-		panel.grid.major=element_blank(),
-		panel.grid.minor=element_blank(),
-		axis.text=element_text(size=9),
-		panel.border=element_blank()) +
-	annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf, size=1) +
-	annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf, size=1) 
-ggsave("r2_plot.pdf", p_r2, width=4, height=3)
-
 ## Plot PCA
 pca_object <- prcomp(fitsv$residuals, center=TRUE, scale=TRUE)
-combined_nonnum <- cbind(fitsv$residuals, as.data.frame(factor(batch))) # non-numeric holder
-colnames(combined_nonnum)[ncol(combined_nonnum)] <- "batch"
-
-p1 <- autoplot(pca_object, scale=0, data=combined_nonnum, colour="batch") +
-	geom_point(aes(colour=batch), alpha=c(rep(1, length(grep("RD", rownames(combined_nonnum)))), rep(0, length(grep("LD", rownames(combined_nonnum)))))) +
-	theme_bw() +
-	theme(strip.background=element_blank(),
-		panel.grid.major=element_blank(),
-		panel.grid.minor=element_blank(),
-		axis.text=element_text(size=10),
-		panel.border=element_blank()) +
-	annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf, size=1) +
-	annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf, size=1) +
-	guides(colour=FALSE) +
-	scale_colour_brewer(palette="Set3") + xlim(-310, 200) + ylim(-230, 60) # optionally manually set axes length
-ggsave("gene_sva_freeze.pdf", p1, width=3, height=3)
+save(pca_object, file="FigureS3A.out.RData")
 
 ## Plot PCA (no correction)
 pca_object_none <- prcomp(t(dat_filter_log_scale), center=TRUE, scale=TRUE)
+save(pca_object, file="FigureS3B.out.RData")
 
-p2 <- autoplot(pca_object_none, scale=0, data=combined_nonnum, colour="batch") +
-	theme_bw() +
-	theme(strip.background=element_blank(),
-		panel.grid.major=element_blank(),
-		panel.grid.minor=element_blank(),
-		axis.text=element_text(size=10),
-		panel.border=element_blank()) +
-	annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf, size=1) +
-	annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf, size=1) +
-	guides(colour=FALSE) +
-	scale_colour_brewer(palette="Set3") + xlim(-310, 200) + ylim(-230, 60) # optionally manually set axes length
-ggsave("gene_no_sva_freeze.pdf", p2, width=3, height=3)
+## Correlation between SVs and known covariates
 
-## Load DGN metadata
-DGN_data <- load("/path/to/DGN/metadata/")
+# Load DGN metadata
+DGN_data <- load("[/path/to/DGN/metadata/]")
 meta_DGN <- combinedEnv
 meta_DGN <- subset(meta_DGN, rownames(meta_DGN) %in% DGN_names)
 meta_DGN_df <- data.frame(meta_DGN)
 
-covariates=data.frame(institution=as.integer(as.factor(study)),
+covariates <- data.frame(institution=as.integer(as.factor(study)),
 	batch=as.integer(as.factor(batch)),
 	age=c(metadata$age, meta_DGN_df$Agegroup), 
 	sex=as.integer(as.factor(c(ifelse(as.integer(as.factor(metadata$sex))==1, 2, 1), meta_DGN_df$Sex))), 
@@ -217,54 +145,47 @@ covariates=data.frame(institution=as.integer(as.factor(study)),
 	read_type=c(as.integer(as.factor(c(rep("paired", nrow(metadata)), rep("single", length(DGN_names)))))))
 
 # Split batch
-batch=as.factor(as.integer(as.factor(batch)))
-batch_mat=model.matrix(~batch)
-batch_mat=as.data.frame(batch_mat[, 2:ncol(batch_mat)])
-batch_mat$batch1=c(ifelse(metadata$batch==1,1,0), rep(0, length(DGN_names)))
+batch <- as.factor(as.integer(as.factor(batch)))
+batch_mat <- model.matrix(~batch)
+batch_mat <- as.data.frame(batch_mat[, 2:ncol(batch_mat)])
+batch_mat$batch1 <- c(ifelse(metadata$batch==1,1,0), rep(0, length(DGN_names)))
 
 # Split study
-study=as.factor(as.integer(as.factor(study)))
-study_mat=model.matrix(~study)
-study_mat=as.data.frame(study_mat[, 2:ncol(study_mat)])
-study_mat$study1=ifelse(study==1,1,0)
+study <- as.factor(as.integer(as.factor(study)))
+study_mat <- model.matrix(~study)
+study_mat <- as.data.frame(study_mat[, 2:ncol(study_mat)])
+study_mat$study1 <- ifelse(study==1,1,0)
 
 # Split read length
-read_length=as.factor(as.factor(c(as.integer(as.factor(metadata$read_length)), rep(4, length(DGN_names)))))
-read_length_mat=model.matrix(~read_length)
-read_length_mat=as.data.frame(read_length_mat[, 2:ncol(read_length_mat)])
-read_length_mat$read_length1=ifelse(read_length==1,1,0)
+read_length <- as.factor(as.factor(c(as.integer(as.factor(metadata$read_length)), rep(4, length(DGN_names)))))
+read_length_mat <- model.matrix(~read_length)
+read_length_mat <- as.data.frame(read_length_mat[, 2:ncol(read_length_mat)])
+read_length_mat$read_length1 <- ifelse(read_length==1,1,0)
 
-covariates=cbind(covariates, batch_mat, study_mat, read_length_mat)
-cor.pc.cov=cor(sva_fit$sv,covariates, use="complete.obs")
+covariates <- cbind(covariates, batch_mat, study_mat, read_length_mat)
+cor.pc.cov <- cor(sva_fit$sv,covariates, use="complete.obs")
 
-cor.pc.cov.m=melt(cor.pc.cov)
-cor.pc.cov.m$Var2=factor(cor.pc.cov.m$Var2, levels=c("institution", "study1", "study2", "study3", "study4", "batch", "batch1", "batch2", "batch3", "batch4", "batch5", "batch6", "batch7", "age", "sex", "affected_status", "read_length", "read_length4", "read_length1", "read_length2", "read_type", "sequencer"))
+cor.pc.cov.m <- melt(cor.pc.cov)
+cor.pc.cov.m$Var2 <- factor(cor.pc.cov.m$Var2, levels=c("institution", "study1", "study2", "study3", "study4", "batch", "batch1", "batch2", "batch3", "batch4", "batch5", "batch6", "batch7", "age", "sex", "affected_status", "read_length", "read_length4", "read_length1", "read_length2", "read_type", "sequencer"))
 cor.pc.cov.m <- subset(cor.pc.cov.m, Var2!="batch")
 cor.pc.cov.m <- subset(cor.pc.cov.m, Var2!="institution")
 cor.pc.cov.m <- subset(cor.pc.cov.m, Var2!="read_length")
 cor.pc.cov.m$Var2 <- revalue(cor.pc.cov.m$Var2, c("study1"="CGS", "study2"="CHEO", "study3"="DGN", "study4"="UDN"))
 cor.pc.cov.m$Var2 <- revalue(cor.pc.cov.m$Var2, c("read_length1"="read_75bp", "read_length2"="read_150bp", "read_length4"="read_50bp"))
 
-# Plot heatmap
-cor.heatmap=ggplot(data=cor.pc.cov.m, aes(x=Var2, y=as.factor(Var1), fill=value)) + 
- 	geom_tile(color="white") +
- 	scale_fill_gradient2(low="blue", high="red", mid="white", midpoint=0, limit=c(-1,1), space="Lab", name="Pearson\nCorrelation") +
- 	theme_minimal() + 
- 	coord_fixed() + labs(x="Covariates", y="Surrogate Variables") + 
- 	theme(legend.position="right",
- 		axis.text.x=element_text(angle=45, hjust=1),
- 		axis.text=element_text(size=9)) +
- 	annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf, size=1) +
-	annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf, size=1)
-ggsave("sup_exp_corPCcov.pdf", cor.heatmap, width=5, height=5)
+## Write data
 
-## Combined_plot
-sup_pca_plot=ggdraw() + draw_plot(p2, 0, 0.6, 0.5, 0.4) +
-	draw_plot(p1, 0.5, 0.6, 0.5, 0.4) +
-	draw_plot(cor.heatmap, 0, 0, 1, 0.6) +
-	draw_plot_label(c('A', 'B', 'C'), c(0, 0.5, 0), c(1, 1, 0.6), size=15)
+# Corrected count data
+write_dat <- cbind(rownames(fitsv$residuals), fitsv$residuals)
+colnames(write_dat)[1] <- "gene_name"
+write.table(write_dat, "gene_counts_corrected_freeze_spline.txt", sep=",", row.names=F, col.names=T) # write corrected matrix
+write.table(as.data.frame(sva_fit[1]), "gene_sig_svs_freeze_spline.txt", sep=",", row.names=F, col.names=T) # write surrogate variables
 
-pdf("data_correction_sup.pdf", w=7, h=8)
-	sup_pca_plot
-dev.off()
+# Output from likelihood ratio tests
+write.table(lrt_plot, file="likelihood_plot_dat.txt", row.names=F, col.names=T)
+
+# Output for correlation plot
+write.table(cor.pc.cov.m, file="cor_sv_covar.txt")
+
+
 
