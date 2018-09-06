@@ -149,22 +149,6 @@ plot_collect$Cutoff <- factor(plot_collect$Cutoff)
 plot_collect$Direction <- factor(plot_collect$Direction, levels=c("Under", "Over"))
 plot_collect$Direction <- revalue(plot_collect$Direction, c("Under"="Under Expression", "Over"="Over Expression"))
 
-## Number of outliers per individual
-p1 <- ggplot(plot_collect) + 
-	geom_boxplot(aes(x=Cutoff, y=OutlierCount+1, group=interaction(Cutoff, Direction), colour=Direction),
-	 width=0.8, position=position_dodge(width=0.85)) +
-	labs(x="Z-score", y="Number of Outlier Genes") +
-	theme_bw() +
-	theme(strip.background=element_blank(),
-		panel.grid.major=element_blank(), 
-		panel.grid.minor=element_blank(),
-		axis.text=element_text(size=10),
-		panel.border=element_blank(),
-		axis.line=element_line(size=0.5)) +
-	scale_y_log10(breaks=c(0,1,10,100,500,2000)) +
-	scale_colour_manual(values=c("gray40", "gray1"))
-ggsave("outlier_count.pdf", p1, width=7, height=3.5)
-
-
-
+## Write data
+write.table(plot_collect, file="exp_outlier_counts.txt", row.names=F, col.names=T)
 

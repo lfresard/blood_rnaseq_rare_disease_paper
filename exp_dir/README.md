@@ -47,7 +47,7 @@ This script is intended to run in R using the `parallel` library with the maximu
 ### Steps
 
 
-##### File: `exp_outlier_count`
+##### File: `exp_outlier_count.r`
 
 * Define threshold for global expression outliers (e.g. to remove extreme global outlier samples)
 * Read in corrected gene expression count data (`corrected_counts/gene/blood/[gene_count].txt`) and sample metadata (`[metadata_file].txt`)

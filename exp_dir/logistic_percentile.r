@@ -158,45 +158,12 @@ for (k in 1:length(iterator)) {
 	}
 }
 
-# Write output
-write.table(global_out, file="global_exp_outliers.txt", col.names=F, row.names=F)
-write.table(plot_collect, file="logistic_model_output.txt", col.names=T, row.names=F)
-
 ## Plot logistic coefficients
 plot_collect_df <- data.frame(apply(plot_collect, 2, function(for_col) for_col))
 plot_collect_df[, 1:7] <- apply(plot_collect_df[, 1:7], 2, function(for_col) as.numeric(for_col))
-
 plot_collect_df$predictor <- revalue(plot_collect_df$predictor, c("lof_z"="Loss of Function", "mis_z"="Missense", "syn_z"="Synonymous"))
-nsamples <- plot_collect_df$nsamples[1:length(iterator)]
 
-## Plot
-fsize <- 20
-RD_theme <- theme_classic() +
-    theme(axis.text.x= element_text(size=fsize),
-    axis.text.y= element_text(size=fsize), 
-    axis.title = element_text(size = fsize), 
-    legend.text = element_text(size = fsize-1), 
-    legend.title = element_text(size = fsize), 
-    axis.ticks = element_line(size = 0.1),
-    strip.background=element_blank(),
-    panel.grid.major=element_blank(),
-    panel.grid.minor=element_blank(),
-    axis.text=element_text(size=9),
-    panel.border=element_blank()) 
-
-p1 <- ggplot(plot_collect_df, aes(x=quantile, y=coefficient)) + geom_hline(yintercept = 0) + 
-	geom_pointrange(aes(ymin=error_low, ymax=error_high, colour=predictor)) +
-	facet_grid(. ~ predictor, scales="fixed") +
-	scale_x_continuous(breaks=seq(1,length(iterator), 1), labels=paste0(round(iterator*100, 1), "%")) + 
-	labs(x="Percentile", y="Log Odds") +
-	geom_text(aes(x=quantile, y=error_high+0.004, label=emp_ast(pvalue)), size=3) +
-	RD_theme +
-	theme(axis.text.x=element_text(angle=45, hjust=1),
-		strip.text=element_text(size=fsize)) +
-	annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf, size=1) +
-	annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf, size=1) +
-	guides(colour=FALSE) +
-	scale_colour_manual(values=c("indianred3", "royalblue3", "orange2"))
-ggsave("logistic_regression_plot.pdf", p1, width=12, height=6)
-
+# Write output
+write.table(global_out, file="global_exp_outliers.txt", col.names=F, row.names=F)
+write.table(plot_collect_df, file="logistic_model_output.txt", col.names=T, row.names=F)
 
