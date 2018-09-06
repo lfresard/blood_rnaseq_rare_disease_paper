@@ -50,8 +50,8 @@ random_indices_vector <- as.numeric(args[1]) # input is random index column to c
 ## Load sample metadata
 ids <- read.table("[metadata_file].txt", sep=",", header=T, stringsAsFactor=F)
 
-# Load gene count data
-dat <- fread("corrected_counts/gene/blood/[gene_counts].txt", sep=",", header=T)
+# Load raw gene count data
+dat <- fread("[raw_gene_counts].txt", sep=",", header=T)
 
 ## Load random indices for data subset
 dgn_random <- read.table("[random_control_samples_indices].txt", sep="\t", header=FALSE)

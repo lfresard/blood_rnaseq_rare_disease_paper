@@ -158,6 +158,10 @@ for (k in 1:length(iterator)) {
 	}
 }
 
+# Write output
+write.table(global_out, file="global_exp_outliers.txt", col.names=F, row.names=F)
+write.table(plot_collect, file="logistic_model_output.txt", col.names=T, row.names=F)
+
 ## Plot logistic coefficients
 plot_collect_df <- data.frame(apply(plot_collect, 2, function(for_col) for_col))
 plot_collect_df[, 1:7] <- apply(plot_collect_df[, 1:7], 2, function(for_col) as.numeric(for_col))

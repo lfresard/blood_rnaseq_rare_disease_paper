@@ -21,7 +21,7 @@ Scripts to re-create the expression outlier enrichment analyses as displayed in 
 
 ### Additional Steps 
 
-Scripts that repeat the steps carried out by `logistic_percentile.r`, but with added functionality
+Scripts that repeat the steps carried out by `logistic_percentile.r`, but with added functionality.
 
 ##### File: `logistic_percentile_vary_control_n.r`
 
@@ -36,9 +36,28 @@ This script is intended to be run in parallel, using a different random subsets 
 
 ##### File: `logistic_permutecasecontrol_parallel.r`
 
-This script...
+This script is intended to run in R using the `parallel` library with the maximum number of cores available (this can be amended within the `makeCluster` command).
+
+* Repeat logistic model for 10000 randomly shuffled case/control vectors
+* Compute mean and standard error and empirical p-value of shuffled vs. non-shuffled data
+* Write output
 
 ## Expression outlier counts
 
 ### Steps
-* 
+
+
+##### File: `exp_outlier_count`
+
+* Define threshold for global expression outliers (e.g. to remove extreme global outlier samples)
+* Read in corrected gene expression count data (`corrected_counts/gene/blood/[gene_count].txt`) and sample metadata (`[metadata_file].txt`)
+* Subset samples to include blood samples only
+* Center and scale gene expression counts matrix to generate Z-scores
+* Define Z-score thresholds for expression outlier calling
+* For each Z-score threshold, find number of outlier for each sample
+* Compute signififance of difference between outlier counts for under-expression and over-expression outliers (hypergeometric test)
+* Write output
+
+
+
+
