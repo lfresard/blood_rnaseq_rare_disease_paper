@@ -1,5 +1,5 @@
 # =======================================================================================================
-# This is a script for generating FigureS9: Correction for batch effects - Splicing data
+# This is a script for generating FigureS10: Number of junctions effect on the average number of outliers
 # #
 # input:
 #       1. FigureS10.in.RData

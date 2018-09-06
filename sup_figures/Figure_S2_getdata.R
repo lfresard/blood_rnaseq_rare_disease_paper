@@ -97,5 +97,7 @@ disease_junc=data.frame(OMIM=length( disease_lists_ens$OMIM[disease_lists_ens$OM
 disease_junc.m=melt(disease_junc)
 disease_junc.m$variable=factor(disease_junc.m$variable, levels=c("Hematology", "Ophthalmology", "Neurology", "OMIM"))
 
+
+# Save data
 save.image(file = paste(dir,"/data/FigureS2.in.RData",sep=""))
 
