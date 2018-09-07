@@ -53,6 +53,8 @@ dir = Sys.getenv('RARE_DIS_DIR')
 load(file = paste(dir,"/data/Figure3.in.RData",sep=""))
 
 #--- MAIN
+
+# Figure 3B
 fig_3b_zscore_thres=ggplot(sample_outlier.df.m, aes(x=as.factor(variable), y=value+1))+
 	geom_boxplot(color="black", fill="grey")+#fill="#028482")+
 	#stat_summary(fun.y=mean, geom="point", size=2, color="#028482")+ 
