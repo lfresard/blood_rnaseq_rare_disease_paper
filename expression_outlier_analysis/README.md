@@ -46,7 +46,6 @@ This script is intended to run in R using the `parallel` library with the maximu
 
 ### Steps
 
-
 ##### File: `exp_outlier_count.r`
 
 * Define threshold for global expression outliers (e.g. to remove extreme global outlier samples)
@@ -58,6 +57,16 @@ This script is intended to run in R using the `parallel` library with the maximu
 * Compute signififance of difference between outlier counts for under-expression and over-expression outliers (hypergeometric test)
 * Write output
 
+## Percentile to Z-score mapping
 
+### Steps
 
+##### File: `percentile_zscore_mapping.r`
 
+* Define threshold for global expression outliers (e.g. to remove extreme global outlier samples)
+* Read in corrected gene expression count data (`corrected_counts/gene/blood/[gene_count].txt`) and sample metadata (`[metadata_file].txt`)
+* Subset samples to include blood samples only
+* Center and scale gene expression counts matrix to generate Z-scores
+* Define percentile thresholds for expression outlier calling
+* For each percentile threshold, save vector of Z-scores of samples passing threshold
+* Write output
