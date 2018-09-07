@@ -12,8 +12,8 @@
 ### Fig. S12: Enrichment patterns for ExAC scores in splicing outliers
 ### Fig. S13: Genetic data across rare disease samples
 ### Fig. S14: Diagnostic rate after analysis of 47 distinct cases
-### Fig. S15: Candidates filters for proband's sister in the \textit{RARS2} case 
+### Fig. S15: Candidates filters for proband's sister in the RARS2 case 
 ### Fig. S16: Allelic ratios of variants from second presented case
-### Fig. S17: Solved case without genetic data. Example of \textit{ASAH1} gene
+### Fig. S17: Solved case without genetic data. Example of ASAH1 gene
 
 
