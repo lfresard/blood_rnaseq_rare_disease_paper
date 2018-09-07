@@ -16,7 +16,6 @@
 
 #!/bin/R
 
-# This scripts performs analyses for influence of differet filters on the number of expression outlier gene candidates for Figure 2
 #Libraries
 library(ggplot2)
 library(cowplot)

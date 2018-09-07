@@ -22,7 +22,6 @@ library(qvalue)
 library(ggpubr)
 
 
-## FUNCTIONS
 
 
 rm(list=ls())
@@ -210,6 +209,9 @@ sample_exp_outlier_filter_withsgl_10kb_up.df.m=melt(sample_exp_outlier_filter_wi
 
 # select for only cases
 sample_exp_outlier_filter_withsgl_10kb_up.df.m.cases=sample_exp_outlier_filter_withsgl_10kb_up.df.m %>% filter(affected_status=="Case")
+
+
+
 
 
 # Save data
