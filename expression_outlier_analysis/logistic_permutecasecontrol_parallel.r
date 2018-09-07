@@ -28,40 +28,6 @@ pick_outliers <- function(medz, quantile_thresh) {
 	else print("Percentile threshold must be between 0 and 1")
 }
 
-## Function to get labels for plotting
-get_plot_labels <- function(n) {
-	iterator <- c(0.5, 0.25, 0.1, 10/n, 5/n, 2/n, 1/n)
-	nsamples <- round(n*iterator)
-	nsamples <- c(nsamples[order(nsamples)], nsamples[-1])
-	iterator <- unique(c(iterator, 1-iterator))
-	iterator <- iterator[order(iterator)]
-	for_return <- matrix(nrow=2, ncol=length(iterator))
-	for_return[1, ] <- iterator
-	for_return[2, ] <- nsamples
-	return(for_return)
-}
-
-## Function to return a plot of results
-ggplot_build <- function(dat, nsamples, iterator, emp) {
-	p1 <- ggplot(dat) + 
-	geom_hline(yintercept=0) + 
-	geom_errorbar(aes(x=threshold, ymin=error_low, ymax=error_high), colour="gray") + 
-	geom_point(aes(x=threshold, y=real_coefficient, fill=predictor), shape=21, colour="Black") +
-	facet_grid(. ~ predictor, scales="free_y") +
-	labs(x="Percentile", y="Log Odds") +
-	scale_x_continuous(breaks=seq(1, length(nsamples), 1), labels=paste0(round(iterator*100, 3), "%")) +
-	geom_text(aes(x=threshold, y=real_coefficient+0.01), label=emp, size=3) +
-	RD_theme +
-	theme(axis.text.x=element_text(angle=45, hjust=1),
-		strip.text=element_text(size=fsize)) +
-	annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf, size=1) +
-	annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf, size=1) +
-	guides(fill=FALSE) +
-	scale_fill_manual(values=c("indianred3", "royalblue3", "orange2")) 
-	return(p1)
-}
-
-
 setwd("path/to/working/directory/") # set working directory
 
 ## Set helpful variables
@@ -240,17 +206,14 @@ for (i in pred) {
 	plot_collect <- rbind.data.frame(plot_collect, tmp)
 }
 
-## Plot
 plot_collect$predictor <- revalue(plot_collect$predictor, c("lof_z"="Loss of Function", "mis_z"="Missense", "syn_z"="Synonymous"))
-n <- plot_collect$nsamples[1]
-emp <- emp_ast(plot_collect$emp_p)
-label_data <- get_plot_labels(n)
-ggsave("logistic_parallel.pdf", ggplot_build(plot_collect, round(label_data[2, ]), round(label_data[1, ], 3), emp), width=8.5, height=3.5)
+
+## Write data
+write.table(plot_collect, file="logistic_permutate-casecontrol_output.txt", row.names=F, col.names=T)
 
 ## Shutdown cluster
 if(!is.null(parallelCluster)) {
   parallel::stopCluster(parallelCluster)
   parallelCluster <- c()
 }
-
 
