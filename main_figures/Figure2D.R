@@ -23,8 +23,6 @@ library(corrplot)
 library(RColorBrewer)
 
 
-## FUNCTIONS
-
 rm(list=ls())
 
 
