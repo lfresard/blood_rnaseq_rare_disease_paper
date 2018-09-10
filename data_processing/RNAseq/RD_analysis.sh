@@ -2,7 +2,7 @@
 
 batch_number=$1
 
-#run quantification piepeline for each sample of PIVUS project
+#run quantification piepeline for each sample
 
 
 FASTQ_DIR=<fastq_dir>/batch${batch_number}
