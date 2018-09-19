@@ -23,7 +23,7 @@ library(dplyr)
 
 #--- Functions
 
-source('/users/lfresard/repos/rare_disease/scripts/manuscript_analyses/Figures_source.R')
+source('Figures_source.R')
 
 
 #--- Main
