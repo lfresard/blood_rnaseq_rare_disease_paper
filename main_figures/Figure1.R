@@ -1,7 +1,4 @@
 #!/bin/R
-# LF
-# November 2017
-
 
 # Code to generate figure 1.
 # Figure 1A: pie chart of broad disease categories
