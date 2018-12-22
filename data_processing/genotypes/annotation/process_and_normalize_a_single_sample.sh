@@ -1,25 +1,16 @@
 #!/bin/bash
-# find /srv/scratch/restricted/rare_diseases/data/vcfs/before_merge/*.gz | parallel "basename {} .vcf.gz" | parallel --dry-run "bash process_and_normalize_a_single_sample.sh /srv/scratch/restricted/rare_diseases/data/vcfs/before_merge/{}.vcf.gz {}"
-# find /srv/scratch/restricted/rare_diseases/data/vcfs/before_merge/*.gz | parallel "basename {} .vcf.gz" | parallel "bash process_and_normalize_a_single_sample.sh /srv/scratch/restricted/rare_diseases/data/vcfs/before_merge/{}.vcf.gz {}"
+
 date
 
 
-vcf=$1 # /srv/scratch/restricted/rare_diseases/data/vcfs/before_merge
-sample=$2 # name to put in the resulting VCF column
-tempdir=$3 #"/srv/scratch/restricted/rare_diseases/data/vcfs/intermediates"
+vcf=$1 
+sample=$2 
+tempdir=$3 
 institution=$4
 
 echo "Start normalization for $sample"
 # count the number of columns in a file - should be 10 for a single sample VCF
 ncols=$(zcat $vcf | head -1000 | tail | awk -F'\t' 'NR==1{print NF}')
-
-# break if there were more then ten columns
-# if [ "$ncols" -ne "10" ]; then
-# 	echo "Error: $ncols columns in VCF; expected 10."
-# 	echo "VCF: $vcf"
-# 	exit
-# done
-
 
 
 # output sorted vcf body
@@ -50,13 +41,13 @@ wait
 
 # normalize and left align the vcf file
 if [ $institution == "CGS" ]
-	then genome=/mnt/lab_data/montgomery/shared/genomes/hg19/hg19.fa
+	then genome=hg19.fa
 
 elif [ $institution == "CHEO" ]
-	then genome=/mnt/lab_data/montgomery/shared/genomes/hg19/hg19.fa
+	then genome=hg19.fa
 
 elif [ $institution == "UDN" ]
-	then genome=/mnt/lab_data/montgomery/shared/genomes/GRCh37/hs37d5.fa
+	then genome=hs37d5.fa
 fi
 
 normvcf="${tempdir}/${sample}_norm.vcf.gz"

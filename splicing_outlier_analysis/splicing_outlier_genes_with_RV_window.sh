@@ -3,11 +3,11 @@
 # filter splicing results for genes with RV nearby
 njobs=10
 
-samples=/srv/scratch/restricted/rare_diseases/analysis/outlier_analysis/splicing/for_freeze/sample_affected_status_freeze_RD.tsv
+samples=sample_affected_status_freeze_RD.tsv
 outlier_results=$1
-sample_script=/users/lfresard/repos/rare_disease/scripts/splicing_analysis/outlier/process_sample_RV_window.sh
+sample_script=process_sample_RV_window.sh
 outlier_RV_suffix=_outliers_RV_window.txt
-outdir=/srv/scratch/restricted/rare_diseases/analysis/outlier_analysis/splicing/for_freeze/RV
+outdir=<outdir>
 outlier_RV_res=$(basename "$outlier_results" .txt)_RV_window.txt
 cd ${outdir}
 

@@ -2,14 +2,14 @@
 
 RUNNAME=$1
 
-LOGFILE=/srv/scratch/restricted/rare_diseases/analysis/ase_analysis/Nikki_Nov2017/runlogs/$RUNNAME
+LOGFILE=$RARE_DIS_DIR/analysis/ase_analysis/Nikki_Nov2017/runlogs/$RUNNAME
 
-BAMPATH=/srv/scratch/restricted/rare_diseases/data/filtered_bam/for_freeze/AlignedToGenomeReadGroups
-WORKINGDIR=/srv/scratch/restricted/rare_diseases/data/ase/$RUNNAME
-GATKPATH=/srv/scratch/restricted/rare_diseases/analysis/ase_analysis/GATK
-GENOME=/mnt/lab_data/montgomery/shared/genomes/hg19/hg19.fa
-VCFFILEPATH=/srv/scratch/restricted/rare_diseases/data/vcfs/intermediates/for_freeze
-SCRIPTS=/srv/scratch/restricted/rare_diseases/analysis/ase_analysis/Nikki_Nov2017/scripts
+BAMPATH=$RARE_DIS_DIR/data/filtered_bam/for_freeze/AlignedToGenomeReadGroups
+WORKINGDIR=$RARE_DIS_DIR/data/ase/$RUNNAME
+GATKPATH=$RARE_DIS_DIR/analysis/ase_analysis/GATK
+GENOME=hg19.fa
+VCFFILEPATH=$RARE_DIS_DIR/data/vcfs/intermediates/for_freeze
+SCRIPTS=$RARE_DIS_DIR/analysis/ase_analysis/Nikki_Nov2017/scripts
 
 mkdir $WORKINGDIR
 mkdir $WORKINGDIR/VCF

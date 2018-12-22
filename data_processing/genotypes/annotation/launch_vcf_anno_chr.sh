@@ -1,19 +1,19 @@
 #!/bin/bash
 for i in `seq 1 22`;
 do
-    bash /users/lfresard/repos/rare_disease/scripts/vcf_handling/vcf_anno_chr.sh $i
+    bash vcf_anno_chr.sh $i
 done    
        
 wait
 
-bash /users/lfresard/repos/rare_disease/scripts/vcf_handling/vcf_anno_chr.sh X
+bash vcf_anno_chr.sh X
 
 wait
 
 ls *_gnomad.vcf.gz| sed 's/\_/\t/'| awk '{print $1}' | parallel --jobs $njob  \
 	
 ls RD*_homogenized_chr*_gnomad_cadd.vcf.gz | sed 's/\_/\t/'| awk '{print $1}' | parallel --jobs 3 \
-	"bash /users/lfresard/repos/rare_disease/scripts/vcf_handling/concatenate_gnomadres.sh {}"
+	"bash concatenate_gnomadres.sh {}"
 
 
 wait

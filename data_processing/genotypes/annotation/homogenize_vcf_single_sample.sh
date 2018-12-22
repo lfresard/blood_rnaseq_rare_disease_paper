@@ -6,9 +6,9 @@
 date
 
 
-vcf=$1 # /srv/scratch/restricted/rare_diseases/data/vcfs/before_merge
-sample=$2 # name to put in the resulting VCF column
-tempdir=$3 #"/srv/scratch/restricted/rare_diseases/data/vcfs/intermediates"
+vcf=$1 
+sample=$2
+tempdir=$3 
 
 # output sorted vcf body
 header="${tempdir}/${sample}_header.txt"

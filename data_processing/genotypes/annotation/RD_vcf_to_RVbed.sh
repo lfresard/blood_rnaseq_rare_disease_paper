@@ -1,6 +1,4 @@
 #!/bin/bash
-#LF
-#Jan 2018
 
 # This script takes annotated sample vcf with gnomAD allele frequency and CADD scores 
 # filters for Rare variants
@@ -10,9 +8,9 @@
 vcf_file=$1
 fname=`basename $vcf_file`
 sample=${fname%%_*}
-bed_dir=/srv/scratch/restricted/rare_diseases/data/bed/for_freeze_exac_filt
+bed_dir=<path_to_bed_vcffiles>
 out_file=${bed_dir}/${fname%.vcf.gz}_RV.bed
-gene_bed=/srv/scratch/restricted/rare_diseases/data/annot/gencode.v19.annotation.genes.bed.gz
+gene_bed=gencode.v19.annotation.genes.bed.gz
 out_file_final=${bed_dir}/${fname%.vcf.gz}_RV_withgene.bed.gz
 
 date
