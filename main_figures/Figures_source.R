@@ -1560,3 +1560,69 @@ process_junc_file=function(sample, junction_dir,junc_suffix){
 	temp_junc=temp_junc %>% filter(annotation_status==1)%>% mutate(junction=paste(chr, intron_start,intron_end,gene_name, sep="_"))%>% select(junction, uniquely_mapped) 
 	return(temp_junc)
 }
+
+# function that generate the number of outlier genes with RV within 20bp of juction for which at list one HPO terms match with symptomes, CADD and PLI scores adjustable
+get_hpo_match_RV_exp_10kb=function(sample,outlier_RV, HPOs_list, cadd_thres, pLI_thre, direction,myvariant_gene_pos){
+	if (direction=="over"){
+		if(cadd_thres==0){
+	gene_match=outlier_RV %>% filter(sample_id==sample) %>% filter(expressionZScore>=2) %>% 
+		filter(variant_gene_pos==myvariant_gene_pos)%>%
+		filter(as.numeric(as.character(phred_cadd))>=cadd_thres|phred_cadd==".")%>%
+		left_join(exac,by=c("gene"="ensgene"), all.x=T) %>% distinct %>% 
+		filter(pLI>=pLI_thre) %>%
+		left_join(grch37, by=c("gene"="ensgene")) %>%
+		select(gene, symbol, entrez, expressionZScore) %>% 
+		left_join(gene_to_pheno, by=c("entrez","symbol"))%>% distinct %>% 
+		left_join(pheno_annot,by=c("DiseaseId"="database_INDEX")) %>% distinct %>%
+		mutate(hpo_in_input=ifelse(HPO_terms_ID %in% HPOs_list[[sample]], 1, 0)) %>%
+		select(gene, symbol, expressionZScore, hpo_in_input) %>% distinct %>%group_by(gene,symbol, expressionZScore)%>% summarise(overlap_hpo=sum(hpo_in_input)) %>% 
+ 		filter(overlap_hpo>=1) %>% ungroup %>% unique%>% filter (! duplicated(gene))%>% select(gene) %>% pull 
+	}else{
+	gene_match=outlier_RV %>% filter(sample_id==sample) %>% filter(expressionZScore>=2) %>% 
+		filter(variant_gene_pos==myvariant_gene_pos)%>%
+		filter(as.numeric(as.character(phred_cadd))>=cadd_thres)%>%
+		left_join(exac,by=c("gene"="ensgene"), all.x=T) %>% distinct %>% 
+		filter(pLI>=pLI_thre) %>%
+		left_join(grch37, by=c("gene"="ensgene")) %>%
+		select(gene, symbol, entrez, expressionZScore) %>% 
+		left_join(gene_to_pheno, by=c("entrez","symbol"))%>% distinct %>% 
+		left_join(pheno_annot,by=c("DiseaseId"="database_INDEX")) %>% distinct %>%
+		mutate(hpo_in_input=ifelse(HPO_terms_ID %in% HPOs_list[[sample]], 1, 0)) %>%
+		select(gene, symbol, expressionZScore, hpo_in_input) %>% distinct %>%group_by(gene,symbol, expressionZScore)%>% summarise(overlap_hpo=sum(hpo_in_input)) %>% 
+ 		filter(overlap_hpo>=1) %>% ungroup %>% unique%>% filter (! duplicated(gene)) %>%  select(gene) %>%pull 
+
+
+	}
+	}
+	if (direction=="under"){
+			if(cadd_thres==0){
+	gene_match=outlier_RV %>% filter(sample_id==sample) %>% filter(expressionZScore<=-2) %>% 
+		filter(variant_gene_pos==myvariant_gene_pos)%>%
+		filter(as.numeric(as.character(phred_cadd))>=cadd_thres|phred_cadd==".")%>%
+		left_join(exac,by=c("gene"="ensgene"), all.x=T) %>% distinct %>% 
+		filter(pLI>=pLI_thre) %>%
+		left_join(grch37, by=c("gene"="ensgene")) %>%
+		select(gene, symbol, entrez, expressionZScore) %>% 
+		left_join(gene_to_pheno, by=c("entrez","symbol"))%>% distinct %>% 
+		left_join(pheno_annot,by=c("DiseaseId"="database_INDEX")) %>% distinct %>%
+		mutate(hpo_in_input=ifelse(HPO_terms_ID %in% HPOs_list[[sample]], 1, 0)) %>%
+		select(gene, symbol, expressionZScore, hpo_in_input) %>% distinct %>%group_by(gene,symbol, expressionZScore)%>% summarise(overlap_hpo=sum(hpo_in_input)) %>% 
+ 		filter(overlap_hpo>=1) %>% ungroup %>% unique%>% filter (! duplicated(gene)) %>%  select(gene) %>%pull 
+	}else{
+	gene_match=outlier_RV %>% filter(sample_id==sample) %>% filter(expressionZScore<=-2) %>% 
+		filter(variant_gene_pos==myvariant_gene_pos)%>%
+		filter(as.numeric(as.character(phred_cadd))>=cadd_thres)%>%
+		left_join(exac,by=c("gene"="ensgene"), all.x=T) %>% distinct %>% 
+		filter(pLI>=pLI_thre) %>%
+		left_join(grch37, by=c("gene"="ensgene")) %>%
+		select(gene, symbol, entrez, expressionZScore) %>% 
+		left_join(gene_to_pheno, by=c("entrez","symbol"))%>% distinct %>% 
+		left_join(pheno_annot,by=c("DiseaseId"="database_INDEX")) %>% distinct %>%
+		mutate(hpo_in_input=ifelse(HPO_terms_ID %in% HPOs_list[[sample]], 1, 0)) %>%
+		select(gene, symbol, expressionZScore, hpo_in_input) %>% distinct %>%group_by(gene,symbol, expressionZScore)%>% summarise(overlap_hpo=sum(hpo_in_input)) %>% 
+ 		filter(overlap_hpo>=1) %>% ungroup %>% unique%>% filter (! duplicated(gene)) %>%  select(gene) %>%pull 
+
+	}}
+ 	return(gene_match)
+}
+

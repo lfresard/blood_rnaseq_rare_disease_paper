@@ -6,8 +6,8 @@
 # This scripts is for figure 1 of the rare disease paper.
 # Figure 1A: pie chart of broad disease categories
 # Figure 1B: Expression in blood of disease genes
-# Figure 1C: %genes expressed in blood when gene is expressed in only one tissue vs more than one tissue
-# Figure 1D: expression of lof intolerant genes in blood
+# Figure 1C: %genes expressed in blood when gene is expressed in only one tissue vs more than one tissue --> move to sup
+# Figure 1D: expression of lof intolerant genes in blood --> move to sup
 
 #--- Libraries
 library(readr)
@@ -27,11 +27,13 @@ library(ggpubr)
 rm(list=ls())
 
 source('/users/lfresard/repos/rare_disease/scripts/manuscript_analyses/Figures_source.R')
+dir = Sys.getenv('RARE_DIS_DIR')
 
 # Read rare disease samples metadata
 
-metadata = "/srv/scratch/restricted/rare_diseases/data/metadata/2018_06_12_Rare_Disease_Metadata.tsv"
-metadata = read_tsv(metadata) %>% filter(in_freeze=='yes') %>% filter(source_of_RNA== "Blood")
+metadata = "/srv/scratch/restricted/rare_diseases/data/metadata/2018_12_02_Rare_Disease_Metadata.tsv"
+#metadata = read_tsv(metadata) %>% filter(in_freeze=='yes') %>% filter(source_of_RNA== "Blood")
+metadata = read_tsv(metadata) %>% filter(in_freeze=='yes', sequencing_status=="PASSED", is_RD=="yes",source_of_RNA=="Blood")
 
 ## Get number of case per disease category
 categ_case=metadata %>% 
@@ -39,7 +41,7 @@ categ_case=metadata %>%
 	group_by(disease_category) %>% 
 	summarize(counts=n()) %>% 
 	arrange(by=counts) 
-categ_case$disease_category=c("Infectious diseases","Multiple Congenital \nAnomalies", "Rheumatology", "Allergies" ,"Cardiology", "Gynecology", "Other", "Musculoskeletal and \northopedics", "Opthalmology", "Hematology", "Neurology")
+#categ_case$disease_category=c("Infectious diseases","Multiple Congenital \nAnomalies", "Rheumatology", "Allergies" ,"Cardiology", "Gynecology", "Other", "Musculoskeletal and \northopedics", "Opthalmology", "Hematology", "Neurology")
 
 categ_case=categ_case %>% mutate(disease_category=factor(disease_category,levels=disease_category[length(disease_category):1]))
 
@@ -60,6 +62,7 @@ gene_counts=c(gene_counts_RD,genes_counts_DGN,genes_counts_PIVUS)
 
 geneIdCol <- "gene_id"
 abundanceCol <- "TPM"
+#abundanceCol <- "FPKM"
 countsCol <- "expected_count"
 lengthCol <- "effective_length"
 col.types <- readr::cols(
@@ -122,10 +125,10 @@ pct_in_blood=lapply(disease_lists_ens,get_pct_disease_blood,pct_df=pct_df)
 pct_in_blood_df=as.data.frame(do.call(rbind, pct_in_blood))
 #pct_in_blood_df=pct_in_blood_df %>% select(PCT_20,PCT_50,PCT_90,DISEASE)
 pct_in_blood_df$DISEASE=factor(rownames(pct_in_blood_df))
-pct_in_blood_df =pct_in_blood_df %>% filter(DISEASE %in% c("Neurology", "Ophtalmology",  "OMIM", "Hematology"))
-pct_in_blood_df$DISEASE=factor(pct_in_blood_df$DISEASE, levels=c("Neurology", "Hematology","Ophtalmology",  "OMIM"))
+pct_in_blood_df =pct_in_blood_df %>% filter(DISEASE %in% c("Neurology", "Ophtalmology",  "OMIM", "Hematology", "Skeletal_disorders"))
+pct_in_blood_df$DISEASE=factor(pct_in_blood_df$DISEASE, levels=c("Neurology", "Skeletal_disorders", "Hematology","Ophtalmology",  "OMIM"))
 pct_in_blood_df.m=melt(pct_in_blood_df, by='DISEASE')
-pct_in_blood_df.m$percent_ind=c(rep(0,4),rep(10,4), rep(20,4),rep(30,4),rep(40,4),rep(50,4),rep(60,4),rep(70,4),rep(80,4),rep(90,4),rep(100,4))
+pct_in_blood_df.m$percent_ind=c(rep(0,5),rep(10,5), rep(20,5),rep(30,5),rep(40,5),rep(50,5),rep(60,5),rep(70,5),rep(80,5),rep(90,5),rep(100,5))
 
 
 
@@ -146,13 +149,13 @@ pct_in_blood_bin2=lapply(disease_lists_ens,get_pct_disease_blood_bin,pct_df=avg_
 pct_in_blood_bin_df2=as.data.frame(do.call(rbind, pct_in_blood_bin2))
 
 pct_in_blood_bin_df$DISEASE=unlist(strsplit(rownames(pct_in_blood_bin_df), "[.]"))[c(TRUE,FALSE)]
-pct_in_blood_bin_df =pct_in_blood_bin_df %>% filter(DISEASE %in% c("Neurology", "Hematology","Ophtalmology",  "OMIM"))
+pct_in_blood_bin_df =pct_in_blood_bin_df %>% filter(DISEASE %in% c("Neurology", "Hematology","Ophtalmology",  "OMIM", "Skeletal_disorders"))
 pct_in_blood_bin_df2$DISEASE=unlist(strsplit(rownames(pct_in_blood_bin_df2), "[.]"))[c(TRUE,FALSE)]
-pct_in_blood_bin_df2 =pct_in_blood_bin_df2 %>% filter(DISEASE %in% c("Neurology", "Hematology","Ophtalmology",  "OMIM"))
+pct_in_blood_bin_df2 =pct_in_blood_bin_df2 %>% filter(DISEASE %in% c("Neurology", "Hematology","Ophtalmology",  "OMIM", "Skeletal_disorders"))
 
 
-pct_in_blood_bin_df$DISEASE=factor(pct_in_blood_bin_df$DISEASE, levels=c("Neurology", "Hematology","Ophtalmology" , "OMIM"))
-pct_in_blood_bin_df2$DISEASE=factor(pct_in_blood_bin_df2$DISEASE, levels=c("Neurology", "Hematology","Ophtalmology" , "OMIM"))
+pct_in_blood_bin_df$DISEASE=factor(pct_in_blood_bin_df$DISEASE, levels=c("Neurology", "Hematology","Ophtalmology" , "OMIM", "Skeletal_disorders"))
+pct_in_blood_bin_df2$DISEASE=factor(pct_in_blood_bin_df2$DISEASE, levels=c("Neurology", "Hematology","Ophtalmology" , "OMIM", "Skeletal_disorders"))
 
 
 bin_df=data.frame(pct_in_blood_bin_df[order(pct_in_blood_bin_df$bin),] %>% select(bin) %>% distinct, INDEX=c(1:3))
@@ -174,12 +177,12 @@ median_tpm_pc2=make_bins_median(avg_tpm_pc, breaks2)
 pct_in_blood_bin_median=lapply(disease_lists_ens,get_pct_disease_blood_bin,pct_df=median_tpm_pc)
 pct_in_blood_bin_median_df=as.data.frame(do.call(rbind, pct_in_blood_bin_median))
 pct_in_blood_bin_median_df$DISEASE=unlist(strsplit(rownames(pct_in_blood_bin_median_df), "[.]"))[c(TRUE,FALSE)]
-pct_in_blood_bin_median_df =pct_in_blood_bin_median_df %>% filter(DISEASE %in% c("Neurology", "Hematology","Ophtalmology",  "OMIM"))
+pct_in_blood_bin_median_df =pct_in_blood_bin_median_df %>% filter(DISEASE %in% c("Neurology", "Hematology","Ophtalmology",  "OMIM", "Skeletal_disorders"))
 
 pct_in_blood_bin_median2=lapply(disease_lists_ens,get_pct_disease_blood_bin,pct_df=median_tpm_pc2)
 pct_in_blood_bin_median_df2=as.data.frame(do.call(rbind, pct_in_blood_bin_median2))
 pct_in_blood_bin_median_df2$DISEASE=unlist(strsplit(rownames(pct_in_blood_bin_median_df2), "[.]"))[c(TRUE,FALSE)]
-pct_in_blood_bin_median_df2 =pct_in_blood_bin_median_df2 %>% filter(DISEASE %in% c("Neurology", "Hematology","Ophtalmology",  "OMIM"))
+pct_in_blood_bin_median_df2 =pct_in_blood_bin_median_df2 %>% filter(DISEASE %in% c("Neurology", "Hematology","Ophtalmology",  "OMIM", "Skeletal_disorders"))
 
 bin_median_df=data.frame(pct_in_blood_bin_median_df[order(pct_in_blood_bin_median_df$bin),] %>% select(bin) %>% distinct, INDEX=c(1:3))
 bin_median_df2=data.frame(pct_in_blood_bin_df2[order(pct_in_blood_bin_df2$bin),] %>% select(bin) %>% distinct, INDEX=c(1,3))
@@ -192,59 +195,8 @@ pct_in_blood_bin_median_df2=pct_in_blood_bin_median_df2 %>% filter(bin !="[0,0.1
 
 pct_in_blood_bin_median_df3=rbind(pct_in_blood_bin_median_df,pct_in_blood_bin_median_df2)%>% filter(bin !="[10,1e+05)")
 
-pct_in_blood_bin_median_df3$DISEASE=factor(pct_in_blood_bin_median_df3$DISEASE, levels=c("OMIM","Neurology", "Ophtalmology", "Hematology"))
-
-##-------------------------
-# Genes expressed in more than 1 tissue and expression in Blood
-# We looked at GTEx v7 RPKM for this plot
-
-# Read in % results
-exp_multtissues_file="/srv/scratch/restricted/rare_diseases/data/gtex_tissues_exp/Blood_genes_comp_othertissues_exp.txt"
-exp_multtissues=read.table(exp_multtissues_file, header=T, sep="\t")
+pct_in_blood_bin_median_df3$DISEASE=factor(pct_in_blood_bin_median_df3$DISEASE, levels=c(  "Ophtalmology","Hematology","Skeletal_disorders","Neurology",  "OMIM"))
 
 
-# Make data frame out of results
-multis_df=data.frame(tissues=c('1 tissue', '>1 tissue'), 
-	overlap_blood=c(exp_multtissues$gene_in_blood[exp_multtissues$tissue_number==1]*100, sum(exp_multtissues$gene_in_blood[2:nrow(exp_multtissues)])*100),
-	N_genes=c(exp_multtissues$gene_number[exp_multtissues$tissue_number==1],sum(exp_multtissues$gene_number[2:nrow(exp_multtissues)])))
-
-multis_df$tissues=factor(multis_df$tissues, levels=rev(levels(multis_df$tissues)))
-
-
-## Look at gene level
-exp_multtissues_genes_file="/srv/scratch/restricted/rare_diseases/data/gtex_tissues_exp/Number_of_tissue_expression.txt"
-exp_multtissues_genes=as.data.frame(read.table(exp_multtissues_genes_file, header=F, sep="\t"))
-colnames(exp_multtissues_genes)=c("ensgene", "tissues")
-exac = as.data.frame(read.table('/users/lfresard/NumberOfIndividuals_Impact/enrichment_disease-conservation_database/annotations/EXAC/forweb_cleaned_exac_r03_march16_z_data_pLI.txt', sep = '\t', stringsAsFactors = F, header = T))
-
-# stratify analysis between high/low pLIs
-exp_multtissues_genes=exp_multtissues_genes %>% 
-	inner_join(grch37, by="ensgene") %>% 
-	select(ensgene, tissues, symbol) %>% 
-	distinct %>% inner_join(exac, by=c("symbol"="gene")) %>% 
-	select(ensgene,tissues,syn_z,mis_z,lof_z,pLI) %>% 
-	distinct %>% mutate(multi=ifelse(tissues==1,"no", "yes"))%>%select(-one_of(c("tissues", "pLI")))
-
-
-exp_multtissues_genes.m=melt(exp_multtissues_genes, id.vars = c("ensgene", "multi"))
-
-
-## expression of extreme lofz and misz in blood
-
-# get average expression in blood
-tpms_df_avg=data.frame(ensgene=tpms_df$ensgene, avg_exp=rowMeans(tpms_df[,2:ncol(tpms_df)]))
-tpms_df_avg=tpms_df_avg %>%
-	inner_join(grch37, by="ensgene") %>% filter(biotype == "protein_coding")%>%
-	select(ensgene, symbol,avg_exp) %>% 
-	inner_join(exac, by=c("symbol"="gene")) %>% 
-	select(ensgene,avg_exp,syn_z,mis_z,lof_z, pLI) %>% distinct %>% filter(pLI>=.9)
-
-#breaks=c(0, 0.1,1,10,100,10000)
-breaks=c(0, 0.1,10,10000,100000)
-tpms_df_avg=transform(tpms_df_avg, bin = cut(avg_exp, breaks, right=F))
-
-
-
-
-save.image(file="Figure1.RData")
+save.image(file=paste0(dir,"/analysis/manuscript/figures_revision/Figure1.RData"))
 

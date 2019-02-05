@@ -24,6 +24,8 @@ library(dplyr)
 library(cowplot)
 library(RColorBrewer)
 library(ggpubr)
+library(ggbeeswarm)
+rm(list=ls())
 
 
 fsize=15
@@ -40,7 +42,6 @@ RD_theme=theme_classic()+
 	axis.text=element_text(size=9),
 	panel.border=element_blank()) 
 
-rm(list=ls())
 
 
 
@@ -50,7 +51,7 @@ dir = Sys.getenv('RARE_DIS_DIR')
 
 
 #  Load input data
-load(file = paste(dir,"/data/Figure3.in.RData",sep=""))
+load(file = paste(dir,"/analysis/manuscript/figures_revision/Figure3.in.RData",sep=""))
 
 #--- MAIN
 
@@ -65,7 +66,7 @@ fig_3b_zscore_thres=ggplot(sample_outlier.df.m, aes(x=as.factor(variable), y=val
 fig_3b_zscore_thres
 
 
-ggsave('Figure3B.pdf', fig_3b_zscore_thres,  path=paste(dir,"/analysis/manuscript/figures/", sep=""), width=6, height=6)
+ggsave('Figure3B.pdf', fig_3b_zscore_thres,  path=paste(dir,"/analysis/manuscript/figures_revision/", sep=""), width=6, height=6)
 
 
 
@@ -73,6 +74,7 @@ ggsave('Figure3B.pdf', fig_3b_zscore_thres,  path=paste(dir,"/analysis/manuscrip
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
 # Figure 3C
+col_splic_out=c( "#87907D"	,"#AAB6A2", 	"#666666")
 
 RV_out_plot_withsgl=ggplot(RV_outliers.m_withsgl, aes(x=variable, y=value+1, fill=filter)) + 
 geom_boxplot()+ 
@@ -82,7 +84,7 @@ scale_x_discrete(breaks=c("RV_number_MAF0", "RV_number_MAF0.1", "RV_number_MAF1"
 labs(x="MAF (%)", y="Number of rare variants")+facet_grid(  . ~variant_data , scales="free_y")+RD_theme +theme(legend.position=c(0.4,0.9))
 
 RV_out_plot_withsgl
-ggsave('Figure3C.pdf', RV_out_plot_withsgl,  path=paste(dir,"/analysis/manuscript/figures/", sep=""), width=10, height=10)
+ggsave('Figure3C.pdf', RV_out_plot_withsgl,  path=paste(dir,"/analysis/manuscript/figures_revision/", sep=""), width=10, height=10)
 
 
 
@@ -100,33 +102,72 @@ filter_withsglt.case.plot=ggplot(sample_outlier_filter_withsgl.df.m.cases, aes(x
 		labels=c("1", "2", "3","4","5", "6", "7", "8"))+
 	labs(x="Filter", y="Proportion of outlier genes") + RD_theme +guides(fill = guide_legend(override.aes = list(size = 4,shape =c(49,50,51,52,53,54,55,56))))+theme(legend.position = c(0.8,0.8))
 filter_withsglt.case.plot
-ggsave('Figure3D.pdf', filter_withsglt.case.plot,  path=paste(dir,"/analysis/manuscript/figures/", sep=""), width=6, height=6)
+ggsave('Figure3D.pdf', filter_withsglt.case.plot,  path=paste(dir,"/analysis/manuscript/figures_revision/", sep=""), width=8, height=3)
 
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
 
 # Figure 3 E
-RV_filters_plot=ggboxplot(RV_count.m.filt%>% filter(variable %in% c("outliers","outlier_RV_CADD_HPO_junc")), x = "variable", y = "value", color = "variable", palette =c("#00AFBB", "#FC4E07"), add = "jitter", shape = "variable")+
-	stat_compare_means(comparisons = custom_comparisons, label = "p.signif")+
+RV_filters_plot=ggboxplot(RV_count.m%>% filter(variable %in% c("outliers","outlier_RV_CADD_HPO_junc")), x = "variable", y = "value", color = "variable", palette =c("#C0C0C0", "#336699"), add = "jitter", shape = "variable")+
+	#stat_compare_means(comparisons = custom_comparisons, label = "p.signif")+
+	stat_compare_means(comparisons = custom_comparisons)+
 	scale_x_discrete(labels= c( "Z-score >=2", "+ RV within 20bp junction\n+ HPO match"))+
 	RD_theme+
 	theme(legend.position="")+
 	labs(x="Filter", y="Median number of rare variants per gene")
 
-ggsave('Figure3E.pdf', RV_filters_plot,  path=paste(dir,"/analysis/manuscript/figures/", sep=""), width=8, height=8)
+ggsave('Figure3E.pdf', RV_filters_plot,  path=paste(dir,"/analysis/manuscript/figures_revision/", sep=""), width=3, height=6)
+
+
+# -----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+
+# Figure 3 F
+
+
+color = grDevices::colors()[grep('gr(a|e)y', grDevices::colors(), invert = T)]
+mycol=sample(color, length(cases))
+
+median.quartile <- function(x){
+	out <- quantile(x, probs = c(0.25,0.5,0.75))
+	names(out) <- c("ymin","y","ymax")
+	return(out) 
+}
+
+ggplot(exp_outlier_number.df, aes(x = log10(value+1), y = filter, colour = sample)) +#geom_path(group=sample, colour="grey") + 
+	stat_summary(fun.data="median.quartile",geom="pointrange", na.rm=T, color="black") + 
+	#geom_quasirandom(groupOnX=FALSE) +
+	theme(legend.position="")#+ 
+	#scale_colour_manual(values=mycol) 
+res_splicing_number.df=data.frame(variable=res_splicing_number.df$variable, value=unlist(res_splicing_number.df$value),SAMPLE=unlist(res_splicing_number.df$SAMPLE) )
+all_ind_plot= ggplot(res_splicing_number.df, aes(variable,value))+ 
+ 	geom_quasirandom(aes(y =value, x = variable, colour = SAMPLE))+
+ 	stat_summary(fun.data = median.quartile, geom = "pointrange",position=position_nudge(x=0.5,y=0))+
+	coord_flip()+
+	#geom_path(group=sample, colour="grey")+
+ 	theme(legend.position="")+
+ 	scale_colour_manual(values=mycol) +
+ 	labs(y="log10(Number of genes +1)",x="Filter")+
+ 	scale_y_log10(breaks = scales::trans_breaks("log10", function(x) 10^x),labels = scales::trans_format("log10", scales::math_format(10^.x))) 
+
+all_ind_plot
+
+ggsave('Figure3F.pdf', all_ind_plot,  path=paste(dir,"/analysis/manuscript/figures_revision/", sep=""), width=8, height=8)
+
 
 
 # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
 
 ## combined_plot
-figure3=ggdraw()+draw_plot(fig_3b_zscore_thres, 2/3,1/2,1/3,1/2)+
-	draw_plot(RV_out_plot_withsgl, 0,0,1/3,1/2)+
-	draw_plot(filter_withsglt.case.plot, 1/3,0,1/3,1/2)+
-	draw_plot(RV_filters_plot, 2/3,0,1/3,1/2)+
-	draw_plot_label(c('A', 'B', 'C','D', 'E'), c(0,2/3,0, 1/3,2/3), c(1,1,1/2,1/2, 1/2), size = 20)
-
-pdf(paste(dir,"/analysis/manuscript/figures/Figure3.pdf", sep=""), w=12, h=12)
+figure3=ggdraw()+draw_plot(fig_3b_zscore_thres, 2/3,2/3,1/3,1/3)+
+	draw_plot(RV_out_plot_withsgl, 0,5/12,1/2,1/4)+
+	draw_plot(filter_withsglt.case.plot, 1/2,5/12,1/2,1/4)+
+	draw_plot(RV_filters_plot, 0,0,1/3,5/12)+
+	draw_plot(all_ind_plot, 1/3,0,2/3,5/12)+
+	draw_plot_label(c('A', 'B', 'C','D', 'E', 'F'), c(0,2/3,0, 1/3,0, 1/3), c(1,1,8/12,8/12,5/12,5/12), size = 20)
+figure3
+pdf(paste(dir,"/analysis/manuscript/figures_revision/Figure3.pdf", sep=""), w=12, h=12)
 figure3
 dev.off()
 
@@ -134,5 +175,5 @@ dev.off()
 
 
 # Save data
-save.image(file = paste(dir,"/data/Figure3.out.RData",sep=""))
+save.image(file = paste(dir,"/analysis/manuscript/figures_revision/Figure3.out.RData",sep=""))
 
