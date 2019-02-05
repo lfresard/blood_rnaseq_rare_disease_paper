@@ -32,16 +32,16 @@ annot_junctions=paste(annot_junc$chr, annot_junc$junc_start, annot_junc$junc_end
 annot_junc_num_gene=melt(table(str_extract(annot_junc$gene, "ENSG[0-9]+")))
 
 # Get splicing outlier
-zscores_blood =as.data.frame(read.table(paste(dir,"/analysis/outlier_analysis/splicing/for_freeze/RD_freeze_junc_outliers_PCAratio_blood_nf_PIVUS_withPIVsamples_withmisdata.txt",sep=""), sep="\t", header=T))
+zscores_blood =as.data.frame(read.table(paste(dir,"/analysis/outlier_analysis/splicing/2018_12_3_paper_revisions/2018_12_03_splicing_zscores_sorted.txt",sep=""), sep="\t", header=T))
 
 # get junction cluster id
-ratio_file=paste(dir,"/analysis/outlier_analysis/splicing/for_freeze/RD_PIVUS_freeze_junc_ratios.txt", sep="")
+ratio_file=paste(dir,"/analysis/outlier_analysis/splicing/2018_12_3_paper_revisions/RD_PIVUS_freeze_junc_ratios.txt", sep="")
 ratios=as.data.frame(read.table(ratio_file,  header=T, sep="\t"))
 ratios=ratios %>% select(chr, junction_start, junction_end, gene, annotation_status, Cluster)
-
+ratios=ratios %>% mutate(gene=str_extract(gene, "ENSG[0-9]+")) 
 # Read rare disease samples metadata
-metadata = paste(dir,"/data/metadata/2018_06_12_Rare_Disease_Metadata.tsv",sep="")
-metadata = read_tsv(metadata) %>% filter(in_freeze=="yes") %>% filter(source_of_RNA=="Blood")
+metadata = paste(dir,"/data/metadata/2018_12_02_Rare_Disease_Metadata.tsv",sep="")
+metadata = read_tsv(metadata) %>% filter(in_freeze=="yes") %>% filter(source_of_RNA=="Blood", sequencing_status=="PASSED")
 cases=metadata %>% filter(affected_status=="Case") %>% select(sample_id) %>% pull
 
 # Combine outlier info with annotated data
@@ -58,4 +58,4 @@ z2=zscores_blood %>% mutate(affected_status=ifelse(variable %in% cases, "Case", 
 	group_by(gene,affected_status, value) %>%
 	summarize(average=mean(outliers))  %>% mutate(juncbin=cut(value, breaks=c(0,  5,20, 50,  153), right=TRUE))
 
-save.image(file = paste(dir,"/data/FigureS10.in.RData",sep=""))
+save.image(file = paste(dir,"/analysis/manuscript/figures_revision/FigureS10.in.RData",sep=""))

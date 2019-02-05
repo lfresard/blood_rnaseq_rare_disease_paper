@@ -22,13 +22,14 @@ dir = Sys.getenv('RARE_DIS_DIR')
 
 
 #  Load input data
-load(file = paste(dir,"/data/FigureS8.in.RData",sep=""))
+load(file = paste0(dir,"/analysis/manuscript/figures_revision/FigureS8.in.RData"))
 
 #Libraries
 library(ggplot2)
 library(cowplot)
 library(RColorBrewer)
-
+library(ggpubr)
+library(forcats)
 
 fsize=15
 RD_theme=theme_classic()+
@@ -45,33 +46,55 @@ RD_theme=theme_classic()+
 	panel.border=element_blank()) 
 
 # Panel A
-exp_non_zero_samples_plot=ggplot(non_zero_samples, aes(x=as.factor(filter), y=value)) + 
-  geom_point(size=3) + 
-  geom_segment(aes(x=filter, xend=filter, y=0, yend=value)) +
-  xlab("Filter")+ ylab("% samples with at least 1 candidate gene")+ RD_theme
-ggsave('FigureS8A.pdf', non_zero_samples_plot, path=paste(dir,"/analysis/manuscript/figures/", sep=""), width=4.5, height=6)
+#exp_non_zero_samples_plot=ggplot(percent_expoutlier.m, aes(x=filter, y=value, color=variable)) + 
+#  geom_point(size=3, position = position_jitterdodge()) + 
+#  geom_segment(aes(x=filter, xend=filter, y=0, yend=value)) +
+#  xlab("Filter")+ ylab("% samples with at least 1 candidate gene")+ RD_theme
+
+color.function <- colorRampPalette( c( "#CCCCCC" , "#104E8B" ) )
+
+color.ramp <- color.function( 3)
+
+percent_expoutlier.m$filter=fct_rev(percent_expoutlier.m$filter)
+
+exp_non_zero_samples_plot=ggplot(percent_expoutlier.m, aes(x=filter, y=value, fill=variable)) + 
+	geom_bar(stat="identity", position=position_dodge()) + 
+	#geom_segment(aes(x=filter, xend=filter, y=0, yend=value)) +
+	xlab("Filter")+ ylab("% samples with at least 1 candidate gene")+ RD_theme+ scale_fill_manual(values=color.ramp) +coord_flip()
+
+
+
+
+
+ggsave('FigureS8A.pdf', exp_non_zero_samples_plot, path=paste(dir,"/analysis/manuscript/figures_revision/", sep=""), width=4.5, height=6)
 
 
 # Panel B
-spli_non_zero_samples_plot=ggplot(spli_non_zero_samples, aes(x=as.factor(filter), y=value)) + 
-  geom_point(size=3) + 
-  geom_segment(aes(x=filter, xend=filter, y=0, yend=value)) +
-  xlab("Filter")+ ylab("% samples with at least 1 candidate gene")+ RD_theme
-ggsave('FigureS8B.pdf', non_zero_samples_plot,  path=paste(dir,"/analysis/manuscript/figures/", sep=""), width=4, height=6)
+percent_splioutlier.m$filter=fct_rev(percent_splioutlier.m$filter)
+spli_non_zero_samples_plot=ggplot(percent_splioutlier.m, aes(x=filter, y=value, fill=variable)) + 
+	geom_bar(stat="identity", position=position_dodge()) + 
+	#geom_segment(aes(x=filter, xend=filter, y=0, yend=value)) +
+	xlab("Filter")+ ylab("% samples with at least 1 candidate gene")+ RD_theme+ scale_fill_manual(values=color.ramp) +coord_flip()
+spli_non_zero_samples_plot
+
+ggsave('FigureS8B.pdf', spli_non_zero_samples_plot,  path=paste(dir,"/analysis/manuscript/figures_revision/", sep=""), width=4.5, height=6)
 
 
 
 ## combined_plot
-sup_percent_nonzero_plot=ggdraw()+draw_plot(exp_non_zero_samples_plot, 0,0,1/2,1)+
-	draw_plot(spli_non_zero_samples_plot, 1/2,0,1/2,1)+
-	draw_plot_label(c('A', 'B'), c(0,1/2), c(1,1), size = 20)
 
-sup_percent_nonzero_plot
 
-pdf(paste(dir,"/analysis/manuscript/figures/FigureS8.pdf",sep=""), w=11, h=8)
-sup_percent_nonzero_plot
+combined_plot=ggarrange(exp_non_zero_samples_plot, spli_non_zero_samples_plot, ncol=2, nrow=1, common.legend = TRUE, legend="bottom")
+#sup_percent_nonzero_plot=ggdraw()+draw_plot(exp_non_zero_samples_plot, 0,0,1/2,1)+
+#	draw_plot(spli_non_zero_samples_plot, 1/2,0,1/2,1)+
+#	draw_plot_label(c('A', 'B'), c(0,1/2), c(1,1), size = 20)
+#
+#sup_percent_nonzero_plot
+
+pdf("figures_revision/FigureS8.pdf", w=15, h=8)
+combined_plot
 dev.off()
 
 # Save data
-save.image(file = paste(dir,"/data/FigureS8.out.RData",sep=""))
+save(percent_expoutlier.m,percent_splioutlier.m,exp_non_zero_samples_plot,spli_non_zero_samples_plot,combined_plot,file = paste(dir,"/analysis/manuscript/figures_revision/FigureS8.out.RData",sep=""))
 

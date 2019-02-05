@@ -35,13 +35,13 @@ dir = Sys.getenv('RARE_DIS_DIR')
 
 
 # Get ASE data
-ASE = paste(dir,"/data/ase/June13/final_merged/ensembleids.ase.unfiltered.txt", sep="")
+ASE = paste(dir,"/data/ase/revcom_Dec4_2018/final_merged/ensembleids.ase.unfiltered.txt", sep="")
 ASE = read_tsv(ASE)
 
 colnames(ASE)=c("sample_id", colnames(ASE[2:length(colnames(ASE))]))
 
 kctd7="ENSG00000243335"
-KCTD7_ase=ASE %>% filter(sample_id=="RD047")%>% mutate(gene_name=str_extract(Gene, "ENSG[0-9]+")) %>% mutate(is_causal=factor(ifelse(gene_name==kctd7, 1, 0)))
+KCTD7_ase=ASE %>% filter(SampID=="RD047")%>% mutate(gene_name=str_extract(Gene, "ENSG[0-9]+")) %>% mutate(is_causal=factor(ifelse(gene_name==kctd7, 1, 0)))
 KCTD7_ase_plot=ggplot(KCTD7_ase%>%arrange(is_causal), aes(x=TotalReads+1, y=RefRatio, color=is_causal, size=is_causal))+ geom_point(alpha=0.5)+
 	geom_hline(yintercept=0.65, linetype="dashed", color = "black", size=1.5) +
 	geom_hline(yintercept=0.35, linetype="dashed", color = "black", size=1.5) +
@@ -49,7 +49,7 @@ KCTD7_ase_plot=ggplot(KCTD7_ase%>%arrange(is_causal), aes(x=TotalReads+1, y=RefR
 	scale_x_log10(breaks = scales::trans_breaks("log10", function(x) 10^x),labels = scales::trans_format("log10", scales::math_format(10^.x))) +theme(legend.position="")
 
 
-ggsave('FigureS16.pdf', KCTD7_ase_plot,path=paste(dir,"/analysis/manuscript/figures/", sep=""), width=8, height=6)
+ggsave('FigureS16.pdf', KCTD7_ase_plot,path=paste(dir,"/analysis/manuscript/figures_revision/", sep=""), width=8, height=6)
 
 # Save data
-save.image(file = paste(dir,"/data/FigureS16.out.RData",sep=""))
+save.image(file = paste(dir,"/analysis/manuscript/figures_revision/FigureS16.out.RData",sep=""))

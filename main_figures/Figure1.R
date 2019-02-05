@@ -1,7 +1,4 @@
 #!/bin/R
-# LF
-# November 2017
-
 
 # Code to generate figure 1.
 # Figure 1A: pie chart of broad disease categories
@@ -23,7 +20,7 @@ library(dplyr)
 
 #--- Functions
 
-source('/users/lfresard/repos/rare_disease/scripts/manuscript_analyses/Figures_source.R')
+source('Figures_source.R')
 
 
 #--- Main

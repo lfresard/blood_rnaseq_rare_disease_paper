@@ -46,7 +46,7 @@ data_summary_plot=ggplot(genome_data_summary, aes(x=institution, y=variant_info_
 	labs(x="Institution", y="Number of samples")+RD_theme +
 	theme(legend.position=c(0.5,0.8))+ scale_y_continuous(breaks= pretty_breaks())
 
-ggsave('FigureS13A.pdf', data_summary_plot,path=paste(dir,"/analysis/manuscript/figures/", sep=""), width=6, height=6)
+ggsave('FigureS13A.pdf', data_summary_plot,path=paste(dir,"/analysis/manuscript/figures_revision/", sep=""), width=6, height=6)
 
 
 # Panel B
@@ -55,18 +55,18 @@ LOF_variants.plot=ggplot(variant_features.lof, aes(x=indiv_id,y=value,fill=varia
 	scale_fill_manual(values=colors_lof,name="Variant type")+
 	labs(x="Sample", y="Number of variants")+ RD_theme +
 	theme(axis.text.x=element_blank(),legend.position=c(0.05,0.85))+ scale_y_continuous(breaks= pretty_breaks())
-ggsave('FigureS13B.pdf', LOF_variants.plot,path=paste(dir,"/analysis/manuscript/figures/", sep=""), width=6, height=6)
+ggsave('FigureS13B.pdf', LOF_variants.plot,path=paste(dir,"/analysis/manuscript/figures_revision/", sep=""), width=6, height=6)
 
 
 variants_combined_plot=ggdraw()+draw_plot(data_summary_plot, 0,0,1/2,1)+
 	draw_plot(LOF_variants.plot, 1/2,0,1/2,1)+
 	draw_plot_label(c('A', 'B'), c(0,1/2), c(1,1), size = 20)
 
-pdf(paste(dir,"/analysis/manuscript/figures/FigureS13.pdf". sep=""), w=16, h=8)
+pdf(paste0(dir,"/analysis/manuscript/figures_revision/FigureS13.pdf"), w=16, h=8)
 variants_combined_plot
 dev.off()
 
 
 # Save data
-save.image(file = paste(dir,"/data/FigureS13.out.RData",sep=""))
+save.image(file = paste0(dir,"/analysis/manuscript/figures_revision/FigureS13.out.RData"))
 

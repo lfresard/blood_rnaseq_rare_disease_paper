@@ -29,14 +29,15 @@ load(file = paste(dir,"/data/FigureS9.in.RData",sep=""))
 #Libraries
 library(ggplot2)
 library(cowplot)
+library(ggpubr)
 
 # Panel A
-pca_plot=autoplot(pca, scale=0, data=data_pca, colour="batch")   + scale_colour_brewer(palette="Set3") + xlim(-10,10) + ylim(-5, 20) +theme(legend.position="")
-ggsave('FigureS9A.pdf', pca_plot, path=paste(dir,"/analysis/manuscript/figures/", sep=""), width=6, height=6)
+pca_plot=autoplot(pca, scale=0, data=data_pca, colour="batch")   + scale_colour_manual(values=batches_colors) + xlim(-10,10) + ylim(-5, 20) +theme(legend.position="top")
+ggsave('FigureS9A.pdf', pca_plot, path=paste(dir,"/analysis/manuscript/figures_revision/", sep=""), width=6, height=6)
 
 # Panel B
-pca_corrected_plot=autoplot(pca_regressed, scale=0, data=data_pca, colour="batch")   + scale_colour_brewer(palette="Set3")+ xlim(-10,10) + ylim(-5, 20)+theme(legend.position="")
-ggsave('FigureS9B.pdf', pca_plot, path=paste(dir,"/analysis/manuscript/figures/", sep=""), width=6, height=6)
+pca_corrected_plot=autoplot(pca_regressed, scale=0, data=data_pca, colour="batch")   + scale_colour_manual(values=batches_colors)+ xlim(-10,10) + ylim(-5, 20)+theme(legend.position="top")
+ggsave('FigureS9B.pdf', pca_plot, path=paste(dir,"/analysis/manuscript/figures_revision/", sep=""), width=6, height=6)
 
 # Panel C
 cor.heatmap=ggplot(data = cor.pc.cov.m, aes(x=Var2, y=as.factor(Var1), fill=value)) + 
@@ -47,17 +48,18 @@ cor.heatmap=ggplot(data = cor.pc.cov.m, aes(x=Var2, y=as.factor(Var1), fill=valu
   theme_minimal()+ 
   coord_fixed() + labs(x='PCs', y='Covariates')+theme(legend.position="right")+ theme(axis.text.x = element_text(angle = 45, hjust = .8))
 
-ggsave('FigureS9C.pdf', cor.heatmap, path=paste(dir,"/analysis/manuscript/figures/", sep=""), width=6, height=6)
+ggsave('FigureS9C.pdf', cor.heatmap, path=paste(dir,"/analysis/manuscript/figures_revision/", sep=""), width=6, height=6)
 
 
 ## combined_plot
-sup_pca_plot=ggdraw()+draw_plot(pca_plot, 0,1/2,1/2,1/2)+
-	draw_plot(pca_corrected_plot, 1/2,1/2,1/2,1/2)+
+
+pca_plots=ggarrange(pca_plot, pca_corrected_plot,  ncol=2, nrow=1, common.legend = TRUE, legend="bottom")
+
+sup_pca_plot=ggdraw()+draw_plot(pca_plots, 0,1/2,1,1/2)+
 	draw_plot(cor.heatmap, 0,0,1/2,1/2)+
 	draw_plot_label(c('A', 'B', 'C'), c(0,1/2, 0), c(1,1,1/2), size = 15)
 
-
-pdf(paste(dir,"/analysis/manuscript/figures/FigureS9.pdf",sep=""), w=8, h=8)
+pdf(paste(dir,"/analysis/manuscript/figures_revision/FigureS9.pdf",sep=""), w=8, h=8)
 sup_pca_plot
 dev.off()
 

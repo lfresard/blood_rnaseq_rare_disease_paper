@@ -46,8 +46,8 @@ junction_impact_out=ggplot(z2, aes(x=juncbin, y=average, color=affected_status))
 	theme(legend.position="top")+
 	labs(x="Number of junctions", y="Average number of outliers per gene") 
 
-ggsave('FigureS10.pdf', junction_impact_out, path=paste(dir,"/analysis/manuscript/figures/", sep=""), width=6, height=6)
+ggsave('FigureS10.pdf', junction_impact_out, path=paste(dir,"/analysis/manuscript/figures_revision/", sep=""), width=6, height=6)
 
 
 # Save data
-save.image(file = paste(dir,"/data/FigureS10.out.RData",sep=""))
+save.image(file = paste(dir,"/analysis/manuscript/figures_revision/FigureS10.out.RData",sep=""))

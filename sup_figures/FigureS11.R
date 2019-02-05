@@ -54,7 +54,7 @@ zscore_thres_case_control_plot=ggplot(sample_outlier.df.m, aes(x=as.factor(varia
 	theme(legend.position=c(0.8,0.5))+
 	stat_compare_means(aes(group = affected_status), label = "p.signif")
 
-ggsave('FigureS11A.pdf', zscore_thres_case_control_plot, path=paste(dir,"/analysis/manuscript/figures/", sep=""), width=6, height=6)
+ggsave('FigureS11A.pdf', zscore_thres_case_control_plot, path=paste(dir,"/analysis/manuscript/figures_revision/", sep=""), width=6, height=6)
 
 # Panel B
 
@@ -67,7 +67,7 @@ zscore_thres_cohort=ggplot(sample_outlier.df.m, aes(x=as.factor(variable), y=val
 	theme(legend.position=c(0.8,0.9))+
 	stat_compare_means(aes(group = cohort), label = "p.signif")
 
-ggsave('FigureS11B.pdf', zscore_thres_cohort, path=paste(dir,"/analysis/manuscript/figures/", sep=""), width=6, height=6)
+ggsave('FigureS11B.pdf', zscore_thres_cohort, path=paste(dir,"/analysis/manuscript/figures_revision/", sep=""), width=6, height=6)
 
 
 ## combined_plot
@@ -76,11 +76,11 @@ sup_zscore_thres_plot=ggdraw()+draw_plot(zscore_thres_case_control_plot, 0,1/2,1
 	draw_plot_label(c('A', 'B'), c(0,0), c(1,1/2), size = 20)
 
 
-pdf(paste(dir,"/analysis/manuscript/figures/FigureS11.pdf", sep=""), w=8, h=10)
+pdf(paste(dir,"/analysis/manuscript/figures_revision/FigureS11.pdf", sep=""), w=8, h=10)
 sup_zscore_thres_plot
 dev.off()
 
 # Save data
-save.image(file = paste(dir,"/data/FigureS11.out.RData",sep=""))
+save.image(file = paste(dir,"/analysis/manuscript/figures_revision/FigureS11.out.RData",sep=""))
 
 

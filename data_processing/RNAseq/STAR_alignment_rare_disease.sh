@@ -3,14 +3,14 @@
 #STAR_2.4.0j
 set -o nounset -o pipefail
 
-GENOME_FASTA=/mnt/lab_data/montgomery/shared/genomes/hg19/hg19.fa
-GTF_FILE=/mnt/lab_data/montgomery/shared/annotations/gencode.v19.annotation.gtf
+GENOME_FASTA=hg19.fa
+GTF_FILE=gencode.v19.annotation.gtf
 
 # read command line arguments: 
 read1=$1
 read2=$2
 prefix=$3
-INDEX_DIRECTORY=$4 #/srv/scratch/restricted/rare_diseases/data/mapping/STAR_INDEX_OVERHANG_75/ or  /srv/scratch/restricted/rare_diseases/data/mapping/STAR_INDEX_OVERHANG_150/
+INDEX_DIRECTORY=$4 
 OVERHANG=$5
 
 cmd=\

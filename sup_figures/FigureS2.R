@@ -30,7 +30,7 @@ source('Figures_source.R')
 
 
 #  Load input data
-load(file = paste(dir,"/data/FigureS2.in.RData",sep=""))
+load(file = paste0(dir,"/analysis/manuscript/figures_revision/FigureS2.in.RData"))
 
 
 
@@ -63,11 +63,11 @@ junction_coverage_density_plot=ggplot(nb_junction_cov, aes(x=percent_covered))+g
 	labs(x="Proportion of annotated junctions covered per gene", y="Density")+
 	RD_theme
 
-ggsave('FigureS2A.pdf', junction_coverage_density_plot, path=paste(dir,"/analysis/manuscript/figures/", sep=""), width=6, height=6)
+ggsave('FigureS2C.pdf', junction_coverage_density_plot, path=paste(dir,"/analysis/manuscript/figures_revision/", sep=""), width=6, height=6)
 
 # Panel B
 disease_colors=brewer.pal(12,"Paired")
-col_juncplot=c(grey.colors(n=11,start = 0.6, end = 1)[1:3],disease_colors[10])
+col_juncplot=c(grey.colors(n=11,start = 0.6, end = 1)[1:4],disease_colors[10])
 
 disease_junc_plot=ggplot(disease_junc.m, aes(x=variable, y=value, fill=variable))+ 
 	geom_bar(stat="identity")+ 
@@ -77,18 +77,52 @@ disease_junc_plot=ggplot(disease_junc.m, aes(x=variable, y=value, fill=variable)
 	coord_flip()+ 
 	theme(legend.position="")
 disease_junc_plot
-ggsave('FigureS2B.pdf', disease_junc_plot,path=paste(dir,"/analysis/manuscript/figures/", sep=""), width=7, height=6)
+ggsave('FigureS2D.pdf', disease_junc_plot,path=paste(dir,"/analysis/manuscript/figures_revision/", sep=""), width=7, height=6)
+
+
+
+
+
+# Figure 1C
+col_1C_grey=c("#C0BCB6",  disease_colors[10])
+exp_multtissues_genes_plot_greyscale=ggplot(exp_multtissues_genes.m, aes(x=variable, y=value, fill=multi)) +
+	geom_boxplot(outlier.colour="black", notch=TRUE)+
+	RD_theme +
+	labs(x='', y='Value')+
+	scale_fill_manual(values=col_1C_grey,name="Expression", labels=c("Single tissue\nGTEx v7 (N=1)","Multiple tissues\nGTEx v7(N>1)"))+
+	theme(legend.position=c(0.2,0.7))+
+	ylim(-15, 25)+ylab("Z-score")+xlab("Variant category")+
+	scale_x_discrete(labels=c("Synonymous", "Missense", "LoF"))+stat_compare_means(aes(group = multi,label = paste0("p = ", ..p.format..), size=fsize))
+
+exp_multtissues_genes_plot_greyscale
+ggsave('FigureS2A.pdf', exp_multtissues_genes_plot_greyscale, path=paste(dir,"/analysis/manuscript/figures_revision/", sep=""), width=6, height=6)
+
+
+## Figure 1D 
+
+exp_blood_pLI_plot=ggplot(tpms_df_avg, aes(x=bin))+
+	geom_bar( width=0.4,fill= disease_colors[10], position = position_dodge(width = 0.1), color="black")+ 
+	geom_text(stat='count',aes(label=..count..),vjust=1.3, color="white", size=fsize/3)+
+	RD_theme +  scale_x_discrete(labels=c("[0,0.1)" = "[0,0.1)", "[0.1,10)" = "[0.1,10)", "[10,1e+04)" = "[10,1e+05)"))+
+	labs(x= "Average TPM", y="Number of LoF intolerant genes")
+	#coord_flip()
+exp_blood_pLI_plot
+
+ggsave('FigureS2B.pdf', exp_blood_pLI_plot, path=paste(dir,"/analysis/manuscript/figures_revision/", sep=""), width=6, height=6)
 
 
 # Make combined plot
-combined_plots=ggdraw()+draw_plot(junction_coverage_density_plot, 0,0,1/2,1)+
-	draw_plot(disease_junc_plot, 1/2,0,1/2,1)+
-	draw_plot_label(c('A', 'B'), c(0,1/2), c(1,1), size = 15)
+combined_plots=ggdraw()+
+	draw_plot(junction_coverage_density_plot, 0,1/2,1/2,1/2)+
+	draw_plot(disease_junc_plot, 1/2,1/2,1/2,1/2)+
+	draw_plot(exp_multtissues_genes_plot_greyscale, 0,0,1/2,1/2)+
+	draw_plot(exp_blood_pLI_plot, 1/2,0,1/2,1/2)+
+	draw_plot_label(c('A', 'B','C','D'), c(0,1/2,0,1/2), c(1,1,1/2,1/2), size = 15)
 
 #combined_plots
-pdf(paste(dir,"/analysis/manuscript/figures/FigureS2.pdf",sep=""), w=8, h=6)
+pdf(paste(dir,"/analysis/manuscript/figures_revision/FigureS2.pdf",sep=""), w=9, h=9)
 combined_plots
 dev.off()
 
 # Save data
-save.image(file = paste(dir,"/data/FigureS2.out.RData",sep=""))
+save.image(file = paste0(dir,"/analysis/manuscript/figures_revision/FigureS2.out.RData"))
