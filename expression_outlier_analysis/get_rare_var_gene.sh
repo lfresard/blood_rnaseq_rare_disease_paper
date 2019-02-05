@@ -8,7 +8,7 @@ parallel --verbose --xapply -a sample_id.txt \
 
 # 3. Filter VCF for variants with MAF < 0.01, then bedtools closest command to get variants matched to closest expression outlier genes
 parallel --verbose --xapply -a sample_id.txt \
-  'bcftools query -f '\''%CHROM\t%POS\t%REF\t%ALT\t%gnomAD_AF\t%cadd_raw\t%cadd_phred\n'\'' /srv/scratch/restricted/rare_diseases/data/vcfs/for_freeze_exac_filt/{1}_homogenized_gnomad_cadd.vcf.gz | \
+  'bcftools query -f '\''%CHROM\t%POS\t%REF\t%ALT\t%gnomAD_AF\t%cadd_raw\t%cadd_phred\n'\'' <path_to_vcf>/{1}_homogenized_gnomad_cadd.vcf.gz | \
     awk '\''$5<=0.01 {OFS="\t"; print $1, $2-1, $2, $3, $4, $5, $6, $7}'\'' | sort -k1,1 -k2,2n | \
     bedtools window -w 10000 -a outliers/{1}_outliers_sorted.bed -b stdin | \
     awk -F "\t" '\''{OFS="\t"; print $5, $6, $4, $8, $12, $13, $14}'\'' > outliers/{1}_tmp.txt'
