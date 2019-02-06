@@ -14,7 +14,7 @@ This repository contains code to run all components of the Rare disease Blood RN
 
 ## Overview  
 
-### 1 Genetic data processing
+### 1. Genetic data processing
 * 1.1 Variant filtering
 * 1.2 VCF Annotation 
 
