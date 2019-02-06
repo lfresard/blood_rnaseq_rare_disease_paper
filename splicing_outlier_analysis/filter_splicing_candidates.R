@@ -225,7 +225,7 @@ HPO_extended=lapply(cases, process_sample_ids_hpo, HPO_list=HPOs)
 names(HPO_extended)=cases
 
 
- Read in splicing zscores
+#Read in splicing zscores
 zscores_blood =read_tsv('2018_11_13_splicing_zscores_sorted.txt')
 
 # Read in outliers filtered by RV
@@ -247,6 +247,13 @@ RV_outlier_filt_withsgl=RV_outlier %>% filter(!is.na(gnomAD_AF_filt_withsgl)) %>
 RV_outlier_filt_withsgl =RV_outlier_filt_withsgl %>% mutate(gene_name=str_extract(gene_name, "ENSG[0-9]+"))
 
 
+# generate results with RV
+potential_can=lapply(cases_withGen,get_hpo_comp_window,RV_outlier_filt_withsgl_annot,metadata, gene_to_pheno,pheno_annot, 10,HPO_extended)
+names(potential_can)=cases_withGen
+
+candidates_zscore_hpo_RV=do.call("rbind", potential_can)
+candidates_zscore_hpo_RV=candidates_zscore_hpo_RV %>% arrange(sample)%>% left_join(metadata, by=c("sample"="sample_id")) %>% select( symbol,overlap_hpo,    max_z ,sample, indv_id, institution)
+
 
 # Get list of genes at each filter
 res_splicing_genes=mclapply(cases_withGen,get_genes_filters_splicing, mc.cores=10)
@@ -256,11 +263,11 @@ indiv_id=indiv_id %>% left_join(metadata, by=c("STAN_ID"="sample_id")) %>% selec
 
 
 
-# write down all expression results in serated files for each sample
-for (i in c(1:length(cases_withGen))){
+# write down all splicing results in serated files for each sample
+for (i in c(1:length(to_print))){
 	print(i)
-	for (j in c(2:length(names(res_splicing_genes[[i]])))) {
-		write.table(res_splicing_genes[[i]][[j]], file=paste0(indiv_id[i,2],"_",names(res_splicing_genes[[i]][j]),"_splicing_filtered_results.tsv"), sep="\t", quote=F, row.names=F)
+	for (j in c(2:length(names(res_splicing_genes[[to_print[i]]])))) {
+		write.table(res_splicing_genes[[to_print[i]]][[j]], file=paste0(dir,indiv_id[i,2],"_",names(res_splicing_genes[[to_print[i]]][j]),"_splicing_filtered_results.tsv"), sep="\t", quote=F, row.names=F)
 	}
 }
 
