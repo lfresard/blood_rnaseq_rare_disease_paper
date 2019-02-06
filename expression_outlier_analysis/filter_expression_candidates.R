@@ -228,7 +228,7 @@ names(results_exp_out)=cases_withGen
 indiv_id=data.frame(STAN_ID=cases_withGen)
 indiv_id=indiv_id %>% left_join(metadata, by=c("STAN_ID"="sample_id"))  %>% select(STAN_ID,institution_id)
 
-# write down all splicing results in serated files for each sample, each sheet being one filter --> does not work
+# write down all splicing results in serated files for each sample
 for (i in c(1:length(cases_withGen))){
 	print(i)
 	for (j in c(2:length(names(results_exp_out[[i]])))) {
