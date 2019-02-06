@@ -1,8 +1,8 @@
 # Rare disease Blood RNA-seq pipeline
-**Contact:** Laure Fresard (lfresard@stanford.edu), Craig Smail (csmail@stanford.edu), Nicole Ferraro (nferraro@stanford.edu), Nikki Teran (nteran@stanford.edu), Xin Li (xli6@stanford.edu)
 
+This repository contains code to run all components of the Rare disease Blood RNA-seq pipeline in order to highlight candidate genes. 
 
-This repository contains code to run all components of the Rare disease Blood RNA-seq pipeline in order to highlight candidate genes. The following software and data are necessary:
+The following software and data are necessary:
 
 * STAR 2.4.0j https://github.com/alexdobin/STAR  
 * Python 2.7. https://www.python.org/  
@@ -35,7 +35,7 @@ This repository contains code to run all components of the Rare disease Blood RN
 
 #### 5. Highlight candidate genes
 
-# 1 Genetic data processing
+# 1. Genetic data processing
 
 The variant QC generally follows the ExAC guideline as in [ref1](https://doi.org/10.1016/j.ajhg.2018.05.002) and [ref2](https://doi.org/10.1038/nature19057).
 
