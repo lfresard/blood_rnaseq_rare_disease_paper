@@ -249,6 +249,15 @@ To get started you will need
 
 
 ### 2.6.2 Generating junction ratios
+Parameters:
+* `metadatafile.tsv`: file containing information regarding the samples to analyze.
+* `tissue`: What tissue (from the metadata file) to analyze (i.e Blood)
+* `junc_dir`: Directory containing filtered jcuntions obtained after 2.3.2
+* `output_dir`: Directory in which output will be written
+* `freeze_sample_only`: TRUE/FALSE statement wether to include only samples for which in_freeze column set to yes in metadata file.
+* `DGN_samples`: TRUE/FALSE statement wether to include or not DGN samples in the analysis
+* `PIVUS_samples`:  TRUE/FALSE statement wether to include or not PIVUS samples in the analysis
+
 Script: [splicing_outlier_analysis.sh](./splicing_outlier_analysis/splicing_outlier_analysis.sh)
 
 ```
@@ -290,20 +299,20 @@ This script takes the outlier files from [2.5.2](###2.5.2-expression-outlier-ana
 This step is filtering expression outlier data according to different criteria.
 Candidate genes at each filtering step are printed in output
 Filters:
-* EXP_OUTLIER: under-expression outlier (Zscore<=-2)
-* EXP_OUTLIER_PLI: under-expression outliers in genes with pLI score >=0.9
-* EXP_OUTLIER_HPO: under-expression outliers in genes linked to the phenotype (HPO terms)
-* EXP_OUTLIER_RV: under-expression outliers in genes with a rare variant within 10kb
-* EXP_OUTLIER_RV_CADD: under-expression outliers in genes with a deleterious rare variant within 10kb (CADD score >=10)
-* EXP_OUTLIER_RV_CADD_HPO:  under-expression outliers in genes linked to the phenotype (HPO terms) with a deleterious rare variant within 10kb (CADD score >=10).
+* `EXP_OUTLIER`: under-expression outlier (Zscore<=-2)
+* `EXP_OUTLIER_PLI`: under-expression outliers in genes with pLI score >=0.9
+* `EXP_OUTLIER_HPO`: under-expression outliers in genes linked to the phenotype (HPO terms)
+* `EXP_OUTLIER_RV`: under-expression outliers in genes with a rare variant within 10kb
+* `EXP_OUTLIER_RV_CADD`: under-expression outliers in genes with a deleterious rare variant within 10kb (CADD score >=10)
+* `EXP_OUTLIER_RV_CADD_HPO`:  under-expression outliers in genes linked to the phenotype (HPO terms) with a deleterious rare variant within 10kb (CADD score >=10).
 
-Script: `filter_expression_candidates.R`
+Script: [filter_expression_candidates.R](./expression_outlier_analysis/filter_expression_candidates.R)
 
 ## 4.2 Splicing outlier filtering
 ### 4.2.1 Cross splicing Z-score results with RV information
 
 * distance=20bp
-
+Script: [splicing_outlier_genes_with_RV_window.sh](./splicing_outlier_analysis/splicing_outlier_genes_with_RV_window.sh]
 ```
 # sort splicing outlier file
 sort -k1,1 -k2,2n  splicing_outlier_file.txt>  splicing_outlier_file_sorted.txt
@@ -318,14 +327,14 @@ Candidate genes at each filtering step are printed in output
 
 Filters:
 
-* SPLI_OUTLIER: Splicing outlier gene (at least one junction with |Z-score|>=2)
-* SPLI_OUTLIER_PLI: Splicing outlier in genes with pLI score >=0.9
-* SPLI_OUTLIER_HPO: Splicing outlier in genes linked to the phenotype (HPO terms)
-* SPLI_OUTLIER_RV: Splicing outlier in genes with a rare variant within 20bp of the outlier junction
-* SPLI_OUTLIER_RV_CADD: Splicing outlier in genes with a deleterious rare variant within 20bp of the outlier junction(CADD score >=10)
-* SPLI_OUTLIER_RV_CADD_HPO:  Splicing outlier in genes linked to the phenotype (HPO terms) with a deleterious rare variant within 20bp of the outlier junction(CADD score >=10)
+* `SPLI_OUTLIER`: Splicing outlier gene (at least one junction with |Z-score|>=2)
+* `SPLI_OUTLIER_PLI`: Splicing outlier in genes with pLI score >=0.9
+* `SPLI_OUTLIER_HPO`: Splicing outlier in genes linked to the phenotype (HPO terms)
+* `SPLI_OUTLIER_RV`: Splicing outlier in genes with a rare variant within 20bp of the outlier junction
+* `SPLI_OUTLIER_RV_CADD`: Splicing outlier in genes with a deleterious rare variant within 20bp of the outlier junction(CADD score >=10)
+* `SPLI_OUTLIER_RV_CADD_HPO`:  Splicing outlier in genes linked to the phenotype (HPO terms) with a deleterious rare variant within 20bp of the outlier junction(CADD score >=10)
 
-Script: `filter_expression_candidates.R`
+Script: [filter_expression_candidates.R](./splicing_outlier_analysis/filter_expression_candidates.R)
 
 
 # 5. Highlight candidate genes
@@ -335,7 +344,7 @@ This most stringent filter consist in filtering the expression/splicing outliers
 * with deleterious rare variants nearby
 * that are phenotypically relevant
 
-Those results correspond to files with prefix EXP_OUTLIER_RV_CADD_HPO and SPLI_OUTLIER_RV_CADD_HPO
+Those results correspond to files with prefix `EXP_OUTLIER_RV_CADD_HPO` and `SPLI_OUTLIER_RV_CADD_HPO
 
 If no candidate is prioritized using those lists, the user can then look at other filter steps.
 
