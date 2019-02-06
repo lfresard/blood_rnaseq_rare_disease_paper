@@ -180,7 +180,7 @@ ls *merge_R1.trimmed.fastq.gz | sed 's/_/\t/'| awk '{print $1}' |awk -v fastq_di
 ### 2.3.1 Filter bam files for reads mapping uniquely and remove PCR duplicates
 
 Parameters:
-`FILTER_script`:[Filters_bam_uniq_mq30_duplicates_rare_disease_transcriptome.sh] (./data_processing/RNAseq/Filters_bam_uniq_mq30_duplicates_rare_disease_transcriptome.sh) #include path to script
+`FILTER_script`: [Filters_bam_uniq_mq30_duplicates_rare_disease_transcriptome.sh](./data_processing/RNAseq/Filters_bam_uniq_mq30_duplicates_rare_disease_transcriptome.sh) #include path to script
 
 ```
 cd $BAM_DIR
