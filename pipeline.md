@@ -4,13 +4,16 @@ This repository contains code to run all components of the Rare disease Blood RN
 
 The following software and data are necessary:
 
+* cutadapt 1.11 https://pypi.python.org/pypi/cutadapt  
 * STAR 2.4.0j https://github.com/alexdobin/STAR  
 * Python 2.7. https://www.python.org/  
-* cutadapt 1.11 https://pypi.python.org/pypi/cutadapt  
 * Picard tools https://broadinstitute.github.io/picard/ and https://github.com/broadinstitute/picard  
 * Samtools http://www.htslib.org/   
 * RSEM v1.2.21 https://github.com/deweylab/RSEM/   
-* [EXAC](ftp://ftp.broadinstitute.org/pub/ExAC_release/release0.3.1/functional_gene_constraint/fordist_cleaned_exac_r03_march16_z_pli_rec_null_data.txt) data 
+* [EXAC](http://exac.broadinstitute.org/downloads) data 
+
+Many scripts rely on the existence of a metadata file containing information on samples to analyze.
+
 
 ## Overview  
 
