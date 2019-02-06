@@ -12,7 +12,7 @@ The following software and data are necessary:
 * RSEM v1.2.21 https://github.com/deweylab/RSEM/   
 * [EXAC](http://exac.broadinstitute.org/downloads) data 
 
-Many scripts rely on the existence of a metadata file containing information on samples to analyze.
+Many scripts rely on the existence of a [metadata](./metadata.md) file containing information on samples to analyze.
 
 
 ## Overview  
