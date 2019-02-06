@@ -394,7 +394,7 @@ This step is filtering splicing outlier data according to different criteria.
 Candidate genes at each filtering step are printed in output
 
 
-Script: [filter_expression_candidates.R](./splicing_outlier_analysis/filter_expression_candidates.R)
+Script: [filter_splicing_candidates.R](./splicing_outlier_analysis/filter_splicing_candidates.R)
 
 
 Filters:
