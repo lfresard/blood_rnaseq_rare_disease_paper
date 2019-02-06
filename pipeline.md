@@ -96,7 +96,7 @@ bash filter_allvcf.sh | parallel --jobs 20
 
 
 ## 1.2 VCF Annotation 
-Annotation with gnomAD allele frequency (https://gnomad.broadinstitute.org/downloads) and CADD score (https://cadd.gs.washington.edu/download)
+Annotation with [gnomAD] (https://gnomad.broadinstitute.org/downloads) allele frequency  and [CADD score] (https://cadd.gs.washington.edu/download)
 
 ### 1.2.1 create a vcf file containg both SNPs and Indels CADD annotation
 
@@ -106,6 +106,7 @@ vcf-sort -c CADD_SNP.INDELS.vcf.gz | bgzip > CADD_SNP.INDELS.sorted.vcf.gz
 tabix CADD_SNP.INDELS.sorted.vcf.gz
 ```
 ### 1.2.2 Transform vcf files in homogenized format for further analysis
+Script: [homogenize_vcf_single_sample.sh](./data_processing/genotypes/annotation/homogenize_vcf_single_sample.sh)
 ```
 find $filtered_variant_dir/*.filtered.vcf.gz  | parallel  "basename {} .filtered.vcf.gz" | parallel  -j 8 "bash homogenize_vcf_single_sample.sh $filtered_variant_dir/{}.filtered.vcf.gz {} $homogenized_vcf_dir" > log_file.txt 2>&1 &
 ```
