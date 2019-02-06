@@ -222,19 +222,11 @@ def process_junctions(annot,junctions_dict,dict_ref_junctions,direction, rundir,
 
 ## This function is filtering output for unique lines after both donors and acceptors were tested
 def filter_outfile(outPrefix, rundir):
-	inFile = "%s/%s_junc_outliers.txt"%(rundir,outPrefix)
-	outFile="%s/%s_junc_outliers_filtered.txt"%(rundir,outPrefix)
 	inFile_ratio="%s/%s_junc_ratios.txt"%(rundir,outPrefix)
 	outFile_ratio="%s/%s_junc_ratios_filtered.txt"%(rundir,outPrefix)
 	lines_seen = set()
 	lines_seen_ratio=set() # holds lines already seen
-	outfile = open(outFile, "w")
 	outfile_ratio=open(outFile_ratio, 'w')
-	for line in open(inFile, "r"):
-		if line not in lines_seen: # not a duplicate
-			outfile.write(line)
-			lines_seen.add(line)
-	outfile.close()
 	for line in open(inFile_ratio, "r"):
 		if line not in lines_seen_ratio: # not a duplicate
 			outfile.write(line)
