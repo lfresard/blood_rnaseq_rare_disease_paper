@@ -248,7 +248,7 @@ This set of scripts is generating junction ratios and caluclating splicing Z-sco
 
 ### 2.6.1 Prerequisites
 To get started you will need
-* Metadata file
+* [Metadata](./metadata.md) file
 * Tissue to perform the analysis on (i.e. Blood)
 * Junction files generated during STAR alignment (here they have been filtered for junctions with at least 10 reads uniquely spanning)
 
