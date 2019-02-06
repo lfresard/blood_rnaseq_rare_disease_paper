@@ -283,9 +283,8 @@ http://compbio.charite.de/jenkins/job/hpo.annotations.monthly/lastSuccessfulBuil
 
 ## 4.1 Expression outlier filtering
 ### 4.1.1 Combine expression outlier and variant information
-[create an anchor](#anchors-in-markdown)
 Script [get_rare_var_gene.sh](./expression_outlier_analysis/get_rare_var_gene.sh)
-This script takes the outlier files from [2.5.2](###2.5.2-Expression-Outlier-analysis) and maps rare variants (MAF < 0.01) in genes or +/- 10kb around genes. This is done on a per-sample level. The output is a file containing gene z-score, position of rare variant, allele frequency, and cadd for each sample-gene pair. The filename is "outliers_rare_var_combined_10kb.txt".
+This script takes the outlier files from [2.5.2](###2.5.2-expression-outlier-analysis) and maps rare variants (MAF < 0.01) in genes or +/- 10kb around genes. This is done on a per-sample level. The output is a file containing gene z-score, position of rare variant, allele frequency, and cadd for each sample-gene pair. The filename is "outliers_rare_var_combined_10kb.txt".
 
 ### 4.1.2 Filter expression outliers using genetic and phenotype information
 This step is filtering expression outlier data according to different criteria.
