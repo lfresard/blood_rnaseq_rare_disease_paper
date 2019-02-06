@@ -294,7 +294,7 @@ This set of scripts is generating junction ratios and calculating splicing Z-sco
 To get started you will need
 * [Metadata](./metadata.md) file
 * Tissue to perform the analysis on (i.e. Blood)
-* Junction files generated during STAR alignment (here they have been filtered for junctions with at least 10 reads uniquely spanning)
+* Junction files generated during STAR alignment (filtered for junctions with at least 10 reads uniquely spanning)
 
 
 ### 2.6.2 Generating junction ratios
@@ -340,7 +340,7 @@ Download latest version of Human Phenotype Ontology (https://hpo.jax.org)
 
 ## 3.2 Parse HPO database
 * Download latest version of [HPO obo] (https://hpo.jax.org/app/download/ontology)
-* Parse database to get parent and child terms [parse_hpoterms.py](./HPO/parse_hpoterms.py0
+* Parse database to get parent and child terms [parse_hpoterms.py](./HPO/parse_hpoterms.py)
 
 # 4. Combine information to highlight candidate genes
 
@@ -348,7 +348,7 @@ Download latest version of Human Phenotype Ontology (https://hpo.jax.org)
 ### 4.1.1 Combine expression outlier and variant information
 Script [get_rare_var_gene.sh](./expression_outlier_analysis/get_rare_var_gene.sh)
 
-This script takes the outlier files from [2.5.2](###2.5.2-expression-outlier-analysis) and maps rare variants (MAF < 0.01) in genes or +/- 10kb around genes. This is done on a per-sample level. The output is a file containing gene z-score, position of rare variant, allele frequency, and cadd for each sample-gene pair. The filename is "outliers_rare_var_combined_10kb.txt".
+This script takes the outlier files from [2.5.2](#2.5.2-expression-outlier-analysis) and maps rare variants (MAF < 0.01) in genes or +/- 10kb around genes. This is done on a per-sample level. The output is a file containing gene z-score, position of rare variant, allele frequency, and cadd for each sample-gene pair. The filename is "outliers_rare_var_combined_10kb.txt".
 
 ### 4.1.2 Filter expression outliers using genetic and phenotype information
 This step is filtering expression outlier data according to different criteria.
