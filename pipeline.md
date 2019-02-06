@@ -10,7 +10,7 @@ The following software and data are necessary:
 * Picard tools https://broadinstitute.github.io/picard/ and https://github.com/broadinstitute/picard  
 * Samtools http://www.htslib.org/   
 * RSEM v1.2.21 https://github.com/deweylab/RSEM/   
-* EXAC data ftp://ftp.broadinstitute.org/pub/ExAC_release/release0.3.1/functional_gene_constraint/fordist_cleaned_exac_r03_march16_z_pli_rec_null_data.txt
+* [EXAC](ftp://ftp.broadinstitute.org/pub/ExAC_release/release0.3.1/functional_gene_constraint/fordist_cleaned_exac_r03_march16_z_pli_rec_null_data.txt) data 
 
 ## Overview  
 
@@ -89,6 +89,7 @@ bash generate_variantfilters.sh | parallel --jobs 20
 ```
 
 * Filter vcf files
+
 Script:[filter_allvcf.sh](./data_processing/genotypes/variant_filter/filter_allvcf.sh)
 ```
 bash filter_allvcf.sh | parallel --jobs 20
