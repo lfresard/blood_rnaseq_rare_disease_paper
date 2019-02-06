@@ -303,6 +303,20 @@ This script takes the outlier files from [2.5.2](###2.5.2-expression-outlier-ana
 ### 4.1.2 Filter expression outliers using genetic and phenotype information
 This step is filtering expression outlier data according to different criteria.
 Candidate genes at each filtering step are printed in output
+
+
+
+Parameters:
+* `metadata file` : [Metadata](./metadata.md) file containing smaple information
+* `exac file`: containing pLI score across genes
+* `HPO gene to phenotype file`
+* `HPO phenotype to gene file`
+* `HPO parent - child - alternative ID`: obtained with [parse_hpoterms.py](./HPO/parse_hpoterms.py)
+* `outliers_rare_var_combined_10kb.txt`: expression Z-score results with RV information obtained in 4.1.1
+
+Script: [filter_expression_candidates.R](./expression_outlier_analysis/filter_expression_candidates.R)
+
+
 Filters:
 * `EXP_OUTLIER`: under-expression outlier (Zscore<=-2)
 * `EXP_OUTLIER_PLI`: under-expression outliers in genes with pLI score >=0.9
@@ -311,7 +325,6 @@ Filters:
 * `EXP_OUTLIER_RV_CADD`: under-expression outliers in genes with a deleterious rare variant within 10kb (CADD score >=10)
 * `EXP_OUTLIER_RV_CADD_HPO`:  under-expression outliers in genes linked to the phenotype (HPO terms) with a deleterious rare variant within 10kb (CADD score >=10).
 
-Script: [filter_expression_candidates.R](./expression_outlier_analysis/filter_expression_candidates.R)
 
 ## 4.2 Splicing outlier filtering
 ### 4.2.1 Cross splicing Z-score results with RV information
@@ -330,10 +343,6 @@ bash splicing_outlier_genes_with_RV_window.sh  splicing_outlier_file_sorted.txt 
 This step is filtering splicing outlier data according to different criteria.
 Candidate genes at each filtering step are printed in output
 
-
-Parameters:
-* `metadata file` : [Metadata](./metadata.md) file containing smaple information
-* `exac file`: containing pLI score across genes
 
 Script: [filter_expression_candidates.R](./splicing_outlier_analysis/filter_expression_candidates.R)
 
