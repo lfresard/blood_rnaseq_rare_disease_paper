@@ -198,7 +198,7 @@ Parameters:
 * `bam_dir`: Directory for BAM file output
 * `STAR_script`:[STAR_alignment_rare_disease.sh] (./data_processing/RNAseq/STAR_alignment_rare_disease.sh) #include path to script
 * `Reference genome`: [hg19.fa](http://hgdownload.cse.ucsc.edu/downloads.html#human)
-* `Gene annotation File`: [Gencode v19 GTF] (https://www.encodeproject.org/files/gencode.v19.annotation/)
+* `Gene annotation File`: [Gencode v19 GTF](https://www.encodeproject.org/files/gencode.v19.annotation/)
 
 
 
