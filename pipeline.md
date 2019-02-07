@@ -386,7 +386,7 @@ Filters:
 
 * distance=20bp
 
-Script: [splicing_outlier_genes_with_RV_window.sh](./splicing_outlier_analysis/splicing_outlier_genes_with_RV_window.sh]
+Script:[splicing_outlier_genes_with_RV_window.sh](./splicing_outlier_analysis/splicing_outlier_genes_with_RV_window.sh]
 
 Input: splicing outlier and sample rare variant files
 
