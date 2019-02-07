@@ -1,16 +1,21 @@
 # Rare disease Blood RNA-seq pipeline
 
-This repository contains code to run all components of the Rare disease Blood RNA-seq pipeline in order to highlight candidate genes. 
+This page contains the code to run all components of the Rare disease Blood RNA-seq pipeline in order to highlight candidate genes from genetic data, tarnscriptome and phenotype information.
 
 The following software and data are necessary:
 
-* cutadapt 1.11 https://pypi.python.org/pypi/cutadapt  
-* STAR 2.4.0j https://github.com/alexdobin/STAR  
-* Python 2.7. https://www.python.org/  
-* Picard tools https://broadinstitute.github.io/picard/ and https://github.com/broadinstitute/picard  
-* Samtools http://www.htslib.org/   
-* RSEM v1.2.21 https://github.com/deweylab/RSEM/   
-* [EXAC](http://exac.broadinstitute.org/downloads) data 
+* [cutadapt](https://pypi.python.org/pypi/cutadapt) 1.11   
+* [STAR](https://github.com/alexdobin/STAR) 2.4.0j   
+* [Picard](https://broadinstitute.github.io/picard/) tools 
+* [Samtools](http://www.htslib.org/) 0.1.19-96b5f2294a
+* [BCFtools](https://github.com/samtools/bcftools) 1.8 
+* [RSEM](https://github.com/deweylab/RSEM/) v1.2.21 
+* [Vcfanno](https://github.com/brentp/vcfanno) 0.2.7 
+* [ASEReadCounter](https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_rnaseq_ASEReadCounter.php) 3.8-0-ge9d806836 
+* [Python](https://www.python.org/) 2.7 
+* [R](https://www.r-project.org/) 3.3.1
+* [EXAC](http://exac.broadinstitute.org/downloads) data
+
 
 Many scripts rely on the existence of a [metadata](./metadata.md) file containing information on samples to analyze.
 
