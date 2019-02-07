@@ -13,7 +13,7 @@ This is the format of the file created by [splicing_outlier_genes_with_RV_window
 * `start_var`: start position of the variant
 * `end_var`: end position of the variant
 * `ref_var`: reference allele of the variant
-* `alt_var`: alternate allele of teh variant
+* `alt_var`: alternate allele of the variant
 * `gnomAD_AF`: gnomAD allele frequency
 * `raw_cadd`: CADD score (raw)
 * `phred_cadd`: CADD score (phred)
