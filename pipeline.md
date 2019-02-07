@@ -107,7 +107,7 @@ Input: VCF files and list of sites passing or not filters
 
 Output: Filtered VCF
 
-Script:[filter_allvcf.sh](./data_processing/genotypes/variant_filter/filter_allvcf.sh)
+Script: [filter_allvcf.sh](./data_processing/genotypes/variant_filter/filter_allvcf.sh)
 
 ```
 bash filter_allvcf.sh | parallel --jobs 20
