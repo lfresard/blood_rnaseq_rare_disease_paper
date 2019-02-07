@@ -385,6 +385,7 @@ Filters:
 ### 4.2.1 Cross splicing Z-score results with rare variant information
 
 * distance=20bp
+
 Script: [splicing_outlier_genes_with_RV_window.sh](./splicing_outlier_analysis/splicing_outlier_genes_with_RV_window.sh]
 
 Input: splicing outlier and sample rare variant files
