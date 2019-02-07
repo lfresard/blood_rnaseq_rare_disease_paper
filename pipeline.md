@@ -2,7 +2,7 @@
 
 This page contains the code to run all components of the Rare disease Blood RNA-seq pipeline in order to highlight candidate genes from genetic data, tarnscriptome and phenotype information.
 
-The following software and data are necessary:
+The following software and data are necessary (versions are the ones that were used in the paper):
 
 * [cutadapt](https://pypi.python.org/pypi/cutadapt) 1.11   
 * [STAR](https://github.com/alexdobin/STAR) 2.4.0j   
