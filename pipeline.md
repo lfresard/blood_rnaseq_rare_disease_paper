@@ -382,10 +382,15 @@ Filters:
 
 
 ## 4.2 Splicing outlier filtering
-### 4.2.1 Cross splicing Z-score results with RV information
+### 4.2.1 Cross splicing Z-score results with rare variant information
 
 * distance=20bp
 Script: [splicing_outlier_genes_with_RV_window.sh](./splicing_outlier_analysis/splicing_outlier_genes_with_RV_window.sh]
+
+Input: splicing outlier and sample rare variant files
+
+Output: file containing rare variant information around splicing junctions
+
 ```
 # sort splicing outlier file
 sort -k1,1 -k2,2n  splicing_outlier_file.txt>  splicing_outlier_file_sorted.txt
@@ -395,8 +400,8 @@ bash splicing_outlier_genes_with_RV_window.sh  splicing_outlier_file_sorted.txt 
 ```
 
 ### 4.2.2 Filter splicing outliers using genetic and phenotype information
-This step is filtering splicing outlier data according to different criteria.
-Candidate genes at each filtering step are printed in output
+Splicing outlier data is filtered accroding to criteria presented in the manuscript.
+Candidate genes at each filtering step are printed in a seperate text file.
 
 
 Script: [filter_splicing_candidates.R](./splicing_outlier_analysis/filter_splicing_candidates.R)
@@ -411,10 +416,13 @@ Filters:
 * `SPLI_OUTLIER_RV_CADD`: Splicing outlier in genes with a deleterious rare variant within 20bp of the outlier junction(CADD score >=10)
 * `SPLI_OUTLIER_RV_CADD_HPO`:  Splicing outlier in genes linked to the phenotype (HPO terms) with a deleterious rare variant within 20bp of the outlier junction(CADD score >=10)
 
+We recommend using the most stringent filter for final results (`SPLI_OUTLIER_RV_CADD_HPO`).
+
 
 # 5. Highlight candidate genes
-The last step consists in combining candidate genes obtained for splicing and expression using * our most stringent filters*.
-This most stringent filter consist in filtering the expression/splicing outliers for genes:
+The last step consists in combining candidate genes obtained for splicing and expression using **our most stringent filter**.
+
+The most stringent filter consist in filtering the expression/splicing outliers for genes:
 * with deleterious rare variants nearby
 * that are phenotypically relevant
 
