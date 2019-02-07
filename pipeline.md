@@ -331,6 +331,8 @@ This step impute missing splicing ratios and get Z-scores for splicing data.
 
 Input: <prefix>_junc_ratios_filtered.txt from 2.6.2
 	
+Output: [file](./splicing_outlier_file_format.md) with zscores for each evaluated junction.
+	
 Script: [splicing_ratio_to_zscores.R](./splicing_outlier_analysis/splicing_ratio_to_zscores.R)
 
 ```
@@ -362,7 +364,7 @@ Candidate genes at each filtering step are printed in output
 
 
 Parameters:
-* `metadata file` : [Metadata](./metadata.md) file containing smaple information
+* `metadata file` : [Metadata](./metadata.md) file containing sample information
 * `exac file`: containing pLI score across genes
 * `HPO gene to phenotype file`
 * `HPO phenotype to gene file`
@@ -388,9 +390,9 @@ Filters:
 
 Script:[splicing_outlier_genes_with_RV_window.sh](./splicing_outlier_analysis/splicing_outlier_genes_with_RV_window.sh)
 
-Input: splicing outlier and sample rare variant files
+Input: splicing outlier [file](./splicing_outlier_file_format.md) and sample rare variant files
 
-Output: file containing rare variant information around splicing junctions
+Output: [file](./splicing_outlier_RV_format.md) containing rare variant information around splicing junctions
 
 ```
 # sort splicing outlier file
