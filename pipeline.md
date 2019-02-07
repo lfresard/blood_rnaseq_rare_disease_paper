@@ -413,8 +413,7 @@ Filters:
 
 
 # 5. Highlight candidate genes
-This last step consists in scrolling through candidates obtained both using expression outlier and splicing outlier information 
-We recommend to use the most stringent filters as they show the best results at highlighting the causal gene in our analysis.
+The last step consists in combining candidate genes obtained for splicing and expression using * our most stringent filters*.
 This most stringent filter consist in filtering the expression/splicing outliers for genes:
 * with deleterious rare variants nearby
 * that are phenotypically relevant
