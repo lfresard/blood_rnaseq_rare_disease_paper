@@ -114,7 +114,7 @@ bash filter_allvcf.sh | parallel --jobs 20
 ```
 
 ## 1.2 VCF Annotation 
-Annotation with [gnomAD] (https://gnomad.broadinstitute.org/downloads) allele frequency  and [CADD score] (https://cadd.gs.washington.edu/download)
+Annotation with [gnomAD](https://gnomad.broadinstitute.org/downloads) allele frequency  and [CADD score](https://cadd.gs.washington.edu/download)
 
 ### 1.2.1 Transform vcf files in merged format for further analysis
 
