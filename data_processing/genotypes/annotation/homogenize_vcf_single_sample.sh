@@ -1,7 +1,4 @@
 #!/bin/bash
-# June 2018
-# Laure Fresard
-# Transform vcfs filtered by Xin into homogeneous format for further analysis
 
 date
 
