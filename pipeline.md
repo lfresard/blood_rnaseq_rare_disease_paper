@@ -1,6 +1,6 @@
 # Rare disease Blood RNA-seq pipeline
 
-This page contains the code to run all components of the Rare disease Blood RNA-seq pipeline in order to highlight candidate genes from genetic data, tarnscriptome and phenotype information.
+This page contains the code to run the **Rare Disease Blood RNA-seq pipeline** in order to highlight candidate genes from genetic data, tarnscriptome and phenotype information.
 
 The following software and data are necessary (versions are the ones that were used in the paper):
 
@@ -280,7 +280,7 @@ Steps:
 
 Input: Corrected counts
 
-Output: Gene Sample Zscores file
+Output: Gene Sample Zscores [file](./expression_outlier_file_format.md)
 
 Script: [exp_outlier_count.r](./expression_outlier_analysis/exp_outlier_count.r)
 * Read in corrected gene expression count data (corrected_counts/gene/blood/[gene_count].txt) and sample metadata ([metadata_file].txt)
@@ -327,7 +327,7 @@ bash splicing_outlier_analysis.sh \
 	TRUE > log_file.txt 2>&1 & # wether or not to include PIVUS cohort in the analysis
 ```
 ### 2.6.3 Generating Z-scores from the ratios
-This step impute missing splicing ratios and get Z-scores for splicing data.
+During this step, missing splicing ratios are imputed, data is corrected for batch effects and Zscores are calulated.
 
 Input: <prefix>_junc_ratios_filtered.txt from 2.6.2
 	
@@ -344,6 +344,7 @@ Download latest version of Human Phenotype Ontology (https://hpo.jax.org)
 
 ## 3.1 Get phenotype to gene link from Human Phenotype Ontology:
 [phenotype_to_gene.txt](http://compbio.charite.de/jenkins/job/hpo.annotations.monthly/lastSuccessfulBuild/artifact/annotation/ALL_SOURCES_ALL_FREQUENCIES_phenotype_to_genes.txt)
+[gene_to_pehnotype.txt](http://compbio.charite.de/jenkins/job/hpo.annotations.monthly/lastSuccessfulBuild/artifact/annotation/ALL_SOURCES_ALL_FREQUENCIES_genes_to_phenotype.txt)
 
 ## 3.2 Parse HPO database
 * Download latest version of [HPO obo] (https://hpo.jax.org/app/download/ontology)
@@ -355,7 +356,7 @@ Download latest version of Human Phenotype Ontology (https://hpo.jax.org)
 ### 4.1.1 Combine expression outlier and variant information
 Script [get_rare_var_gene.sh](./expression_outlier_analysis/get_rare_var_gene.sh)
 
-This script takes the outlier [file](./expression_outlier_file_format.md) from [2.5.2](#2.5.2-expression-outlier-analysis) and maps rare variants (MAF < 0.01) in genes or +/- 10kb around genes. This is done on a per-sample level. The output is a [file](./expression_outlier_RV_format.md) containing gene z-score, position of rare variant, allele frequency, and cadd for each sample-gene pair. The filename is "outliers_rare_var_combined_10kb.txt".
+This script takes the expression outlier [file](./expression_outlier_file_format.md) from 2.5.2 and maps rare variants (MAF < 0.01) in genes or +/- 10kb around genes. This is done on a per-sample level. The output is a [file](./expression_outlier_RV_format.md) containing gene z-score, position of rare variant, allele frequency, and cadd for each sample-gene pair. The filename is "outliers_rare_var_combined_10kb.txt".
 
 ### 4.1.2 Filter expression outliers using genetic and phenotype information
 This step is filtering expression outlier data according to different criteria.
@@ -422,7 +423,7 @@ We recommend using the most stringent filter for final results (`SPLI_OUTLIER_RV
 
 
 # 5. Highlight candidate genes
-The last step consists in combining candidate genes obtained using both expression outlier and splicing outlier information. We recommend to use **our most stringent filters** as tehy show the best results at highlighting the causal gene in our analyses.
+The last step consists in combining candidate genes obtained using both expression outlier and splicing outlier information. We recommend to use **our most stringent filters** as they show the best results at highlighting the causal gene in our analyses.
 
 The most stringent filter consist in filtering the expression/splicing outliers for genes:
 * with deleterious rare variants nearby
