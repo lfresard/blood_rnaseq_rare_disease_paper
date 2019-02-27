@@ -282,13 +282,9 @@ Input: Corrected counts
 
 Output: Gene Sample Zscores [file](./expression_outlier_file_format.md)
 
-Script: [exp_outlier_count.r](./expression_outlier_analysis/exp_outlier_count.r)
-* Read in corrected gene expression count data (corrected_counts/gene/blood/[gene_count].txt) and sample metadata ([metadata_file].txt)
-* Subset samples to include blood samples only
+Script: [count_to_zscores.R](./expression_outlier_analysis/count_to_zscores.R)
+* Read in corrected gene expression count data (corrected_counts/gene/blood/[gene_count].txt) 
 * Center and scale gene expression counts matrix to generate Z-scores
-* Define Z-score thresholds for expression outlier calling
-* For each Z-score threshold, find number of outlier for each sample
-* Compute significance of difference between outlier counts for under-expression and over-expression outliers (hypergeometric test)
 * Write output
 
 ## 2.6 Splicing data processing 
