@@ -355,12 +355,13 @@ Script [get_rare_var_gene.sh](./expression_outlier_analysis/get_rare_var_gene.sh
 This script takes the expression outlier [file](./expression_outlier_file_format.md) from 2.5.2 and maps rare variants (MAF < 0.01) in genes or +/- 10kb around genes. This is done on a per-sample level. The output is a [file](./expression_outlier_RV_format.md) containing gene z-score, position of rare variant, allele frequency, and cadd for each sample-gene pair. The filename is "outliers_rare_var_combined_10kb.txt".
 
 #### Details
-* 1. build_outlier_list.r
+* 1. [build_outlier_list.r](./expression_outlier_analysis/build_outlier_list.r)
 This script outputs the z-score for each gene in the corrected data. A separate file is output for each sample. The working directory is /srv/scratch/restricted/rare_diseases/analysis/outlier_analysis/expression_level/.
 Arguments:
-1. absolute path to latest corrected expression data matrix (i.e. "/srv/scratch/restricted/rare_diseases/data/sva/corrected_counts/gene/blood/gene_counts_corrected_freeze_splines_02apr18.txt")
-2. absolute path to latest metadata file 
-* 2. get_rare_var_gene.sh
+** absolute path to latest corrected expression data matrix
+** absolute path to latest metadata file 
+
+* 2. [get_rare_var_gene.sh](./expression_outlier_analysis/get_rare_var_gene.sh)
 This script takes the outlier files from 1. and maps rare variants (MAF < 0.01) in genes or +/- 10kb around genes. This is done on a per-sample level. The output is a file containing gene z-score, position of rare variant, allele frequency, and cadd for each sample-gene pair. The filename is "outliers_rare_var_combined_10kb.txt".
 
 ### 4.1.2 Filter expression outliers using genetic and phenotype information
