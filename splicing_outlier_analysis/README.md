@@ -2,9 +2,6 @@
 
 This set of scripts is generating junction ratios and caluclating splicing Z-scores for every sample
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 To get started you will need
