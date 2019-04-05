@@ -1,0 +1,13 @@
+bin	pct_genes	DISEASE
+[0.1,10)	47.27273	Hematology
+[0,0.1)	10.90909	Hematology
+[0.1,10)	47.1831	Neurology
+[0,0.1)	27.8169	Neurology
+[0.1,10)	45.48852	OMIM
+[0,0.1)	28.0299	OMIM
+[0.1,10)	40.79602	Ophtalmology
+[0,0.1)	33.83085	Ophtalmology
+[0.1,1e+05)	78.18182	Hematology
+[0.1,1e+05)	71.83099	Neurology
+[0.1,1e+05)	70.60865	OMIM
+[0.1,1e+05)	56.96517	Ophtalmology

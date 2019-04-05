@@ -26,6 +26,13 @@ emp_ast <- function(pvalues) {
 		else return("***")
 		})
 }
+# Load data
+fig2a=read.table("fig2a_data.txt", header=T)
+fig2b
+fig2c
+fig2d
+fig2b_dat_subset
+
 
 ## Make plots
 

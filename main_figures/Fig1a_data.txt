@@ -1,0 +1,17 @@
+disease_category	counts
+Infectious_disease	1
+Multiple_congenital_anomalies	1
+Neurodevelopmental	1
+Neuromuscular	1
+Psychiatry	1
+Allergy/Immune	2
+Gastroenterology	2
+Gynecology	3
+Nephrology	3
+Rheumatology	3
+Cardiology	4
+Opthalmology	6
+Hematology	8
+Musculoskeletal_and_orthopedics	8
+Other	10
+Neurology	40
