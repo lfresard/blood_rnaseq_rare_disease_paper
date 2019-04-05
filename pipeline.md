@@ -1,18 +1,23 @@
 # Rare disease Blood RNA-seq pipeline
 
-This repository contains code to run all components of the Rare disease Blood RNA-seq pipeline in order to highlight candidate genes. 
+This page contains the code to run the **Rare Disease Blood RNA-seq pipeline** in order to highlight candidate genes from genetic data, tarnscriptome and phenotype information.
 
-The following software and data are necessary:
+The following software and data are necessary (versions are the ones that were used in the paper):
 
-* cutadapt 1.11 https://pypi.python.org/pypi/cutadapt  
-* STAR 2.4.0j https://github.com/alexdobin/STAR  
-* Python 2.7. https://www.python.org/  
-* Picard tools https://broadinstitute.github.io/picard/ and https://github.com/broadinstitute/picard  
-* Samtools http://www.htslib.org/   
-* RSEM v1.2.21 https://github.com/deweylab/RSEM/   
-* [EXAC](http://exac.broadinstitute.org/downloads) data 
+* [cutadapt](https://pypi.python.org/pypi/cutadapt) 1.11   
+* [STAR](https://github.com/alexdobin/STAR) 2.4.0j   
+* [Picard](https://broadinstitute.github.io/picard/) tools 
+* [Samtools](http://www.htslib.org/) 0.1.19-96b5f2294a
+* [BCFtools](https://github.com/samtools/bcftools) 1.8 
+* [RSEM](https://github.com/deweylab/RSEM/) v1.2.21 
+* [Vcfanno](https://github.com/brentp/vcfanno) 0.2.7 
+* [ASEReadCounter](https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_rnaseq_ASEReadCounter.php) 3.8-0-ge9d806836 
+* [Python](https://www.python.org/) 2.7 
+* [R](https://www.r-project.org/) 3.3.1
+* [EXAC](http://exac.broadinstitute.org/downloads) data
 
-Many scripts rely on the existence of a [metadata](./metadata.md) file containing information on samples to analyze.
+
+These scripts rely on the existence of a [metadata](./metadata.md) file containing information on samples to analyze.
 
 
 ## Overview  
@@ -22,15 +27,15 @@ Many scripts rely on the existence of a [metadata](./metadata.md) file containin
 * 1.2 VCF Annotation 
 
 ### 2. RNA-seq data processing
-* 2.1 Adapters trimming 
-* 2.2 Alignement
+* 2.1 Adapter trimming 
+* 2.2 Alignment
 * 2.3 Filters
 * 2.4 Quantification
 * 2.5 Gene expression data processing 
 * 2.6 Splicing data processing 
 
 ### 3. Download phenotypic information
-* 3.1 Get phenotype to gene link from Human Phenotype Ontology:
+* 3.1 Get phenotype to gene link from Human Phenotype Ontology
 * 3.2 Parse HPO database
 
 ####  4. Combine information to highlight candidate genes
@@ -102,16 +107,16 @@ Input: VCF files and list of sites passing or not filters
 
 Output: Filtered VCF
 
-Script:[filter_allvcf.sh](./data_processing/genotypes/variant_filter/filter_allvcf.sh)
+Script: [filter_allvcf.sh](./data_processing/genotypes/variant_filter/filter_allvcf.sh)
 
 ```
 bash filter_allvcf.sh | parallel --jobs 20
 ```
 
 ## 1.2 VCF Annotation 
-Annotation with [gnomAD] (https://gnomad.broadinstitute.org/downloads) allele frequency  and [CADD score] (https://cadd.gs.washington.edu/download)
+Annotation with [gnomAD](https://gnomad.broadinstitute.org/downloads) allele frequency  and [CADD score](https://cadd.gs.washington.edu/download)
 
-### 1.2.1 Transform vcf files in homogenized format for further analysis
+### 1.2.1 Transform vcf files in merged format for further analysis
 
 Input: Filtered VCF
 
@@ -123,7 +128,7 @@ Script: [homogenize_vcf_single_sample.sh](./data_processing/genotypes/annotation
 find $filtered_variant_dir/*.filtered.vcf.gz  | parallel  "basename {} .filtered.vcf.gz" | parallel  -j 8 "bash homogenize_vcf_single_sample.sh $filtered_variant_dir/{}.filtered.vcf.gz {} $homogenized_vcf_dir" > log_file.txt 2>&1 &
 ```
 
-### 1.2.2 Annotate for CADD score and gnomAD AF
+### 1.2.2 Annotate CADD score and gnomAD AF
 This script will run on 1 chromosome at a time and concatenate results at the end.
 
 Input: Homogenized filtered VCF files from previsous step.
@@ -138,7 +143,7 @@ bash launch_vcf_anno_chr.sh > log_file_name.txt 2>&1 &
 ```
 
 ### 1.2.3 Filter VCF file for Rare Variants and output in bed file
-* Filter for variants with Allele frequency <= 0.01 (keeps singletons)
+* Filter for variants with Minor Allele frequency <= 0.01 (keeps singletons)
 * Bedtools intersect with gene bed file to get gene name associated with rare variant
 
 Script: [launch_RD_vcf_to_RVbed.sh](./data_processing/genotypes/annotation/launch_RD_vcf_to_RVbed.sh)
@@ -161,7 +166,7 @@ bash RV_near_junction_window.sh > log_file_name.txt 2>&1
 
 # 2. RNA-seq data processing
 
-The following steps will allow you to go from adapter trimming to quantififcation.
+The following steps will allow you to go from adapter trimming to quantification.
 If you want to run 2.1 to 2.4 with one script, you can use [RD_analysis.sh](./data_processing/RNAseq/RD_analysis.sh)
 
 ```
@@ -196,9 +201,9 @@ Parameters:
 
 * `index_dir`: Directory containing STAR INDEX 
 * `bam_dir`: Directory for BAM file output
-* `STAR_script`:[STAR_alignment_rare_disease.sh] (./data_processing/RNAseq/STAR_alignment_rare_disease.sh) #include path to script
+* `STAR_script`:[STAR_alignment_rare_disease.sh](./data_processing/RNAseq/STAR_alignment_rare_disease.sh) #include path to script
 * `Reference genome`: [hg19.fa](http://hgdownload.cse.ucsc.edu/downloads.html#human)
-* `Gene annotation File`: [Gencode v19 GTF] (https://www.encodeproject.org/files/gencode.v19.annotation/)
+* `Gene annotation File`: [Gencode v19 GTF](https://www.encodeproject.org/files/gencode.v19.annotation/)
 
 
 
@@ -223,7 +228,7 @@ ls ${BAM_DIR}/*.Aligned.toTranscriptome.out.bam | parallel --jobs 10 --col-sep "
 
 ### 2.3.2 Filter junction files for splicing analysis.
 
-Filter junction file for junctions detected with at least 10 reads uniquely spanning.
+Filter junction file for junctions detected with at least 10 uniquely spanning reads.
 
 Input: [SJ.out.tab](http://labshare.cshl.edu/shares/gingeraslab/www-data/dobin/STAR/STAR.posix/doc/STARmanual.pdf) files for each sample. This file is an output of STAR alignement
 
@@ -231,9 +236,9 @@ Output: Filtered junction files (.SJ.out_filtered_uniq_$threshold.tab)
 
 Parameters:
 
-`Junc_file`: Junction file generated by STAR 
-`threshold`: Number of unique reads spanning the junction (Set to 10 in the analysis)
-`prefix`: prefix used for output (i.e sample name)
+* `Junc_file`: Junction file generated by STAR
+* `threshold`: Number of unique reads spanning the junction (Set to 10 in the analysis)
+* `prefix`: prefix used for output (i.e sample name)
 
 
 ```
@@ -275,15 +280,11 @@ Steps:
 
 Input: Corrected counts
 
-Output: Gene Sample Zscores file
+Output: Gene Sample Zscores [file](./expression_outlier_file_format.md)
 
-Script: [exp_outlier_count.r](./expression_outlier_analysis/exp_outlier_count.r)
-* Read in corrected gene expression count data (corrected_counts/gene/blood/[gene_count].txt) and sample metadata ([metadata_file].txt)
-* Subset samples to include blood samples only
+Script: [count_to_zscores.R](./expression_outlier_analysis/count_to_zscores.R)
+* Read in corrected gene expression count data (corrected_counts/gene/blood/[gene_count].txt) 
 * Center and scale gene expression counts matrix to generate Z-scores
-* Define Z-score thresholds for expression outlier calling
-* For each Z-score threshold, find number of outlier for each sample
-* Compute signififance of difference between outlier counts for under-expression and over-expression outliers (hypergeometric test)
 * Write output
 
 ## 2.6 Splicing data processing 
@@ -294,16 +295,16 @@ This set of scripts is generating junction ratios and calculating splicing Z-sco
 To get started you will need
 * [Metadata](./metadata.md) file
 * Tissue to perform the analysis on (i.e. Blood)
-* Junction files generated during STAR alignment (here they have been filtered for junctions with at least 10 reads uniquely spanning)
+* Junction files generated during STAR alignment (filtered for junctions with at least 10 reads uniquely spanning)
 
 
 ### 2.6.2 Generating junction ratios
 Parameters:
 * `metadatafile.tsv`: file containing [metadata](./metadata.md) information regarding the samples to analyze.
 * `tissue`: What tissue (from the metadata file) to analyze (i.e Blood)
-* `junc_dir`: Directory containing filtered jcuntions obtained after 2.3.2
+* `junc_dir`: Directory containing filtered junctions obtained after 2.3.2
 * `output_dir`: Directory in which output will be written
-* `freeze_sample_only`: TRUE/FALSE statement wether to include only samples for which in_freeze column set to yes in [metadata](./metadata.md) file.
+* `freeze_sample_only`: TRUE/FALSE statement whether to include only samples for which in_freeze column set to yes in [metadata](./metadata.md) file.
 * `DGN_samples`: TRUE/FALSE statement wether to include or not DGN samples in the analysis
 * `PIVUS_samples`:  TRUE/FALSE statement wether to include or not PIVUS samples in the analysis
 
@@ -322,9 +323,11 @@ bash splicing_outlier_analysis.sh \
 	TRUE > log_file.txt 2>&1 & # wether or not to include PIVUS cohort in the analysis
 ```
 ### 2.6.3 Generating Z-scores from the ratios
-This step impute missing splicing ratios and get Z-scores for splicing data.
+During this step, missing splicing ratios are imputed, data is corrected for batch effects and Zscores are calulated.
 
 Input: <prefix>_junc_ratios_filtered.txt from 2.6.2
+	
+Output: [file](./splicing_outlier_file_format.md) with zscores for each evaluated junction.
 	
 Script: [splicing_ratio_to_zscores.R](./splicing_outlier_analysis/splicing_ratio_to_zscores.R)
 
@@ -337,27 +340,32 @@ Download latest version of Human Phenotype Ontology (https://hpo.jax.org)
 
 ## 3.1 Get phenotype to gene link from Human Phenotype Ontology:
 [phenotype_to_gene.txt](http://compbio.charite.de/jenkins/job/hpo.annotations.monthly/lastSuccessfulBuild/artifact/annotation/ALL_SOURCES_ALL_FREQUENCIES_phenotype_to_genes.txt)
+[gene_to_pehnotype.txt](http://compbio.charite.de/jenkins/job/hpo.annotations.monthly/lastSuccessfulBuild/artifact/annotation/ALL_SOURCES_ALL_FREQUENCIES_genes_to_phenotype.txt)
 
 ## 3.2 Parse HPO database
 * Download latest version of [HPO obo] (https://hpo.jax.org/app/download/ontology)
-* Parse database to get parent and child terms [parse_hpoterms.py](./HPO/parse_hpoterms.py0
+* Parse database to get parent and child terms [parse_hpoterms.py](./HPO/parse_hpoterms.py)
 
 # 4. Combine information to highlight candidate genes
 
 ## 4.1 Expression outlier filtering
 ### 4.1.1 Combine expression outlier and variant information
-Script [get_rare_var_gene.sh](./expression_outlier_analysis/get_rare_var_gene.sh)
+1. [build_outlier_list.r](./expression_outlier_analysis/build_outlier_list.r)
+This script outputs the z-score for each gene in the corrected data. A separate file is output for each sample. The working directory is /srv/scratch/restricted/rare_diseases/analysis/outlier_analysis/expression_level/.
+Arguments:
+* absolute path to latest corrected expression data matrix
+* absolute path to latest metadata file 
 
-This script takes the outlier files from [2.5.2](###2.5.2-expression-outlier-analysis) and maps rare variants (MAF < 0.01) in genes or +/- 10kb around genes. This is done on a per-sample level. The output is a file containing gene z-score, position of rare variant, allele frequency, and cadd for each sample-gene pair. The filename is "outliers_rare_var_combined_10kb.txt".
+2. [get_rare_var_gene.sh](./expression_outlier_analysis/get_rare_var_gene.sh)
+This script takes the outlier files from [build_outlier_list.r](./expression_outlier_analysis/build_outlier_list.r) and maps rare variants (MAF < 0.01) in genes or +/- 10kb around genes. This is done on a per-sample level. The output is a file containing gene z-score, position of rare variant, allele frequency, and cadd for each sample-gene pair. The filename is "outliers_rare_var_combined_10kb.txt".
 
 ### 4.1.2 Filter expression outliers using genetic and phenotype information
 This step is filtering expression outlier data according to different criteria.
 Candidate genes at each filtering step are printed in output
 
 
-
 Parameters:
-* `metadata file` : [Metadata](./metadata.md) file containing smaple information
+* `metadata file` : [Metadata](./metadata.md) file containing sample information
 * `exac file`: containing pLI score across genes
 * `HPO gene to phenotype file`
 * `HPO phenotype to gene file`
@@ -377,10 +385,16 @@ Filters:
 
 
 ## 4.2 Splicing outlier filtering
-### 4.2.1 Cross splicing Z-score results with RV information
+### 4.2.1 Cross splicing Z-score results with rare variant information
 
 * distance=20bp
-Script: [splicing_outlier_genes_with_RV_window.sh](./splicing_outlier_analysis/splicing_outlier_genes_with_RV_window.sh]
+
+Script:[splicing_outlier_genes_with_RV_window.sh](./splicing_outlier_analysis/splicing_outlier_genes_with_RV_window.sh)
+
+Input: splicing outlier [file](./splicing_outlier_file_format.md) and sample rare variant files
+
+Output: [file](./splicing_outlier_RV_format.md) containing rare variant information around splicing junctions
+
 ```
 # sort splicing outlier file
 sort -k1,1 -k2,2n  splicing_outlier_file.txt>  splicing_outlier_file_sorted.txt
@@ -390,11 +404,11 @@ bash splicing_outlier_genes_with_RV_window.sh  splicing_outlier_file_sorted.txt 
 ```
 
 ### 4.2.2 Filter splicing outliers using genetic and phenotype information
-This step is filtering splicing outlier data according to different criteria.
-Candidate genes at each filtering step are printed in output
+Splicing outlier data is filtered accroding to criteria presented in the manuscript.
+Candidate genes at each filtering step are printed in a seperate text file.
 
 
-Script: [filter_expression_candidates.R](./splicing_outlier_analysis/filter_expression_candidates.R)
+Script: [filter_splicing_candidates.R](./splicing_outlier_analysis/filter_splicing_candidates.R)
 
 
 Filters:
@@ -406,11 +420,13 @@ Filters:
 * `SPLI_OUTLIER_RV_CADD`: Splicing outlier in genes with a deleterious rare variant within 20bp of the outlier junction(CADD score >=10)
 * `SPLI_OUTLIER_RV_CADD_HPO`:  Splicing outlier in genes linked to the phenotype (HPO terms) with a deleterious rare variant within 20bp of the outlier junction(CADD score >=10)
 
+We recommend using the most stringent filter for final results (`SPLI_OUTLIER_RV_CADD_HPO`).
+
 
 # 5. Highlight candidate genes
-This last step consists in scrolling through candidates obtained both using expression outlier and splicing outlier information 
-We recommend to use the most stringent filters as they show the best results at highlighting the causal gene in our analysis.
-This most stringent filter consist in filtering the expression/splicing outliers for genes:
+The last step consists in combining candidate genes obtained using both expression outlier and splicing outlier information. We recommend to use **our most stringent filters** as they show the best results at highlighting the causal gene in our analyses.
+
+The most stringent filter consist in filtering the expression/splicing outliers for genes:
 * with deleterious rare variants nearby
 * that are phenotypically relevant
 
