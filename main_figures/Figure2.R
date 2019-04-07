@@ -4,6 +4,7 @@
 
 library(cowplot)
 library(ggplot2)
+library(ggbeeswarm)
 
 setwd("[path/to/working/directory/]") # set working directory
 
@@ -26,20 +27,26 @@ emp_ast <- function(pvalues) {
 		else return("***")
 		})
 }
+
+# function returning quartiles
+median.quartile <- function(x){
+	out <- quantile(x, probs = c(0.25,0.5,0.75))
+	names(out) <- c("ymin","y","ymax")
+	return(out) 
+}
+
 # Load data
-fig2a=read.table("fig2a_data.txt", header=T)
-fig2b
-fig2c
-fig2d
-fig2b_dat_subset
+fig2a=read.table("fig2a_data.txt", header=T, sep="\t")
+fig2b=read.table("fig2b_data.txt", header=T, sep="\t")
+fig2c=read.table("fig2c_data.txt", header=T, sep="\t")
+fig2d=read.table("fig2d_data.txt", header=T, sep="\t")
 
 
 ## Make plots
 
-# 2A
-fig2a_dat <- read.table("[figure_2a_data].txt", header=T)
+# 2a
 
-fig2a <- ggplot(fig2a_dat, aes(x=quantile, y=coefficient)) + geom_hline(yintercept = 0) + 
+fig2a_plot <- ggplot(fig2a, aes(x=quantile, y=coefficient)) + geom_hline(yintercept = 0) + 
 	geom_pointrange(aes(ymin=error_low, ymax=error_high, colour=predictor)) +
 	facet_grid(. ~ predictor, scales="fixed") +
 	labs(x="Percentile", y="Log Odds") +
@@ -52,26 +59,10 @@ fig2a <- ggplot(fig2a_dat, aes(x=quantile, y=coefficient)) + geom_hline(yinterce
 	guides(colour=FALSE) +
 	scale_colour_manual(values=c("indianred3", "royalblue3", "orange2"))
 
-# 2B
-fig2b_dat <- read.table("[figure_2b_data].txt", header=F, sep="\t")
-n_samples <- c("n=1", "n=2", "n=5", "n=10", "10%", "25%", "50%", "75%", "90%", "n=10", "n=5", "n=2", "n=1")
-fig2b_dat_subset <- subset(log_test_data, predictor=="lof_z" & quantile<5)
 
-p2 <- ggplot(fig2b_dat_subset, aes(x=factor(quantile), y=coefficient)) + 
-	geom_hline(yintercept=0) + 
-	geom_boxplot(aes(fill=cohort, alpha=factor(n_dgn_control)), colour="black", size=0.3, outlier.shape=1, outlier.size=0.5) +
-	scale_x_discrete(labels=n_samples) + 
-	labs(x="Percentile (Under Expression)", y="Log Odds", title="Loss of Function") +
-	RD_theme +
-	annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf, size=1) +
-	annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf, size=1) +
-	guides(alpha=FALSE, colour=FALSE, fill=FALSE) +
-	scale_fill_manual(values=c("indianred3"))
+# 2b
 
-# 2C
-fig2c_dat <- read.table("[figure_2c_data].txt", header=T)
-
-fig2c <- ggplot(fig2c_dat) + 
+fig2b_plot <- ggplot(fig2b) + 
 	geom_boxplot(aes(x=Cutoff, y=OutlierCount+1, group=interaction(Cutoff, Direction), colour=Direction),
 	 width=0.8, position=position_dodge(width=0.85)) +
 	labs(x="Z-score", y="Number of Outlier Genes") +
@@ -79,16 +70,39 @@ fig2c <- ggplot(fig2c_dat) +
 	scale_y_log10(breaks=c(0,1,10,100,500,2000)) +
 	scale_colour_manual(values=c("gray40", "gray1"))
 
-# 2D
-load("Figure2D.out.RData")
-fig2d <- filter_withsglt.exp.case.10kb.plot + theme(legend.position="")
+# 2c
+fig2c_plot=ggplot(fig2c,aes(x=Var1, y=value, fill=Var1))+
+	geom_boxplot(color="black", notch=F, show.legend = FALSE)+
+	geom_point(size = 0, stroke = 0)+
+	scale_fill_manual(values=rep("lightgrey", 7), breaks=c("EXP_OUTLIER_PLI","EXP_OUTLIER_ASE","EXP_OUTLIER_RIVER", "EXP_OUTLIER_HPO","EXP_OUTLIER_RV", "EXP_OUTLIER_RV_CADD", "EXP_OUTLIER_RV_CADD_HPO"),
+labels=c(expression("pLI " >="0.9"), "ASE", expression("RIVER " >= "0.85"), "HPO match", expression("Rare variant within 10kb","5 + CADD score  " >= "10"),"4 + 6"), name="Filter")+
+	scale_x_discrete(breaks=c("EXP_OUTLIER_PLI","EXP_OUTLIER_ASE","EXP_OUTLIER_RIVER", "EXP_OUTLIER_HPO","EXP_OUTLIER_RV", "EXP_OUTLIER_RV_CADD", "EXP_OUTLIER_RV_CADD_HPO"),
+labels=c("1", "2", "3","4","5", "6", "7"))+
+	labs(x="Filter", y="Proportion of outlier genes") + RD_theme +guides(fill = guide_legend(override.aes = list(size = 4,shape =c(49,50,51,52,53,54,55))))+theme(legend.position = c(0.8,0.7))
+
+
+
+# 2d
+
+color = grDevices::colors()[grep('gr(a|e)y', grDevices::colors(), invert = T)]
+mycol=sample(color, 75)
+
+fig2d_plot= ggplot(fig2d, aes(filter,value))+ 
+ 	geom_quasirandom(aes(y =value, x = filter, colour = sample))+
+ 	stat_summary(fun.data = median.quartile, geom = "pointrange",position=position_nudge(x=0.5,y=0))+
+	coord_flip()+
+	#geom_path(group=sample, colour="grey")+
+ 	theme(legend.position="")+
+ 	scale_colour_manual(values=mycol) +
+ 	labs(y="log10(Number of genes +1)",x="Filter")+
+ 	scale_y_log10(breaks = scales::trans_breaks("log10", function(x) 10^x),labels = scales::trans_format("log10", scales::math_format(10^.x))) 
 
 ## Write combined plots
-fig2_plot=ggdraw() + draw_plot(fig2a, 0, 0.64, 1, 0.36) +
-	draw_plot(fig2b, 0, 0.39, 1, 0.25) +
-	draw_plot(fig2c, 0, 0, 0.5, 0.37) +
-	draw_plot(fig2d, 0.5, 0, 0.5, 0.37) +
-	draw_plot_label(c('A', 'B', 'C', 'D'), c(0, 0, 0, 0.5), c(1, 0.63, 0.38, 0.38), size=15)
+fig2_plot=ggdraw() + draw_plot(fig2a_plot, 0, 0.64, 1, 0.36) +
+	draw_plot(fig2b_plot, 0, 0.39, 1, 0.25) +
+	draw_plot(fig2c_plot, 0, 0, 0.5, 0.37) +
+	draw_plot(fig2d_plot, 0.5, 0, 0.5, 0.37) +
+	draw_plot_label(c('a', 'b', 'c', 'd'), c(0, 0, 0, 0.5), c(1, 0.63, 0.38, 0.38), size=15)
 
 pdf("fig2.pdf", w=8.5, h=10)
 fig2_plot

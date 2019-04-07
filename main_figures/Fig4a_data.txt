@@ -1,0 +1,16 @@
+Number of candidates	filter	category	is_causal_in
+1034	RV	Rare_varant	1
+429	RV_CADD	Rare_variant_and_filters	1
+271	RV_HPO	Rare_variant_and_filters	1
+96	RV_CADD_HPO	Rare_variant_and_filters	1
+465	RV_JUNC	Rare_variant_and_filters	1
+126	RV_JUNC_CADD	Rare_variant_and_filters	0
+102	RV_JUNC_HPO	Rare_variant_and_filters	1
+30	RV_JUNC_CADD_HPO	Rare_variant_and_filters	0
+3109	HPO	HPO	1
+626	SPLI_OUTLIER	Splicing_outlier	1
+181	SPLI_OUTLIER_PLI	Splicing_and_filters	0
+125	SPLI_OUTLIER_HPO	Splicing_and_filters	1
+7	SPLI_OUTLIER_RV	Splicing_and_filters	1
+1	SPLI_OUTLIER_RV_CADD	Splicing_and_filters	1
+1	SPLI_OUTLIER_RV_CADD_HPO	Splicing_and_filters	1

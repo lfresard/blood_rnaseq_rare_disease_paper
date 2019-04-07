@@ -1,569 +1,569 @@
-sample_id	affected_status	institution	technology	variable	value
-RD008	Case	CHEO	exome	prop_pLI	0.285714285714286
-RD009	Case	CHEO	exome	prop_pLI	0.333333333333333
-RD011	Case	CHEO	genome	prop_pLI	0
-RD012	Case	CHEO	genome	prop_pLI	0
-RD015	Case	CGS	genome	prop_pLI	0.263157894736842
-RD016	Case	CGS	genome	prop_pLI	0.266009852216749
-RD017	Case	CGS	genome	prop_pLI	0.285062713797035
-RD020	Case	CGS	genome	prop_pLI	0.301763017630176
-RD021	Case	CGS	genome	prop_pLI	0.303205699020481
-RD022	Case	CGS	genome	prop_pLI	0.255605381165919
-RD025	Case	CHEO	genome	prop_pLI	0.277486910994764
-RD035	Case	CGS	genome	prop_pLI	0.263726372637264
-RD036	Case	CGS	genome	prop_pLI	0.245762711864407
-RD037	Case	CGS	genome	prop_pLI	0.1875
-RD038	Case	CGS	genome	prop_pLI	0.281569965870307
-RD039	Case	CGS	genome	prop_pLI	0.0666666666666667
-RD040	Case	CGS	genome	prop_pLI	0.263888888888889
-RD041	Case	UDN	genome	prop_pLI	0.286624203821656
-RD042	Case	UDN	exome	prop_pLI	0.555555555555556
-RD045	Case	UDN	exome	prop_pLI	0.251968503937008
-RD046	Case	UDN	exome	prop_pLI	0.25
-RD047	Case	UDN	exome	prop_pLI	0.289855072463768
-RD048	Case	UDN	exome	prop_pLI	0.266666666666667
-RD058	Case	UDN	genome	prop_pLI	0.28258221680877
-RD059	Case	UDN	exome	prop_pLI	0.311645708037179
-RD062	Case	UDN	exome	prop_pLI	0.271367521367521
-RD063	Case	UDN	exome	prop_pLI	0.230769230769231
-RD064	Case	UDN	exome	prop_pLI	0.25531914893617
-RD118	Case	CGS	exome	prop_pLI	0.233644859813084
-RD121	Case	CGS	exome	prop_pLI	0.263852242744063
-RD122	Case	CGS	exome	prop_pLI	0.307017543859649
-RD123	Case	CGS	exome	prop_pLI	0.253968253968254
-RD125	Case	CGS	exome	prop_pLI	0.311224489795918
-RD127	Case	CGS	exome	prop_pLI	0.173469387755102
-RD129	Case	CGS	exome	prop_pLI	0.269230769230769
-RD159	Case	UDN	genome	prop_pLI	0.315789473684211
-RD163	Case	UDN	exome	prop_pLI	0.290443942814146
-RD164	Case	UDN	exome	prop_pLI	0.307589880159787
-RD167	Case	UDN	genome	prop_pLI	0.306286549707602
-RD168	Case	UDN	genome	prop_pLI	0.283740701381509
-RD172	Case	UDN	exome	prop_pLI	0.276143790849673
-RD173	Case	UDN	exome	prop_pLI	0.310810810810811
-RD177	Case	UDN	exome	prop_pLI	0.305974316024567
-RD181	Case	UDN	genome	prop_pLI	0.266666666666667
-RD182	Case	UDN	genome	prop_pLI	0.268292682926829
-RD183	Case	UDN	exome	prop_pLI	0.384615384615385
-RD184	Case	UDN	genome	prop_pLI	0.309734513274336
-RD185	Case	UDN	genome	prop_pLI	0.318181818181818
-RD186	Case	UDN	genome	prop_pLI	0.28
-RD191	Case	UDN	exome	prop_pLI	0.318181818181818
-RD194	Case	UDN	genome	prop_pLI	0.284132841328413
-RD196	Case	UDN_pilot	exome	prop_pLI	0.27180783817952
-RD197	Case	UDN_pilot	exome	prop_pLI	0.281512605042017
-RD198	Case	UDN_pilot	exome	prop_pLI	0.266666666666667
-RD199	Case	UDN_pilot	exome	prop_pLI	0.316326530612245
-RD202	Case	UDN_pilot	genome	prop_pLI	0.345238095238095
-RD203	Case	UDN_pilot	genome	prop_pLI	0.256410256410256
-RD206	Case	UDN_pilot	exome	prop_pLI	0.278818443804035
-RD207	Case	UDN_pilot	genome	prop_pLI	0.283195020746888
-RD208	Case	UDN_pilot	genome	prop_pLI	0.23728813559322
-RD209	Case	UDN_pilot	exome	prop_pLI	0.325732899022801
-RD210	Case	UDN_pilot	exome	prop_pLI	0.270516717325228
-RD212	Case	UDN_pilot	exome	prop_pLI	0.252293577981651
-RD214	Case	UDN_pilot	exome	prop_pLI	0.245901639344262
-RD215	Case	UDN_pilot	genome	prop_pLI	0.262425447316103
-RD217	Case	UDN_pilot	exome	prop_pLI	0.292452830188679
-RD218	Case	UDN_pilot	exome	prop_pLI	0.278195488721804
-RD219	Case	UDN_pilot	genome	prop_pLI	0.329056603773585
-RD220	Case	UDN_pilot	genome	prop_pLI	0.3064
-RD221	Case	UDN_pilot	exome	prop_pLI	0.197849462365591
-RD222	Case	UDN_pilot	exome	prop_pLI	0.219512195121951
-RD008	Case	CHEO	exome	prop_HPO	0.142857142857143
-RD009	Case	CHEO	exome	prop_HPO	0.333333333333333
-RD011	Case	CHEO	genome	prop_HPO	1
-RD012	Case	CHEO	genome	prop_HPO	0
-RD015	Case	CGS	genome	prop_HPO	0.128725428027901
-RD016	Case	CGS	genome	prop_HPO	0.101806239737274
-RD017	Case	CGS	genome	prop_HPO	0.0790573926263778
-RD020	Case	CGS	genome	prop_HPO	0.191471914719147
-RD021	Case	CGS	genome	prop_HPO	0.191896705253784
-RD022	Case	CGS	genome	prop_HPO	0.121076233183857
-RD025	Case	CHEO	genome	prop_HPO	0.106020942408377
-RD035	Case	CGS	genome	prop_HPO	0.0342034203420342
-RD036	Case	CGS	genome	prop_HPO	0.0322033898305085
-RD037	Case	CGS	genome	prop_HPO	0
-RD038	Case	CGS	genome	prop_HPO	0.0426621160409556
-RD039	Case	CGS	genome	prop_HPO	0
-RD040	Case	CGS	genome	prop_HPO	0.0434027777777778
-RD041	Case	UDN	genome	prop_HPO	0.133757961783439
-RD042	Case	UDN	exome	prop_HPO	0.222222222222222
-RD045	Case	UDN	exome	prop_HPO	0.161417322834646
-RD046	Case	UDN	exome	prop_HPO	0.3
-RD047	Case	UDN	exome	prop_HPO	0.201288244766506
-RD048	Case	UDN	exome	prop_HPO	0.177777777777778
-RD058	Case	UDN	genome	prop_HPO	0.140073081607795
-RD059	Case	UDN	exome	prop_HPO	0.183706943685074
-RD062	Case	UDN	exome	prop_HPO	0.181623931623932
-RD063	Case	UDN	exome	prop_HPO	0.230769230769231
-RD064	Case	UDN	exome	prop_HPO	0.180851063829787
-RD118	Case	CGS	exome	prop_HPO	0.149532710280374
-RD121	Case	CGS	exome	prop_HPO	0.00527704485488127
-RD122	Case	CGS	exome	prop_HPO	0
-RD123	Case	CGS	exome	prop_HPO	0.137566137566138
-RD125	Case	CGS	exome	prop_HPO	0.0816326530612245
-RD127	Case	CGS	exome	prop_HPO	0.112244897959184
-RD129	Case	CGS	exome	prop_HPO	0.0480769230769231
-RD159	Case	UDN	genome	prop_HPO	0.206675224646983
-RD163	Case	UDN	exome	prop_HPO	0.139202407825433
-RD164	Case	UDN	exome	prop_HPO	0.116289391921882
-RD167	Case	UDN	genome	prop_HPO	0.0782163742690059
-RD168	Case	UDN	genome	prop_HPO	0.168969181721573
-RD172	Case	UDN	exome	prop_HPO	0.105392156862745
-RD173	Case	UDN	exome	prop_HPO	0.182952182952183
-RD177	Case	UDN	exome	prop_HPO	0.182579564489112
-RD181	Case	UDN	genome	prop_HPO	0.1
-RD182	Case	UDN	genome	prop_HPO	0.231707317073171
-RD183	Case	UDN	exome	prop_HPO	0.164835164835165
-RD184	Case	UDN	genome	prop_HPO	0.0265486725663717
-RD185	Case	UDN	genome	prop_HPO	0.0909090909090909
-RD186	Case	UDN	genome	prop_HPO	0.02
-RD191	Case	UDN	exome	prop_HPO	0.159090909090909
-RD194	Case	UDN	genome	prop_HPO	0.136531365313653
-RD196	Case	UDN_pilot	exome	prop_HPO	0.0758533501896334
-RD197	Case	UDN_pilot	exome	prop_HPO	0.205882352941176
-RD198	Case	UDN_pilot	exome	prop_HPO	0.0666666666666667
-RD199	Case	UDN_pilot	exome	prop_HPO	0.17687074829932
-RD202	Case	UDN_pilot	genome	prop_HPO	0.178571428571429
-RD203	Case	UDN_pilot	genome	prop_HPO	0.179487179487179
-RD206	Case	UDN_pilot	exome	prop_HPO	0.156340057636888
-RD207	Case	UDN_pilot	genome	prop_HPO	0.184647302904564
-RD208	Case	UDN_pilot	genome	prop_HPO	0.0889830508474576
-RD209	Case	UDN_pilot	exome	prop_HPO	0.0228013029315961
-RD210	Case	UDN_pilot	exome	prop_HPO	0.0957446808510638
-RD212	Case	UDN_pilot	exome	prop_HPO	0.174311926605505
-RD214	Case	UDN_pilot	exome	prop_HPO	0.163934426229508
-RD215	Case	UDN_pilot	genome	prop_HPO	0.169980119284294
-RD217	Case	UDN_pilot	exome	prop_HPO	0.226415094339623
-RD218	Case	UDN_pilot	exome	prop_HPO	0.135338345864662
-RD219	Case	UDN_pilot	genome	prop_HPO	0.168301886792453
-RD220	Case	UDN_pilot	genome	prop_HPO	0.1816
-RD221	Case	UDN_pilot	exome	prop_HPO	0.167741935483871
-RD222	Case	UDN_pilot	exome	prop_HPO	0.0487804878048781
-RD008	Case	CHEO	exome	prop_RV	0
-RD009	Case	CHEO	exome	prop_RV	0
-RD011	Case	CHEO	genome	prop_RV	1
-RD012	Case	CHEO	genome	prop_RV	0
-RD015	Case	CGS	genome	prop_RV	0.219403931515536
-RD016	Case	CGS	genome	prop_RV	0.223316912972085
-RD017	Case	CGS	genome	prop_RV	0.133409350057013
-RD020	Case	CGS	genome	prop_RV	0.115621156211562
-RD021	Case	CGS	genome	prop_RV	0.127782724844167
-RD022	Case	CGS	genome	prop_RV	0.174887892376682
-RD025	Case	CHEO	genome	prop_RV	0.37565445026178
-RD035	Case	CGS	genome	prop_RV	0.198919891989199
-RD036	Case	CGS	genome	prop_RV	0.200847457627119
-RD037	Case	CGS	genome	prop_RV	0.125
-RD038	Case	CGS	genome	prop_RV	0.1830204778157
-RD039	Case	CGS	genome	prop_RV	0.0666666666666667
-RD040	Case	CGS	genome	prop_RV	0.199652777777778
-RD041	Case	UDN	genome	prop_RV	0.464968152866242
-RD042	Case	UDN	exome	prop_RV	0
-RD045	Case	UDN	exome	prop_RV	0.0275590551181102
-RD046	Case	UDN	exome	prop_RV	0.05
-RD047	Case	UDN	exome	prop_RV	0.0273752012882448
-RD048	Case	UDN	exome	prop_RV	0.0444444444444444
-RD058	Case	UDN	genome	prop_RV	0.64068209500609
-RD059	Case	UDN	exome	prop_RV	0.0191361399671952
-RD062	Case	UDN	exome	prop_RV	0.0192307692307692
-RD063	Case	UDN	exome	prop_RV	0
-RD064	Case	UDN	exome	prop_RV	0.0265957446808511
-RD118	Case	CGS	exome	prop_RV	0.00934579439252336
-RD121	Case	CGS	exome	prop_RV	0.00263852242744063
-RD122	Case	CGS	exome	prop_RV	0.0087719298245614
-RD123	Case	CGS	exome	prop_RV	0.00264550264550265
-RD125	Case	CGS	exome	prop_RV	0.00801749271137026
-RD127	Case	CGS	exome	prop_RV	0.0204081632653061
-RD129	Case	CGS	exome	prop_RV	0
-RD159	Case	UDN	genome	prop_RV	0.481386392811297
-RD163	Case	UDN	exome	prop_RV	0.018811136192626
-RD164	Case	UDN	exome	prop_RV	0.020861074123391
-RD167	Case	UDN	genome	prop_RV	0.592105263157895
-RD168	Case	UDN	genome	prop_RV	0.61211477151966
-RD172	Case	UDN	exome	prop_RV	0.0155228758169935
-RD173	Case	UDN	exome	prop_RV	0.0166320166320166
-RD177	Case	UDN	exome	prop_RV	0.0161920714684534
-RD181	Case	UDN	genome	prop_RV	0.7
-RD182	Case	UDN	genome	prop_RV	0.524390243902439
-RD183	Case	UDN	exome	prop_RV	0.010989010989011
-RD184	Case	UDN	genome	prop_RV	0.451327433628319
-RD185	Case	UDN	genome	prop_RV	0.636363636363636
-RD186	Case	UDN	genome	prop_RV	0.44
-RD191	Case	UDN	exome	prop_RV	0.00757575757575758
-RD194	Case	UDN	genome	prop_RV	0.564575645756458
-RD196	Case	UDN_pilot	exome	prop_RV	0.0189633375474083
-RD197	Case	UDN_pilot	exome	prop_RV	0.0252100840336134
-RD198	Case	UDN_pilot	exome	prop_RV	0
-RD199	Case	UDN_pilot	exome	prop_RV	0.0204081632653061
-RD202	Case	UDN_pilot	genome	prop_RV	0.69047619047619
-RD203	Case	UDN_pilot	genome	prop_RV	0.606837606837607
-RD206	Case	UDN_pilot	exome	prop_RV	0.0259365994236311
-RD207	Case	UDN_pilot	genome	prop_RV	0.629668049792531
-RD208	Case	UDN_pilot	genome	prop_RV	0.635593220338983
-RD209	Case	UDN_pilot	exome	prop_RV	0.0228013029315961
-RD210	Case	UDN_pilot	exome	prop_RV	0.027355623100304
-RD212	Case	UDN_pilot	exome	prop_RV	0.0504587155963303
-RD214	Case	UDN_pilot	exome	prop_RV	0.0437158469945355
-RD215	Case	UDN_pilot	genome	prop_RV	0.537773359840954
-RD217	Case	UDN_pilot	exome	prop_RV	0.0188679245283019
-RD218	Case	UDN_pilot	exome	prop_RV	0.0225563909774436
-RD219	Case	UDN_pilot	genome	prop_RV	0.71622641509434
-RD220	Case	UDN_pilot	genome	prop_RV	0.7016
-RD221	Case	UDN_pilot	exome	prop_RV	0.429032258064516
-RD222	Case	UDN_pilot	exome	prop_RV	0.024390243902439
-RD008	Case	CHEO	exome	prop_RVpLI	0
-RD009	Case	CHEO	exome	prop_RVpLI	0
-RD011	Case	CHEO	genome	prop_RVpLI	0
-RD012	Case	CHEO	genome	prop_RVpLI	0
-RD015	Case	CGS	genome	prop_RVpLI	0.0653138871274572
-RD016	Case	CGS	genome	prop_RVpLI	0.0640394088669951
-RD017	Case	CGS	genome	prop_RVpLI	0.040668947168377
-RD020	Case	CGS	genome	prop_RVpLI	0.034440344403444
-RD021	Case	CGS	genome	prop_RVpLI	0.0445235975066785
-RD022	Case	CGS	genome	prop_RVpLI	0.0582959641255605
-RD025	Case	CHEO	genome	prop_RVpLI	0.102094240837696
-RD035	Case	CGS	genome	prop_RVpLI	0.054005400540054
-RD036	Case	CGS	genome	prop_RVpLI	0.0559322033898305
-RD037	Case	CGS	genome	prop_RVpLI	0
-RD038	Case	CGS	genome	prop_RVpLI	0.0571672354948805
-RD039	Case	CGS	genome	prop_RVpLI	0
-RD040	Case	CGS	genome	prop_RVpLI	0.0520833333333333
-RD041	Case	UDN	genome	prop_RVpLI	0.152866242038217
-RD042	Case	UDN	exome	prop_RVpLI	0
-RD045	Case	UDN	exome	prop_RVpLI	0.0078740157480315
-RD046	Case	UDN	exome	prop_RVpLI	0
-RD047	Case	UDN	exome	prop_RVpLI	0.00483091787439614
-RD048	Case	UDN	exome	prop_RVpLI	0
-RD058	Case	UDN	genome	prop_RVpLI	0.199756394640682
-RD059	Case	UDN	exome	prop_RVpLI	0.00437397484964461
-RD062	Case	UDN	exome	prop_RVpLI	0.00641025641025641
-RD063	Case	UDN	exome	prop_RVpLI	0
-RD064	Case	UDN	exome	prop_RVpLI	0
-RD118	Case	CGS	exome	prop_RVpLI	0
-RD121	Case	CGS	exome	prop_RVpLI	0.00263852242744063
-RD122	Case	CGS	exome	prop_RVpLI	0
-RD123	Case	CGS	exome	prop_RVpLI	0.00264550264550265
-RD125	Case	CGS	exome	prop_RVpLI	0.00145772594752187
-RD127	Case	CGS	exome	prop_RVpLI	0
-RD129	Case	CGS	exome	prop_RVpLI	0
-RD159	Case	UDN	genome	prop_RVpLI	0.152759948652118
-RD163	Case	UDN	exome	prop_RVpLI	0.00451467268623025
-RD164	Case	UDN	exome	prop_RVpLI	0.00621393697292499
-RD167	Case	UDN	genome	prop_RVpLI	0.195906432748538
-RD168	Case	UDN	genome	prop_RVpLI	0.180658873538789
-RD172	Case	UDN	exome	prop_RVpLI	0.00571895424836601
-RD173	Case	UDN	exome	prop_RVpLI	0.00311850311850312
-RD177	Case	UDN	exome	prop_RVpLI	0.00558347292015634
-RD181	Case	UDN	genome	prop_RVpLI	0.233333333333333
-RD182	Case	UDN	genome	prop_RVpLI	0.158536585365854
-RD183	Case	UDN	exome	prop_RVpLI	0
-RD184	Case	UDN	genome	prop_RVpLI	0.141592920353982
-RD185	Case	UDN	genome	prop_RVpLI	0.318181818181818
-RD186	Case	UDN	genome	prop_RVpLI	0.12
-RD191	Case	UDN	exome	prop_RVpLI	0.00757575757575758
-RD194	Case	UDN	genome	prop_RVpLI	0.188191881918819
-RD196	Case	UDN_pilot	exome	prop_RVpLI	0.00505689001264223
-RD197	Case	UDN_pilot	exome	prop_RVpLI	0.00420168067226891
-RD198	Case	UDN_pilot	exome	prop_RVpLI	0
-RD199	Case	UDN_pilot	exome	prop_RVpLI	0.00340136054421769
-RD202	Case	UDN_pilot	genome	prop_RVpLI	0.238095238095238
-RD203	Case	UDN_pilot	genome	prop_RVpLI	0.128205128205128
-RD206	Case	UDN_pilot	exome	prop_RVpLI	0.00576368876080692
-RD207	Case	UDN_pilot	genome	prop_RVpLI	0.182572614107884
-RD208	Case	UDN_pilot	genome	prop_RVpLI	0.161016949152542
-RD209	Case	UDN_pilot	exome	prop_RVpLI	0.00977198697068404
-RD210	Case	UDN_pilot	exome	prop_RVpLI	0.00911854103343465
-RD212	Case	UDN_pilot	exome	prop_RVpLI	0
-RD214	Case	UDN_pilot	exome	prop_RVpLI	0.0109289617486339
-RD215	Case	UDN_pilot	genome	prop_RVpLI	0.156063618290258
-RD217	Case	UDN_pilot	exome	prop_RVpLI	0
-RD218	Case	UDN_pilot	exome	prop_RVpLI	0.0075187969924812
-RD219	Case	UDN_pilot	genome	prop_RVpLI	0.236981132075472
-RD220	Case	UDN_pilot	genome	prop_RVpLI	0.228
-RD221	Case	UDN_pilot	exome	prop_RVpLI	0.0903225806451613
-RD222	Case	UDN_pilot	exome	prop_RVpLI	0
-RD008	Case	CHEO	exome	prop_CADD	0
-RD009	Case	CHEO	exome	prop_CADD	0
-RD011	Case	CHEO	genome	prop_CADD	0
-RD012	Case	CHEO	genome	prop_CADD	0
-RD015	Case	CGS	genome	prop_CADD	0.0240963855421687
-RD016	Case	CGS	genome	prop_CADD	0.0197044334975369
-RD017	Case	CGS	genome	prop_CADD	0.0125427594070696
-RD020	Case	CGS	genome	prop_CADD	0.012710127101271
-RD021	Case	CGS	genome	prop_CADD	0.0102404274265361
-RD022	Case	CGS	genome	prop_CADD	0.0269058295964126
-RD025	Case	CHEO	genome	prop_CADD	0.049738219895288
-RD035	Case	CGS	genome	prop_CADD	0.0126012601260126
-RD036	Case	CGS	genome	prop_CADD	0.0254237288135593
-RD037	Case	CGS	genome	prop_CADD	0
-RD038	Case	CGS	genome	prop_CADD	0.0183447098976109
-RD039	Case	CGS	genome	prop_CADD	0.0666666666666667
-RD040	Case	CGS	genome	prop_CADD	0.0364583333333333
-RD041	Case	UDN	genome	prop_CADD	0.0828025477707006
-RD042	Case	UDN	exome	prop_CADD	0
-RD045	Case	UDN	exome	prop_CADD	0.00393700787401575
-RD046	Case	UDN	exome	prop_CADD	0
-RD047	Case	UDN	exome	prop_CADD	0.00966183574879227
-RD048	Case	UDN	exome	prop_CADD	0.0222222222222222
-RD058	Case	UDN	genome	prop_CADD	0.176613885505481
-RD059	Case	UDN	exome	prop_CADD	0.00218698742482231
-RD062	Case	UDN	exome	prop_CADD	0.00641025641025641
-RD063	Case	UDN	exome	prop_CADD	0
-RD064	Case	UDN	exome	prop_CADD	0.00531914893617021
-RD118	Case	CGS	exome	prop_CADD	0.00934579439252336
-RD121	Case	CGS	exome	prop_CADD	0.00263852242744063
-RD122	Case	CGS	exome	prop_CADD	0.0087719298245614
-RD123	Case	CGS	exome	prop_CADD	0.00264550264550265
-RD125	Case	CGS	exome	prop_CADD	0.00145772594752187
-RD127	Case	CGS	exome	prop_CADD	0
-RD129	Case	CGS	exome	prop_CADD	0
-RD159	Case	UDN	genome	prop_CADD	0.0693196405648267
-RD163	Case	UDN	exome	prop_CADD	0.00300978179082017
-RD164	Case	UDN	exome	prop_CADD	0.00443852640923214
-RD167	Case	UDN	genome	prop_CADD	0.156432748538012
-RD168	Case	UDN	genome	prop_CADD	0.157279489904357
-RD172	Case	UDN	exome	prop_CADD	0.00245098039215686
-RD173	Case	UDN	exome	prop_CADD	0.00207900207900208
-RD177	Case	UDN	exome	prop_CADD	0.0033500837520938
-RD181	Case	UDN	genome	prop_CADD	0.0666666666666667
-RD182	Case	UDN	genome	prop_CADD	0.134146341463415
-RD183	Case	UDN	exome	prop_CADD	0.010989010989011
-RD184	Case	UDN	genome	prop_CADD	0.0619469026548673
-RD185	Case	UDN	genome	prop_CADD	0.136363636363636
-RD186	Case	UDN	genome	prop_CADD	0.04
-RD191	Case	UDN	exome	prop_CADD	0
-RD194	Case	UDN	genome	prop_CADD	0.0774907749077491
-RD196	Case	UDN_pilot	exome	prop_CADD	0.00379266750948167
-RD197	Case	UDN_pilot	exome	prop_CADD	0.00420168067226891
-RD198	Case	UDN_pilot	exome	prop_CADD	0
-RD199	Case	UDN_pilot	exome	prop_CADD	0.00680272108843537
-RD202	Case	UDN_pilot	genome	prop_CADD	0.130952380952381
-RD203	Case	UDN_pilot	genome	prop_CADD	0.111111111111111
-RD206	Case	UDN_pilot	exome	prop_CADD	0.00648414985590778
-RD207	Case	UDN_pilot	genome	prop_CADD	0.170124481327801
-RD208	Case	UDN_pilot	genome	prop_CADD	0.105932203389831
-RD209	Case	UDN_pilot	exome	prop_CADD	0.00325732899022801
-RD210	Case	UDN_pilot	exome	prop_CADD	0.0121580547112462
-RD212	Case	UDN_pilot	exome	prop_CADD	0.0275229357798165
-RD214	Case	UDN_pilot	exome	prop_CADD	0.0218579234972678
-RD215	Case	UDN_pilot	genome	prop_CADD	0.0894632206759443
-RD217	Case	UDN_pilot	exome	prop_CADD	0.00943396226415094
-RD218	Case	UDN_pilot	exome	prop_CADD	0
-RD219	Case	UDN_pilot	genome	prop_CADD	0.166792452830189
-RD220	Case	UDN_pilot	genome	prop_CADD	0.2216
-RD221	Case	UDN_pilot	exome	prop_CADD	0.0666666666666667
-RD222	Case	UDN_pilot	exome	prop_CADD	0.024390243902439
-RD008	Case	CHEO	exome	prop_RVHPO	0
-RD009	Case	CHEO	exome	prop_RVHPO	0
-RD011	Case	CHEO	genome	prop_RVHPO	1
-RD012	Case	CHEO	genome	prop_RVHPO	0
-RD015	Case	CGS	genome	prop_RVHPO	0.0317057704502219
-RD016	Case	CGS	genome	prop_RVHPO	0.0213464696223317
-RD017	Case	CGS	genome	prop_RVHPO	0.0140630938806537
-RD020	Case	CGS	genome	prop_RVHPO	0.021730217302173
-RD021	Case	CGS	genome	prop_RVHPO	0.0240427426536064
-RD022	Case	CGS	genome	prop_RVHPO	0.0269058295964126
-RD025	Case	CHEO	genome	prop_RVHPO	0.0589005235602094
-RD035	Case	CGS	genome	prop_RVHPO	0.0054005400540054
-RD036	Case	CGS	genome	prop_RVHPO	0.0101694915254237
-RD037	Case	CGS	genome	prop_RVHPO	0
-RD038	Case	CGS	genome	prop_RVHPO	0.00853242320819113
-RD039	Case	CGS	genome	prop_RVHPO	0
-RD040	Case	CGS	genome	prop_RVHPO	0.0138888888888889
-RD041	Case	UDN	genome	prop_RVHPO	0.0764331210191083
-RD042	Case	UDN	exome	prop_RVHPO	0
-RD045	Case	UDN	exome	prop_RVHPO	0.00393700787401575
-RD046	Case	UDN	exome	prop_RVHPO	0
-RD047	Case	UDN	exome	prop_RVHPO	0.00483091787439614
-RD048	Case	UDN	exome	prop_RVHPO	0.0444444444444444
-RD058	Case	UDN	genome	prop_RVHPO	0.0816077953714982
-RD059	Case	UDN	exome	prop_RVHPO	0.00218698742482231
-RD062	Case	UDN	exome	prop_RVHPO	0.00213675213675214
-RD063	Case	UDN	exome	prop_RVHPO	0
-RD064	Case	UDN	exome	prop_RVHPO	0
-RD118	Case	CGS	exome	prop_RVHPO	0
-RD121	Case	CGS	exome	prop_RVHPO	0
-RD122	Case	CGS	exome	prop_RVHPO	0
-RD123	Case	CGS	exome	prop_RVHPO	0
-RD125	Case	CGS	exome	prop_RVHPO	0.00145772594752187
-RD127	Case	CGS	exome	prop_RVHPO	0
-RD129	Case	CGS	exome	prop_RVHPO	0
-RD159	Case	UDN	genome	prop_RVHPO	0.109114249037227
-RD163	Case	UDN	exome	prop_RVHPO	0.00300978179082017
-RD164	Case	UDN	exome	prop_RVHPO	0.00355082112738571
-RD167	Case	UDN	genome	prop_RVHPO	0.0489766081871345
-RD168	Case	UDN	genome	prop_RVHPO	0.106269925611052
-RD172	Case	UDN	exome	prop_RVHPO	0.00326797385620915
-RD173	Case	UDN	exome	prop_RVHPO	0.0051975051975052
-RD177	Case	UDN	exome	prop_RVHPO	0.0050251256281407
-RD181	Case	UDN	genome	prop_RVHPO	0.1
-RD182	Case	UDN	genome	prop_RVHPO	0.146341463414634
-RD183	Case	UDN	exome	prop_RVHPO	0.010989010989011
-RD184	Case	UDN	genome	prop_RVHPO	0.00884955752212389
-RD185	Case	UDN	genome	prop_RVHPO	0.0454545454545455
-RD186	Case	UDN	genome	prop_RVHPO	0
-RD191	Case	UDN	exome	prop_RVHPO	0
-RD194	Case	UDN	genome	prop_RVHPO	0.0664206642066421
-RD196	Case	UDN_pilot	exome	prop_RVHPO	0.00252844500632111
-RD197	Case	UDN_pilot	exome	prop_RVHPO	0
-RD198	Case	UDN_pilot	exome	prop_RVHPO	0
-RD199	Case	UDN_pilot	exome	prop_RVHPO	0
-RD202	Case	UDN_pilot	genome	prop_RVHPO	0.142857142857143
-RD203	Case	UDN_pilot	genome	prop_RVHPO	0.111111111111111
-RD206	Case	UDN_pilot	exome	prop_RVHPO	0.00576368876080692
-RD207	Case	UDN_pilot	genome	prop_RVHPO	0.122406639004149
-RD208	Case	UDN_pilot	genome	prop_RVHPO	0.0635593220338983
-RD209	Case	UDN_pilot	exome	prop_RVHPO	0
-RD210	Case	UDN_pilot	exome	prop_RVHPO	0.00303951367781155
-RD212	Case	UDN_pilot	exome	prop_RVHPO	0.018348623853211
-RD214	Case	UDN_pilot	exome	prop_RVHPO	0.00546448087431694
-RD215	Case	UDN_pilot	genome	prop_RVHPO	0.100397614314115
-RD217	Case	UDN_pilot	exome	prop_RVHPO	0.00943396226415094
-RD218	Case	UDN_pilot	exome	prop_RVHPO	0.0075187969924812
-RD219	Case	UDN_pilot	genome	prop_RVHPO	0.119245283018868
-RD220	Case	UDN_pilot	genome	prop_RVHPO	0.14
-RD221	Case	UDN_pilot	exome	prop_RVHPO	0.0752688172043011
-RD222	Case	UDN_pilot	exome	prop_RVHPO	0
-RD008	Case	CHEO	exome	prop_RVHPOCADD	0
-RD009	Case	CHEO	exome	prop_RVHPOCADD	0
-RD011	Case	CHEO	genome	prop_RVHPOCADD	0
-RD012	Case	CHEO	genome	prop_RVHPOCADD	0
-RD015	Case	CGS	genome	prop_RVHPOCADD	0.00380469245402663
-RD016	Case	CGS	genome	prop_RVHPOCADD	0.00328407224958949
-RD017	Case	CGS	genome	prop_RVHPOCADD	0.00114025085518814
-RD020	Case	CGS	genome	prop_RVHPOCADD	0.002050020500205
-RD021	Case	CGS	genome	prop_RVHPOCADD	0.00267141585040071
-RD022	Case	CGS	genome	prop_RVHPOCADD	0.00896860986547085
-RD025	Case	CHEO	genome	prop_RVHPOCADD	0.00654450261780105
-RD035	Case	CGS	genome	prop_RVHPOCADD	0
-RD036	Case	CGS	genome	prop_RVHPOCADD	0.00169491525423729
-RD037	Case	CGS	genome	prop_RVHPOCADD	0
-RD038	Case	CGS	genome	prop_RVHPOCADD	0
-RD039	Case	CGS	genome	prop_RVHPOCADD	0
-RD040	Case	CGS	genome	prop_RVHPOCADD	0
-RD041	Case	UDN	genome	prop_RVHPOCADD	0.00636942675159236
-RD042	Case	UDN	exome	prop_RVHPOCADD	0
-RD045	Case	UDN	exome	prop_RVHPOCADD	0
-RD046	Case	UDN	exome	prop_RVHPOCADD	0
-RD047	Case	UDN	exome	prop_RVHPOCADD	0.00322061191626409
-RD048	Case	UDN	exome	prop_RVHPOCADD	0.0222222222222222
-RD058	Case	UDN	genome	prop_RVHPOCADD	0.0243605359317905
-RD059	Case	UDN	exome	prop_RVHPOCADD	0
-RD062	Case	UDN	exome	prop_RVHPOCADD	0
-RD063	Case	UDN	exome	prop_RVHPOCADD	0
-RD064	Case	UDN	exome	prop_RVHPOCADD	0
-RD118	Case	CGS	exome	prop_RVHPOCADD	0
-RD121	Case	CGS	exome	prop_RVHPOCADD	0
-RD122	Case	CGS	exome	prop_RVHPOCADD	0
-RD123	Case	CGS	exome	prop_RVHPOCADD	0
-RD125	Case	CGS	exome	prop_RVHPOCADD	0
-RD127	Case	CGS	exome	prop_RVHPOCADD	0
-RD129	Case	CGS	exome	prop_RVHPOCADD	0
-RD159	Case	UDN	genome	prop_RVHPOCADD	0.0154043645699615
-RD163	Case	UDN	exome	prop_RVHPOCADD	0
-RD164	Case	UDN	exome	prop_RVHPOCADD	0.000887705281846427
-RD167	Case	UDN	genome	prop_RVHPOCADD	0.0138888888888889
-RD168	Case	UDN	genome	prop_RVHPOCADD	0.026567481402763
-RD172	Case	UDN	exome	prop_RVHPOCADD	0.000816993464052288
-RD173	Case	UDN	exome	prop_RVHPOCADD	0
-RD177	Case	UDN	exome	prop_RVHPOCADD	0.000558347292015634
-RD181	Case	UDN	genome	prop_RVHPOCADD	0
-RD182	Case	UDN	genome	prop_RVHPOCADD	0.0121951219512195
-RD183	Case	UDN	exome	prop_RVHPOCADD	0.010989010989011
-RD184	Case	UDN	genome	prop_RVHPOCADD	0
-RD185	Case	UDN	genome	prop_RVHPOCADD	0
-RD186	Case	UDN	genome	prop_RVHPOCADD	0
-RD191	Case	UDN	exome	prop_RVHPOCADD	0
-RD194	Case	UDN	genome	prop_RVHPOCADD	0.022140221402214
-RD196	Case	UDN_pilot	exome	prop_RVHPOCADD	0
-RD197	Case	UDN_pilot	exome	prop_RVHPOCADD	0
-RD198	Case	UDN_pilot	exome	prop_RVHPOCADD	0
-RD199	Case	UDN_pilot	exome	prop_RVHPOCADD	0
-RD202	Case	UDN_pilot	genome	prop_RVHPOCADD	0.0238095238095238
-RD203	Case	UDN_pilot	genome	prop_RVHPOCADD	0.0170940170940171
-RD206	Case	UDN_pilot	exome	prop_RVHPOCADD	0.00216138328530259
-RD207	Case	UDN_pilot	genome	prop_RVHPOCADD	0.0342323651452282
-RD208	Case	UDN_pilot	genome	prop_RVHPOCADD	0.0127118644067797
-RD209	Case	UDN_pilot	exome	prop_RVHPOCADD	0
-RD210	Case	UDN_pilot	exome	prop_RVHPOCADD	0.00303951367781155
-RD212	Case	UDN_pilot	exome	prop_RVHPOCADD	0.00458715596330275
-RD214	Case	UDN_pilot	exome	prop_RVHPOCADD	0.00546448087431694
-RD215	Case	UDN_pilot	genome	prop_RVHPOCADD	0.0208747514910537
-RD217	Case	UDN_pilot	exome	prop_RVHPOCADD	0
-RD218	Case	UDN_pilot	exome	prop_RVHPOCADD	0
-RD219	Case	UDN_pilot	genome	prop_RVHPOCADD	0.0256603773584906
-RD220	Case	UDN_pilot	genome	prop_RVHPOCADD	0.0456
-RD221	Case	UDN_pilot	exome	prop_RVHPOCADD	0.0161290322580645
-RD222	Case	UDN_pilot	exome	prop_RVHPOCADD	0
-RD008	Case	CHEO	exome	prop_combined	0
-RD009	Case	CHEO	exome	prop_combined	0
-RD011	Case	CHEO	genome	prop_combined	0
-RD012	Case	CHEO	genome	prop_combined	0
-RD015	Case	CGS	genome	prop_combined	0.00190234622701332
-RD016	Case	CGS	genome	prop_combined	0
-RD017	Case	CGS	genome	prop_combined	0.000760167236792094
-RD020	Case	CGS	genome	prop_combined	0.001230012300123
-RD021	Case	CGS	genome	prop_combined	0.00222617987533393
-RD022	Case	CGS	genome	prop_combined	0
-RD025	Case	CHEO	genome	prop_combined	0.00130890052356021
-RD035	Case	CGS	genome	prop_combined	0
-RD036	Case	CGS	genome	prop_combined	0
-RD037	Case	CGS	genome	prop_combined	0
-RD038	Case	CGS	genome	prop_combined	0
-RD039	Case	CGS	genome	prop_combined	0
-RD040	Case	CGS	genome	prop_combined	0
-RD041	Case	UDN	genome	prop_combined	0
-RD042	Case	UDN	exome	prop_combined	0
-RD045	Case	UDN	exome	prop_combined	0
-RD046	Case	UDN	exome	prop_combined	0
-RD047	Case	UDN	exome	prop_combined	0
-RD048	Case	UDN	exome	prop_combined	0
-RD058	Case	UDN	genome	prop_combined	0.0109622411693057
-RD059	Case	UDN	exome	prop_combined	0
-RD062	Case	UDN	exome	prop_combined	0
-RD063	Case	UDN	exome	prop_combined	0
-RD064	Case	UDN	exome	prop_combined	0
-RD118	Case	CGS	exome	prop_combined	0
-RD121	Case	CGS	exome	prop_combined	0
-RD122	Case	CGS	exome	prop_combined	0
-RD123	Case	CGS	exome	prop_combined	0
-RD125	Case	CGS	exome	prop_combined	0
-RD127	Case	CGS	exome	prop_combined	0
-RD129	Case	CGS	exome	prop_combined	0
-RD159	Case	UDN	genome	prop_combined	0.00641848523748395
-RD163	Case	UDN	exome	prop_combined	0
-RD164	Case	UDN	exome	prop_combined	0.000443852640923213
-RD167	Case	UDN	genome	prop_combined	0.00730994152046784
-RD168	Case	UDN	genome	prop_combined	0.00637619553666312
-RD172	Case	UDN	exome	prop_combined	0
-RD173	Case	UDN	exome	prop_combined	0
-RD177	Case	UDN	exome	prop_combined	0.000558347292015634
-RD181	Case	UDN	genome	prop_combined	0
-RD182	Case	UDN	genome	prop_combined	0.0121951219512195
-RD183	Case	UDN	exome	prop_combined	0
-RD184	Case	UDN	genome	prop_combined	0
-RD185	Case	UDN	genome	prop_combined	0
-RD186	Case	UDN	genome	prop_combined	0
-RD191	Case	UDN	exome	prop_combined	0
-RD194	Case	UDN	genome	prop_combined	0.011070110701107
-RD196	Case	UDN_pilot	exome	prop_combined	0
-RD197	Case	UDN_pilot	exome	prop_combined	0
-RD198	Case	UDN_pilot	exome	prop_combined	0
-RD199	Case	UDN_pilot	exome	prop_combined	0
-RD202	Case	UDN_pilot	genome	prop_combined	0.0238095238095238
-RD203	Case	UDN_pilot	genome	prop_combined	0
-RD206	Case	UDN_pilot	exome	prop_combined	0.000720461095100865
-RD207	Case	UDN_pilot	genome	prop_combined	0.0134854771784232
-RD208	Case	UDN_pilot	genome	prop_combined	0
-RD209	Case	UDN_pilot	exome	prop_combined	0
-RD210	Case	UDN_pilot	exome	prop_combined	0.00151975683890578
-RD212	Case	UDN_pilot	exome	prop_combined	0
-RD214	Case	UDN_pilot	exome	prop_combined	0
-RD215	Case	UDN_pilot	genome	prop_combined	0.00596421471172962
-RD217	Case	UDN_pilot	exome	prop_combined	0
-RD218	Case	UDN_pilot	exome	prop_combined	0
-RD219	Case	UDN_pilot	genome	prop_combined	0.00528301886792453
-RD220	Case	UDN_pilot	genome	prop_combined	0.0176
-RD221	Case	UDN_pilot	exome	prop_combined	0.0021505376344086
-RD222	Case	UDN_pilot	exome	prop_combined	0
+sample_id	technology	variable	value
+samp1	exome	prop_pLI	0.28571429
+samp2	exome	prop_pLI	0.33333333
+samp3	genome	prop_pLI	0
+samp4	genome	prop_pLI	0
+samp5	genome	prop_pLI	0.26315789
+samp6	genome	prop_pLI	0.26600985
+samp7	genome	prop_pLI	0.28506271
+samp8	genome	prop_pLI	0.30176302
+samp9	genome	prop_pLI	0.3032057
+samp10	genome	prop_pLI	0.25560538
+samp11	genome	prop_pLI	0.27748691
+samp12	genome	prop_pLI	0.26372637
+samp13	genome	prop_pLI	0.24576271
+samp14	genome	prop_pLI	0.1875
+samp15	genome	prop_pLI	0.28156997
+samp16	genome	prop_pLI	0.06666667
+samp17	genome	prop_pLI	0.26388889
+samp18	genome	prop_pLI	0.2866242
+samp19	exome	prop_pLI	0.55555556
+samp20	exome	prop_pLI	0.2519685
+samp21	exome	prop_pLI	0.25
+samp22	exome	prop_pLI	0.28985507
+samp23	exome	prop_pLI	0.26666667
+samp24	genome	prop_pLI	0.28258222
+samp25	exome	prop_pLI	0.31164571
+samp26	exome	prop_pLI	0.27136752
+samp27	exome	prop_pLI	0.23076923
+samp28	exome	prop_pLI	0.25531915
+samp29	exome	prop_pLI	0.23364486
+samp30	exome	prop_pLI	0.26385224
+samp31	exome	prop_pLI	0.30701754
+samp32	exome	prop_pLI	0.25396825
+samp33	exome	prop_pLI	0.31122449
+samp34	exome	prop_pLI	0.17346939
+samp35	exome	prop_pLI	0.26923077
+samp36	genome	prop_pLI	0.31578947
+samp37	exome	prop_pLI	0.29044394
+samp38	exome	prop_pLI	0.30758988
+samp39	genome	prop_pLI	0.30628655
+samp40	genome	prop_pLI	0.2837407
+samp41	exome	prop_pLI	0.27614379
+samp42	exome	prop_pLI	0.31081081
+samp43	exome	prop_pLI	0.30597432
+samp44	genome	prop_pLI	0.26666667
+samp45	genome	prop_pLI	0.26829268
+samp46	exome	prop_pLI	0.38461538
+samp47	genome	prop_pLI	0.30973451
+samp48	genome	prop_pLI	0.31818182
+samp49	genome	prop_pLI	0.28
+samp50	exome	prop_pLI	0.31818182
+samp51	genome	prop_pLI	0.28413284
+samp52	exome	prop_pLI	0.27180784
+samp53	exome	prop_pLI	0.28151261
+samp54	exome	prop_pLI	0.26666667
+samp55	exome	prop_pLI	0.31632653
+samp56	genome	prop_pLI	0.3452381
+samp57	genome	prop_pLI	0.25641026
+samp58	exome	prop_pLI	0.27881844
+samp59	genome	prop_pLI	0.28319502
+samp60	genome	prop_pLI	0.23728814
+samp61	exome	prop_pLI	0.3257329
+samp62	exome	prop_pLI	0.27051672
+samp63	exome	prop_pLI	0.25229358
+samp64	exome	prop_pLI	0.24590164
+samp65	genome	prop_pLI	0.26242545
+samp66	exome	prop_pLI	0.29245283
+samp67	exome	prop_pLI	0.27819549
+samp68	genome	prop_pLI	0.3290566
+samp69	genome	prop_pLI	0.3064
+samp70	exome	prop_pLI	0.19784946
+samp71	exome	prop_pLI	0.2195122
+samp1	exome	prop_HPO	0.14285714
+samp2	exome	prop_HPO	0.33333333
+samp3	genome	prop_HPO	1
+samp4	genome	prop_HPO	0
+samp5	genome	prop_HPO	0.12872543
+samp6	genome	prop_HPO	0.10180624
+samp7	genome	prop_HPO	0.07905739
+samp8	genome	prop_HPO	0.19147191
+samp9	genome	prop_HPO	0.19189671
+samp10	genome	prop_HPO	0.12107623
+samp11	genome	prop_HPO	0.10602094
+samp12	genome	prop_HPO	0.03420342
+samp13	genome	prop_HPO	0.03220339
+samp14	genome	prop_HPO	0
+samp15	genome	prop_HPO	0.04266212
+samp16	genome	prop_HPO	0
+samp17	genome	prop_HPO	0.04340278
+samp18	genome	prop_HPO	0.13375796
+samp19	exome	prop_HPO	0.22222222
+samp20	exome	prop_HPO	0.16141732
+samp21	exome	prop_HPO	0.3
+samp22	exome	prop_HPO	0.20128824
+samp23	exome	prop_HPO	0.17777778
+samp24	genome	prop_HPO	0.14007308
+samp25	exome	prop_HPO	0.18370694
+samp26	exome	prop_HPO	0.18162393
+samp27	exome	prop_HPO	0.23076923
+samp28	exome	prop_HPO	0.18085106
+samp29	exome	prop_HPO	0.14953271
+samp30	exome	prop_HPO	0.00527704
+samp31	exome	prop_HPO	0
+samp32	exome	prop_HPO	0.13756614
+samp33	exome	prop_HPO	0.08163265
+samp34	exome	prop_HPO	0.1122449
+samp35	exome	prop_HPO	0.04807692
+samp36	genome	prop_HPO	0.20667522
+samp37	exome	prop_HPO	0.13920241
+samp38	exome	prop_HPO	0.11628939
+samp39	genome	prop_HPO	0.07821637
+samp40	genome	prop_HPO	0.16896918
+samp41	exome	prop_HPO	0.10539216
+samp42	exome	prop_HPO	0.18295218
+samp43	exome	prop_HPO	0.18257956
+samp44	genome	prop_HPO	0.1
+samp45	genome	prop_HPO	0.23170732
+samp46	exome	prop_HPO	0.16483516
+samp47	genome	prop_HPO	0.02654867
+samp48	genome	prop_HPO	0.09090909
+samp49	genome	prop_HPO	0.02
+samp50	exome	prop_HPO	0.15909091
+samp51	genome	prop_HPO	0.13653137
+samp52	exome	prop_HPO	0.07585335
+samp53	exome	prop_HPO	0.20588235
+samp54	exome	prop_HPO	0.06666667
+samp55	exome	prop_HPO	0.17687075
+samp56	genome	prop_HPO	0.17857143
+samp57	genome	prop_HPO	0.17948718
+samp58	exome	prop_HPO	0.15634006
+samp59	genome	prop_HPO	0.1846473
+samp60	genome	prop_HPO	0.08898305
+samp61	exome	prop_HPO	0.0228013
+samp62	exome	prop_HPO	0.09574468
+samp63	exome	prop_HPO	0.17431193
+samp64	exome	prop_HPO	0.16393443
+samp65	genome	prop_HPO	0.16998012
+samp66	exome	prop_HPO	0.22641509
+samp67	exome	prop_HPO	0.13533835
+samp68	genome	prop_HPO	0.16830189
+samp69	genome	prop_HPO	0.1816
+samp70	exome	prop_HPO	0.16774194
+samp71	exome	prop_HPO	0.04878049
+samp1	exome	prop_RV	0
+samp2	exome	prop_RV	0
+samp3	genome	prop_RV	1
+samp4	genome	prop_RV	0
+samp5	genome	prop_RV	0.21940393
+samp6	genome	prop_RV	0.22331691
+samp7	genome	prop_RV	0.13340935
+samp8	genome	prop_RV	0.11562116
+samp9	genome	prop_RV	0.12778272
+samp10	genome	prop_RV	0.17488789
+samp11	genome	prop_RV	0.37565445
+samp12	genome	prop_RV	0.19891989
+samp13	genome	prop_RV	0.20084746
+samp14	genome	prop_RV	0.125
+samp15	genome	prop_RV	0.18302048
+samp16	genome	prop_RV	0.06666667
+samp17	genome	prop_RV	0.19965278
+samp18	genome	prop_RV	0.46496815
+samp19	exome	prop_RV	0
+samp20	exome	prop_RV	0.02755906
+samp21	exome	prop_RV	0.05
+samp22	exome	prop_RV	0.0273752
+samp23	exome	prop_RV	0.04444444
+samp24	genome	prop_RV	0.6406821
+samp25	exome	prop_RV	0.01913614
+samp26	exome	prop_RV	0.01923077
+samp27	exome	prop_RV	0
+samp28	exome	prop_RV	0.02659574
+samp29	exome	prop_RV	0.00934579
+samp30	exome	prop_RV	0.00263852
+samp31	exome	prop_RV	0.00877193
+samp32	exome	prop_RV	0.0026455
+samp33	exome	prop_RV	0.00801749
+samp34	exome	prop_RV	0.02040816
+samp35	exome	prop_RV	0
+samp36	genome	prop_RV	0.48138639
+samp37	exome	prop_RV	0.01881114
+samp38	exome	prop_RV	0.02086107
+samp39	genome	prop_RV	0.59210526
+samp40	genome	prop_RV	0.61211477
+samp41	exome	prop_RV	0.01552288
+samp42	exome	prop_RV	0.01663202
+samp43	exome	prop_RV	0.01619207
+samp44	genome	prop_RV	0.7
+samp45	genome	prop_RV	0.52439024
+samp46	exome	prop_RV	0.01098901
+samp47	genome	prop_RV	0.45132743
+samp48	genome	prop_RV	0.63636364
+samp49	genome	prop_RV	0.44
+samp50	exome	prop_RV	0.00757576
+samp51	genome	prop_RV	0.56457565
+samp52	exome	prop_RV	0.01896334
+samp53	exome	prop_RV	0.02521008
+samp54	exome	prop_RV	0
+samp55	exome	prop_RV	0.02040816
+samp56	genome	prop_RV	0.69047619
+samp57	genome	prop_RV	0.60683761
+samp58	exome	prop_RV	0.0259366
+samp59	genome	prop_RV	0.62966805
+samp60	genome	prop_RV	0.63559322
+samp61	exome	prop_RV	0.0228013
+samp62	exome	prop_RV	0.02735562
+samp63	exome	prop_RV	0.05045872
+samp64	exome	prop_RV	0.04371585
+samp65	genome	prop_RV	0.53777336
+samp66	exome	prop_RV	0.01886792
+samp67	exome	prop_RV	0.02255639
+samp68	genome	prop_RV	0.71622642
+samp69	genome	prop_RV	0.7016
+samp70	exome	prop_RV	0.42903226
+samp71	exome	prop_RV	0.02439024
+samp1	exome	prop_RVpLI	0
+samp2	exome	prop_RVpLI	0
+samp3	genome	prop_RVpLI	0
+samp4	genome	prop_RVpLI	0
+samp5	genome	prop_RVpLI	0.06531389
+samp6	genome	prop_RVpLI	0.06403941
+samp7	genome	prop_RVpLI	0.04066895
+samp8	genome	prop_RVpLI	0.03444034
+samp9	genome	prop_RVpLI	0.0445236
+samp10	genome	prop_RVpLI	0.05829596
+samp11	genome	prop_RVpLI	0.10209424
+samp12	genome	prop_RVpLI	0.0540054
+samp13	genome	prop_RVpLI	0.0559322
+samp14	genome	prop_RVpLI	0
+samp15	genome	prop_RVpLI	0.05716724
+samp16	genome	prop_RVpLI	0
+samp17	genome	prop_RVpLI	0.05208333
+samp18	genome	prop_RVpLI	0.15286624
+samp19	exome	prop_RVpLI	0
+samp20	exome	prop_RVpLI	0.00787402
+samp21	exome	prop_RVpLI	0
+samp22	exome	prop_RVpLI	0.00483092
+samp23	exome	prop_RVpLI	0
+samp24	genome	prop_RVpLI	0.19975639
+samp25	exome	prop_RVpLI	0.00437397
+samp26	exome	prop_RVpLI	0.00641026
+samp27	exome	prop_RVpLI	0
+samp28	exome	prop_RVpLI	0
+samp29	exome	prop_RVpLI	0
+samp30	exome	prop_RVpLI	0.00263852
+samp31	exome	prop_RVpLI	0
+samp32	exome	prop_RVpLI	0.0026455
+samp33	exome	prop_RVpLI	0.00145773
+samp34	exome	prop_RVpLI	0
+samp35	exome	prop_RVpLI	0
+samp36	genome	prop_RVpLI	0.15275995
+samp37	exome	prop_RVpLI	0.00451467
+samp38	exome	prop_RVpLI	0.00621394
+samp39	genome	prop_RVpLI	0.19590643
+samp40	genome	prop_RVpLI	0.18065887
+samp41	exome	prop_RVpLI	0.00571895
+samp42	exome	prop_RVpLI	0.0031185
+samp43	exome	prop_RVpLI	0.00558347
+samp44	genome	prop_RVpLI	0.23333333
+samp45	genome	prop_RVpLI	0.15853659
+samp46	exome	prop_RVpLI	0
+samp47	genome	prop_RVpLI	0.14159292
+samp48	genome	prop_RVpLI	0.31818182
+samp49	genome	prop_RVpLI	0.12
+samp50	exome	prop_RVpLI	0.00757576
+samp51	genome	prop_RVpLI	0.18819188
+samp52	exome	prop_RVpLI	0.00505689
+samp53	exome	prop_RVpLI	0.00420168
+samp54	exome	prop_RVpLI	0
+samp55	exome	prop_RVpLI	0.00340136
+samp56	genome	prop_RVpLI	0.23809524
+samp57	genome	prop_RVpLI	0.12820513
+samp58	exome	prop_RVpLI	0.00576369
+samp59	genome	prop_RVpLI	0.18257261
+samp60	genome	prop_RVpLI	0.16101695
+samp61	exome	prop_RVpLI	0.00977199
+samp62	exome	prop_RVpLI	0.00911854
+samp63	exome	prop_RVpLI	0
+samp64	exome	prop_RVpLI	0.01092896
+samp65	genome	prop_RVpLI	0.15606362
+samp66	exome	prop_RVpLI	0
+samp67	exome	prop_RVpLI	0.0075188
+samp68	genome	prop_RVpLI	0.23698113
+samp69	genome	prop_RVpLI	0.228
+samp70	exome	prop_RVpLI	0.09032258
+samp71	exome	prop_RVpLI	0
+samp1	exome	prop_CADD	0
+samp2	exome	prop_CADD	0
+samp3	genome	prop_CADD	0
+samp4	genome	prop_CADD	0
+samp5	genome	prop_CADD	0.02409639
+samp6	genome	prop_CADD	0.01970443
+samp7	genome	prop_CADD	0.01254276
+samp8	genome	prop_CADD	0.01271013
+samp9	genome	prop_CADD	0.01024043
+samp10	genome	prop_CADD	0.02690583
+samp11	genome	prop_CADD	0.04973822
+samp12	genome	prop_CADD	0.01260126
+samp13	genome	prop_CADD	0.02542373
+samp14	genome	prop_CADD	0
+samp15	genome	prop_CADD	0.01834471
+samp16	genome	prop_CADD	0.06666667
+samp17	genome	prop_CADD	0.03645833
+samp18	genome	prop_CADD	0.08280255
+samp19	exome	prop_CADD	0
+samp20	exome	prop_CADD	0.00393701
+samp21	exome	prop_CADD	0
+samp22	exome	prop_CADD	0.00966184
+samp23	exome	prop_CADD	0.02222222
+samp24	genome	prop_CADD	0.17661389
+samp25	exome	prop_CADD	0.00218699
+samp26	exome	prop_CADD	0.00641026
+samp27	exome	prop_CADD	0
+samp28	exome	prop_CADD	0.00531915
+samp29	exome	prop_CADD	0.00934579
+samp30	exome	prop_CADD	0.00263852
+samp31	exome	prop_CADD	0.00877193
+samp32	exome	prop_CADD	0.0026455
+samp33	exome	prop_CADD	0.00145773
+samp34	exome	prop_CADD	0
+samp35	exome	prop_CADD	0
+samp36	genome	prop_CADD	0.06931964
+samp37	exome	prop_CADD	0.00300978
+samp38	exome	prop_CADD	0.00443853
+samp39	genome	prop_CADD	0.15643275
+samp40	genome	prop_CADD	0.15727949
+samp41	exome	prop_CADD	0.00245098
+samp42	exome	prop_CADD	0.002079
+samp43	exome	prop_CADD	0.00335008
+samp44	genome	prop_CADD	0.06666667
+samp45	genome	prop_CADD	0.13414634
+samp46	exome	prop_CADD	0.01098901
+samp47	genome	prop_CADD	0.0619469
+samp48	genome	prop_CADD	0.13636364
+samp49	genome	prop_CADD	0.04
+samp50	exome	prop_CADD	0
+samp51	genome	prop_CADD	0.07749077
+samp52	exome	prop_CADD	0.00379267
+samp53	exome	prop_CADD	0.00420168
+samp54	exome	prop_CADD	0
+samp55	exome	prop_CADD	0.00680272
+samp56	genome	prop_CADD	0.13095238
+samp57	genome	prop_CADD	0.11111111
+samp58	exome	prop_CADD	0.00648415
+samp59	genome	prop_CADD	0.17012448
+samp60	genome	prop_CADD	0.1059322
+samp61	exome	prop_CADD	0.00325733
+samp62	exome	prop_CADD	0.01215805
+samp63	exome	prop_CADD	0.02752294
+samp64	exome	prop_CADD	0.02185792
+samp65	genome	prop_CADD	0.08946322
+samp66	exome	prop_CADD	0.00943396
+samp67	exome	prop_CADD	0
+samp68	genome	prop_CADD	0.16679245
+samp69	genome	prop_CADD	0.2216
+samp70	exome	prop_CADD	0.06666667
+samp71	exome	prop_CADD	0.02439024
+samp1	exome	prop_RVHPO	0
+samp2	exome	prop_RVHPO	0
+samp3	genome	prop_RVHPO	1
+samp4	genome	prop_RVHPO	0
+samp5	genome	prop_RVHPO	0.03170577
+samp6	genome	prop_RVHPO	0.02134647
+samp7	genome	prop_RVHPO	0.01406309
+samp8	genome	prop_RVHPO	0.02173022
+samp9	genome	prop_RVHPO	0.02404274
+samp10	genome	prop_RVHPO	0.02690583
+samp11	genome	prop_RVHPO	0.05890052
+samp12	genome	prop_RVHPO	0.00540054
+samp13	genome	prop_RVHPO	0.01016949
+samp14	genome	prop_RVHPO	0
+samp15	genome	prop_RVHPO	0.00853242
+samp16	genome	prop_RVHPO	0
+samp17	genome	prop_RVHPO	0.01388889
+samp18	genome	prop_RVHPO	0.07643312
+samp19	exome	prop_RVHPO	0
+samp20	exome	prop_RVHPO	0.00393701
+samp21	exome	prop_RVHPO	0
+samp22	exome	prop_RVHPO	0.00483092
+samp23	exome	prop_RVHPO	0.04444444
+samp24	genome	prop_RVHPO	0.0816078
+samp25	exome	prop_RVHPO	0.00218699
+samp26	exome	prop_RVHPO	0.00213675
+samp27	exome	prop_RVHPO	0
+samp28	exome	prop_RVHPO	0
+samp29	exome	prop_RVHPO	0
+samp30	exome	prop_RVHPO	0
+samp31	exome	prop_RVHPO	0
+samp32	exome	prop_RVHPO	0
+samp33	exome	prop_RVHPO	0.00145773
+samp34	exome	prop_RVHPO	0
+samp35	exome	prop_RVHPO	0
+samp36	genome	prop_RVHPO	0.10911425
+samp37	exome	prop_RVHPO	0.00300978
+samp38	exome	prop_RVHPO	0.00355082
+samp39	genome	prop_RVHPO	0.04897661
+samp40	genome	prop_RVHPO	0.10626993
+samp41	exome	prop_RVHPO	0.00326797
+samp42	exome	prop_RVHPO	0.00519751
+samp43	exome	prop_RVHPO	0.00502513
+samp44	genome	prop_RVHPO	0.1
+samp45	genome	prop_RVHPO	0.14634146
+samp46	exome	prop_RVHPO	0.01098901
+samp47	genome	prop_RVHPO	0.00884956
+samp48	genome	prop_RVHPO	0.04545455
+samp49	genome	prop_RVHPO	0
+samp50	exome	prop_RVHPO	0
+samp51	genome	prop_RVHPO	0.06642066
+samp52	exome	prop_RVHPO	0.00252845
+samp53	exome	prop_RVHPO	0
+samp54	exome	prop_RVHPO	0
+samp55	exome	prop_RVHPO	0
+samp56	genome	prop_RVHPO	0.14285714
+samp57	genome	prop_RVHPO	0.11111111
+samp58	exome	prop_RVHPO	0.00576369
+samp59	genome	prop_RVHPO	0.12240664
+samp60	genome	prop_RVHPO	0.06355932
+samp61	exome	prop_RVHPO	0
+samp62	exome	prop_RVHPO	0.00303951
+samp63	exome	prop_RVHPO	0.01834862
+samp64	exome	prop_RVHPO	0.00546448
+samp65	genome	prop_RVHPO	0.10039761
+samp66	exome	prop_RVHPO	0.00943396
+samp67	exome	prop_RVHPO	0.0075188
+samp68	genome	prop_RVHPO	0.11924528
+samp69	genome	prop_RVHPO	0.14
+samp70	exome	prop_RVHPO	0.07526882
+samp71	exome	prop_RVHPO	0
+samp1	exome	prop_RVHPOCADD	0
+samp2	exome	prop_RVHPOCADD	0
+samp3	genome	prop_RVHPOCADD	0
+samp4	genome	prop_RVHPOCADD	0
+samp5	genome	prop_RVHPOCADD	0.00380469
+samp6	genome	prop_RVHPOCADD	0.00328407
+samp7	genome	prop_RVHPOCADD	0.00114025
+samp8	genome	prop_RVHPOCADD	0.00205002
+samp9	genome	prop_RVHPOCADD	0.00267142
+samp10	genome	prop_RVHPOCADD	0.00896861
+samp11	genome	prop_RVHPOCADD	0.0065445
+samp12	genome	prop_RVHPOCADD	0
+samp13	genome	prop_RVHPOCADD	0.00169492
+samp14	genome	prop_RVHPOCADD	0
+samp15	genome	prop_RVHPOCADD	0
+samp16	genome	prop_RVHPOCADD	0
+samp17	genome	prop_RVHPOCADD	0
+samp18	genome	prop_RVHPOCADD	0.00636943
+samp19	exome	prop_RVHPOCADD	0
+samp20	exome	prop_RVHPOCADD	0
+samp21	exome	prop_RVHPOCADD	0
+samp22	exome	prop_RVHPOCADD	0.00322061
+samp23	exome	prop_RVHPOCADD	0.02222222
+samp24	genome	prop_RVHPOCADD	0.02436054
+samp25	exome	prop_RVHPOCADD	0
+samp26	exome	prop_RVHPOCADD	0
+samp27	exome	prop_RVHPOCADD	0
+samp28	exome	prop_RVHPOCADD	0
+samp29	exome	prop_RVHPOCADD	0
+samp30	exome	prop_RVHPOCADD	0
+samp31	exome	prop_RVHPOCADD	0
+samp32	exome	prop_RVHPOCADD	0
+samp33	exome	prop_RVHPOCADD	0
+samp34	exome	prop_RVHPOCADD	0
+samp35	exome	prop_RVHPOCADD	0
+samp36	genome	prop_RVHPOCADD	0.01540436
+samp37	exome	prop_RVHPOCADD	0
+samp38	exome	prop_RVHPOCADD	0.00088771
+samp39	genome	prop_RVHPOCADD	0.01388889
+samp40	genome	prop_RVHPOCADD	0.02656748
+samp41	exome	prop_RVHPOCADD	0.00081699
+samp42	exome	prop_RVHPOCADD	0
+samp43	exome	prop_RVHPOCADD	0.00055835
+samp44	genome	prop_RVHPOCADD	0
+samp45	genome	prop_RVHPOCADD	0.01219512
+samp46	exome	prop_RVHPOCADD	0.01098901
+samp47	genome	prop_RVHPOCADD	0
+samp48	genome	prop_RVHPOCADD	0
+samp49	genome	prop_RVHPOCADD	0
+samp50	exome	prop_RVHPOCADD	0
+samp51	genome	prop_RVHPOCADD	0.02214022
+samp52	exome	prop_RVHPOCADD	0
+samp53	exome	prop_RVHPOCADD	0
+samp54	exome	prop_RVHPOCADD	0
+samp55	exome	prop_RVHPOCADD	0
+samp56	genome	prop_RVHPOCADD	0.02380952
+samp57	genome	prop_RVHPOCADD	0.01709402
+samp58	exome	prop_RVHPOCADD	0.00216138
+samp59	genome	prop_RVHPOCADD	0.03423237
+samp60	genome	prop_RVHPOCADD	0.01271186
+samp61	exome	prop_RVHPOCADD	0
+samp62	exome	prop_RVHPOCADD	0.00303951
+samp63	exome	prop_RVHPOCADD	0.00458716
+samp64	exome	prop_RVHPOCADD	0.00546448
+samp65	genome	prop_RVHPOCADD	0.02087475
+samp66	exome	prop_RVHPOCADD	0
+samp67	exome	prop_RVHPOCADD	0
+samp68	genome	prop_RVHPOCADD	0.02566038
+samp69	genome	prop_RVHPOCADD	0.0456
+samp70	exome	prop_RVHPOCADD	0.01612903
+samp71	exome	prop_RVHPOCADD	0
+samp1	exome	prop_combined	0
+samp2	exome	prop_combined	0
+samp3	genome	prop_combined	0
+samp4	genome	prop_combined	0
+samp5	genome	prop_combined	0.00190235
+samp6	genome	prop_combined	0
+samp7	genome	prop_combined	0.00076017
+samp8	genome	prop_combined	0.00123001
+samp9	genome	prop_combined	0.00222618
+samp10	genome	prop_combined	0
+samp11	genome	prop_combined	0.0013089
+samp12	genome	prop_combined	0
+samp13	genome	prop_combined	0
+samp14	genome	prop_combined	0
+samp15	genome	prop_combined	0
+samp16	genome	prop_combined	0
+samp17	genome	prop_combined	0
+samp18	genome	prop_combined	0
+samp19	exome	prop_combined	0
+samp20	exome	prop_combined	0
+samp21	exome	prop_combined	0
+samp22	exome	prop_combined	0
+samp23	exome	prop_combined	0
+samp24	genome	prop_combined	0.01096224
+samp25	exome	prop_combined	0
+samp26	exome	prop_combined	0
+samp27	exome	prop_combined	0
+samp28	exome	prop_combined	0
+samp29	exome	prop_combined	0
+samp30	exome	prop_combined	0
+samp31	exome	prop_combined	0
+samp32	exome	prop_combined	0
+samp33	exome	prop_combined	0
+samp34	exome	prop_combined	0
+samp35	exome	prop_combined	0
+samp36	genome	prop_combined	0.00641849
+samp37	exome	prop_combined	0
+samp38	exome	prop_combined	0.00044385
+samp39	genome	prop_combined	0.00730994
+samp40	genome	prop_combined	0.0063762
+samp41	exome	prop_combined	0
+samp42	exome	prop_combined	0
+samp43	exome	prop_combined	0.00055835
+samp44	genome	prop_combined	0
+samp45	genome	prop_combined	0.01219512
+samp46	exome	prop_combined	0
+samp47	genome	prop_combined	0
+samp48	genome	prop_combined	0
+samp49	genome	prop_combined	0
+samp50	exome	prop_combined	0
+samp51	genome	prop_combined	0.01107011
+samp52	exome	prop_combined	0
+samp53	exome	prop_combined	0
+samp54	exome	prop_combined	0
+samp55	exome	prop_combined	0
+samp56	genome	prop_combined	0.02380952
+samp57	genome	prop_combined	0
+samp58	exome	prop_combined	0.00072046
+samp59	genome	prop_combined	0.01348548
+samp60	genome	prop_combined	0
+samp61	exome	prop_combined	0
+samp62	exome	prop_combined	0.00151976
+samp63	exome	prop_combined	0
+samp64	exome	prop_combined	0
+samp65	genome	prop_combined	0.00596421
+samp66	exome	prop_combined	0
+samp67	exome	prop_combined	0
+samp68	genome	prop_combined	0.00528302
+samp69	genome	prop_combined	0.0176
+samp70	exome	prop_combined	0.00215054
+samp71	exome	prop_combined	0
