@@ -309,7 +309,7 @@ Parameters:
 * `PIVUS_samples`:  TRUE/FALSE statement wether to include or not PIVUS samples in the analysis
 
 Script: [splicing_outlier_analysis.sh](./splicing_outlier_analysis/splicing_outlier_analysis.sh)
-Relies on [make_list_junction_files.R] (./splicing_outlier_analysis/make_list_junction_files.R) and [splicing_outlier.py](./splicing_outlier_analysis/splicing_outlier.py)
+Relies on [make_list_junction_files.R](./splicing_outlier_analysis/make_list_junction_files.R) and [splicing_outlier.py](./splicing_outlier_analysis/splicing_outlier.py)
 
 Example command line:
 ```
