@@ -1,0 +1,5 @@
+filter	value	category	is_causal_in
+hpo_match	1977	HPO	yes
+spli_outlier	20	Splicing outlier	yes
+spli_out_pLI	6	Splicing outlier and filters	no
+spli_out_hpo	1	Splicing outlier and filters	yes

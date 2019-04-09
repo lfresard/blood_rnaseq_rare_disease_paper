@@ -1,0 +1,4 @@
+variable	value
+solved	7.5
+strong_candidate	16.7
+unsolved	86.2
