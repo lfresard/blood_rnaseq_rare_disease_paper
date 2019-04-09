@@ -1,0 +1,14 @@
+value	filter	category	is_causal_in
+10421	RV_10KB	Rare variant	yes
+1793	RV_10KB_CADD	Rare variant and filters	yes
+1567	RV_10KB_HPO	Rare variant and filters	yes
+302	RV_10KB_CADD_HPO	Rare variant and filters	yes
+2761	HPO	HPO	yes
+1099	EXP_OUTLIER	Expression outlier	yes
+150	EXP_OUTLIER_PLI	Expression outlier and filters	no
+517	EXP_OUTLIER_ASE	Expression outlier and filters	no
+649	EXP_OUTLIER_RIVER	Expression outlier and filters	no
+123	EXP_OUTLIER_HPO	Expression outlier and filters	yes
+439	EXP_OUTLIER_RV	Expression outlier and filters	yes
+67	EXP_OUTLIER_RV_CADD	Expression outlier and filters	yes
+15	EXP_OUTLIER_RV_CADD_HPO	Expression outlier and filters	yes

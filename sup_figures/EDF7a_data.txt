@@ -1,0 +1,337 @@
+affected_status	SampID	variant_data	in_freeze	variable	value
+Case	samp1	genome	yes	allhets	2374439
+Case	samp2	genome	yes	allhets	2365368
+Case	samp3	genome	yes	allhets	2325751
+Case	samp4	genome	yes	allhets	2416718
+Case	samp5	exome	yes	allhets	700
+Case	samp6	exome	yes	allhets	69120
+Case	samp7	genome	yes	allhets	2359049
+Case	samp8	genome	yes	allhets	2423449
+Case	samp9	genome	yes	allhets	2458637
+Control	samp10	genome	yes	allhets	2197488
+Control	samp11	genome	yes	allhets	2004117
+Case	samp12	genome	yes	allhets	2077289
+Case	samp13	genome	yes	allhets	2112390
+Case	samp14	genome	yes	allhets	2065930
+Control	samp15	genome	yes	allhets	2045558
+Control	samp16	genome	yes	allhets	2257122
+Case	samp17	genome	yes	allhets	2193921
+Case	samp18	genome	yes	allhets	2147157
+Case	samp19	genome	yes	allhets	2195753
+Case	samp20	genome	yes	allhets	2284724
+Case	samp21	genome	yes	allhets	1998428
+Case	samp22	genome	yes	allhets	1972835
+Case	samp23	genome	yes	allhets	2066426
+Case	samp24	genome	yes	allhets	2148440
+Case	samp25	genome	yes	allhets	2081634
+Case	samp26	genome	yes	allhets	1938858
+Case	samp27	genome	yes	allhets	2570339
+Case	samp28	exome	yes	allhets	103114
+Control	samp29	exome	yes	allhets	97774
+Control	samp30	exome	yes	allhets	102515
+Case	samp31	exome	yes	allhets	114819
+Case	samp32	exome	yes	allhets	119751
+Case	samp33	exome	yes	allhets	115571
+Case	samp34	exome	yes	allhets	91293
+Control	samp35	genome	yes	allhets	2590414
+Control	samp36	genome	yes	allhets	2568444
+Case	samp37	genome	yes	allhets	2589463
+Case	samp38	exome	yes	allhets	91945
+Control	samp39	exome	yes	allhets	91899
+Control	samp40	exome	yes	allhets	94313
+Case	samp41	exome	yes	allhets	89639
+Case	samp42	exome	yes	allhets	93292
+Case	samp43	exome	yes	allhets	98347
+Control	samp44	exome	yes	allhets	90029
+Control	samp45	exome	yes	allhets	102146
+Case	samp46	exome	yes	allhets	179023
+Control	samp47	exome	yes	allhets	194737
+Case	samp48	exome	yes	allhets	226784
+Case	samp49	exome	yes	allhets	181665
+Case	samp50	exome	yes	allhets	198378
+Control	samp51	exome	yes	allhets	141173
+Case	samp52	exome	yes	allhets	180308
+Control	samp53	exome	yes	allhets	202247
+Case	samp54	exome	yes	allhets	184168
+Case	samp55	exome	yes	allhets	182206
+Case	samp56	genome	yes	allhets	0
+Control	samp57	genome	yes	allhets	0
+Control	samp58	exome	yes	allhets	90161
+Control	samp59	exome	yes	allhets	90227
+Case	samp60	exome	yes	allhets	0
+Case	samp61	exome	yes	allhets	0
+Control	samp62	exome	yes	allhets	0
+Control	samp63	exome	yes	allhets	0
+Case	samp64	genome	yes	allhets	2582304
+Case	samp65	genome	yes	allhets	2584984
+Control	samp66	genome	yes	allhets	0
+Control	samp67	genome	yes	allhets	2564989
+Control	samp68	genome	yes	allhets	2647514
+Case	samp69	exome	yes	allhets	0
+Case	samp70	exome	yes	allhets	80558
+Control	samp71	exome	yes	allhets	0
+Control	samp72	exome	yes	allhets	0
+Control	samp73	exome	yes	allhets	0
+Case	samp74	exome	yes	allhets	0
+Control	samp75	exome	yes	allhets	0
+Control	samp76	genome	yes	allhets	2222485
+Control	samp77	genome	yes	allhets	2140334
+Case	samp78	genome	yes	allhets	2128259
+Case	samp79	genome	yes	allhets	2163144
+Case	samp80	exome	yes	allhets	38220
+Case	samp81	genome	yes	allhets	2267017
+Case	samp82	genome	yes	allhets	2205468
+Case	samp83	genome	yes	allhets	2094084
+Control	samp84	genome	yes	allhets	2225475
+Control	samp85	genome	yes	allhets	1840518
+Case	samp86	exome	yes	allhets	42640
+Case	samp87	genome	yes	allhets	2168487
+Case	samp88	exome	yes	allhets	43847
+Case	samp89	exome	yes	allhets	55275
+Case	samp90	exome	yes	allhets	42013
+Case	samp91	exome	yes	allhets	47237
+Control	samp92	exome	yes	allhets	44473
+Control	samp93	exome	yes	allhets	46321
+Case	samp94	genome	yes	allhets	2353504
+Case	samp95	genome	yes	allhets	2173049
+Control	samp96	genome	yes	allhets	2266482
+Control	samp97	genome	yes	allhets	2175289
+Case	samp98	exome	yes	allhets	44371
+Case	samp99	genome	yes	allhets	2155539
+Case	samp100	genome	yes	allhets	2006294
+Case	samp101	exome	yes	allhets	51613
+Case	samp102	exome	yes	allhets	52011
+Case	samp103	exome	yes	allhets	45150
+Case	samp104	exome	yes	allhets	42251
+Case	samp105	genome	yes	allhets	2038425
+Control	samp106	exome	yes	allhets	53493
+Case	samp107	exome	yes	allhets	51909
+Case	samp108	exome	yes	allhets	46120
+Case	samp109	genome	yes	allhets	2171559
+Case	samp110	genome	yes	allhets	2185526
+Case	samp111	exome	yes	allhets	2382514
+Case	samp112	exome	yes	allhets	53825
+Case	samp1	genome	yes	AI.65	900
+Case	samp2	genome	yes	AI.65	904
+Case	samp3	genome	yes	AI.65	794
+Case	samp4	genome	yes	AI.65	604
+Case	samp5	exome	yes	AI.65	0
+Case	samp6	exome	yes	AI.65	608
+Case	samp7	genome	yes	AI.65	972
+Case	samp8	genome	yes	AI.65	728
+Case	samp9	genome	yes	AI.65	1143
+Control	samp10	genome	yes	AI.65	1163
+Control	samp11	genome	yes	AI.65	917
+Case	samp12	genome	yes	AI.65	1276
+Case	samp13	genome	yes	AI.65	1707
+Case	samp14	genome	yes	AI.65	529
+Control	samp15	genome	yes	AI.65	419
+Control	samp16	genome	yes	AI.65	844
+Case	samp17	genome	yes	AI.65	472
+Case	samp18	genome	yes	AI.65	518
+Case	samp19	genome	yes	AI.65	796
+Case	samp20	genome	yes	AI.65	855
+Case	samp21	genome	yes	AI.65	820
+Case	samp22	genome	yes	AI.65	1112
+Case	samp23	genome	yes	AI.65	414
+Case	samp24	genome	yes	AI.65	891
+Case	samp25	genome	yes	AI.65	249
+Case	samp26	genome	yes	AI.65	773
+Case	samp27	genome	yes	AI.65	2493
+Case	samp28	exome	yes	AI.65	577
+Control	samp29	exome	yes	AI.65	811
+Control	samp30	exome	yes	AI.65	562
+Case	samp31	exome	yes	AI.65	1080
+Case	samp32	exome	yes	AI.65	674
+Case	samp33	exome	yes	AI.65	940
+Case	samp34	exome	yes	AI.65	693
+Control	samp35	genome	yes	AI.65	5463
+Control	samp36	genome	yes	AI.65	4374
+Case	samp37	genome	yes	AI.65	7111
+Case	samp38	exome	yes	AI.65	1042
+Control	samp39	exome	yes	AI.65	1150
+Control	samp40	exome	yes	AI.65	1025
+Case	samp41	exome	yes	AI.65	1202
+Case	samp42	exome	yes	AI.65	915
+Case	samp43	exome	yes	AI.65	1293
+Control	samp44	exome	yes	AI.65	973
+Control	samp45	exome	yes	AI.65	906
+Case	samp46	exome	yes	AI.65	640
+Control	samp47	exome	yes	AI.65	683
+Case	samp48	exome	yes	AI.65	402
+Case	samp49	exome	yes	AI.65	289
+Case	samp50	exome	yes	AI.65	545
+Control	samp51	exome	yes	AI.65	220
+Case	samp52	exome	yes	AI.65	491
+Control	samp53	exome	yes	AI.65	517
+Case	samp54	exome	yes	AI.65	628
+Case	samp55	exome	yes	AI.65	521
+Case	samp56	genome	yes	AI.65	2954
+Control	samp57	genome	yes	AI.65	2977
+Control	samp58	exome	yes	AI.65	646
+Control	samp59	exome	yes	AI.65	945
+Case	samp60	exome	yes	AI.65	587
+Case	samp61	exome	yes	AI.65	1046
+Control	samp62	exome	yes	AI.65	967
+Control	samp63	exome	yes	AI.65	846
+Case	samp64	genome	yes	AI.65	3517
+Case	samp65	genome	yes	AI.65	3067
+Control	samp66	genome	yes	AI.65	2525
+Control	samp67	genome	yes	AI.65	2953
+Control	samp68	genome	yes	AI.65	3358
+Case	samp69	exome	yes	AI.65	670
+Case	samp70	exome	yes	AI.65	1013
+Control	samp71	exome	yes	AI.65	779
+Control	samp72	exome	yes	AI.65	1017
+Control	samp73	exome	yes	AI.65	1126
+Case	samp74	exome	yes	AI.65	934
+Control	samp75	exome	yes	AI.65	932
+Control	samp76	genome	yes	AI.65	3020
+Control	samp77	genome	yes	AI.65	5419
+Case	samp78	genome	yes	AI.65	5597
+Case	samp79	genome	yes	AI.65	5583
+Case	samp80	exome	yes	AI.65	1241
+Case	samp81	genome	yes	AI.65	3230
+Case	samp82	genome	yes	AI.65	5793
+Case	samp83	genome	yes	AI.65	2438
+Control	samp84	genome	yes	AI.65	5640
+Control	samp85	genome	yes	AI.65	1998
+Case	samp86	exome	yes	AI.65	1167
+Case	samp87	genome	yes	AI.65	5705
+Case	samp88	exome	yes	AI.65	1216
+Case	samp89	exome	yes	AI.65	1312
+Case	samp90	exome	yes	AI.65	621
+Case	samp91	exome	yes	AI.65	1285
+Control	samp92	exome	yes	AI.65	1311
+Control	samp93	exome	yes	AI.65	1314
+Case	samp94	genome	yes	AI.65	4707
+Case	samp95	genome	yes	AI.65	5032
+Control	samp96	genome	yes	AI.65	5117
+Control	samp97	genome	yes	AI.65	4939
+Case	samp98	exome	yes	AI.65	1215
+Case	samp99	genome	yes	AI.65	5038
+Case	samp100	genome	yes	AI.65	5127
+Case	samp101	exome	yes	AI.65	1251
+Case	samp102	exome	yes	AI.65	1223
+Case	samp103	exome	yes	AI.65	1042
+Case	samp104	exome	yes	AI.65	1027
+Case	samp105	genome	yes	AI.65	3276
+Control	samp106	exome	yes	AI.65	1535
+Case	samp107	exome	yes	AI.65	1220
+Case	samp108	exome	yes	AI.65	1127
+Case	samp109	genome	yes	AI.65	5490
+Case	samp110	genome	yes	AI.65	6524
+Case	samp111	exome	yes	AI.65	1530
+Case	samp112	exome	yes	AI.65	1406
+Case	samp1	genome	yes	ASE outlier	5
+Case	samp2	genome	yes	ASE outlier	5
+Case	samp3	genome	yes	ASE outlier	3
+Case	samp4	genome	yes	ASE outlier	0
+Case	samp5	exome	yes	ASE outlier	0
+Case	samp6	exome	yes	ASE outlier	2
+Case	samp7	genome	yes	ASE outlier	3
+Case	samp8	genome	yes	ASE outlier	11
+Case	samp9	genome	yes	ASE outlier	3
+Control	samp10	genome	yes	ASE outlier	6
+Control	samp11	genome	yes	ASE outlier	12
+Case	samp12	genome	yes	ASE outlier	5
+Case	samp13	genome	yes	ASE outlier	29
+Case	samp14	genome	yes	ASE outlier	2
+Control	samp15	genome	yes	ASE outlier	2
+Control	samp16	genome	yes	ASE outlier	14
+Case	samp17	genome	yes	ASE outlier	1
+Case	samp18	genome	yes	ASE outlier	1
+Case	samp19	genome	yes	ASE outlier	6
+Case	samp20	genome	yes	ASE outlier	6
+Case	samp21	genome	yes	ASE outlier	8
+Case	samp22	genome	yes	ASE outlier	17
+Case	samp23	genome	yes	ASE outlier	2
+Case	samp24	genome	yes	ASE outlier	12
+Case	samp25	genome	yes	ASE outlier	0
+Case	samp26	genome	yes	ASE outlier	13
+Case	samp27	genome	yes	ASE outlier	44
+Case	samp28	exome	yes	ASE outlier	1
+Control	samp29	exome	yes	ASE outlier	6
+Control	samp30	exome	yes	ASE outlier	2
+Case	samp31	exome	yes	ASE outlier	12
+Case	samp32	exome	yes	ASE outlier	11
+Case	samp33	exome	yes	ASE outlier	11
+Case	samp34	exome	yes	ASE outlier	12
+Control	samp35	genome	yes	ASE outlier	353
+Control	samp36	genome	yes	ASE outlier	199
+Case	samp37	genome	yes	ASE outlier	1004
+Case	samp38	exome	yes	ASE outlier	14
+Control	samp39	exome	yes	ASE outlier	20
+Control	samp40	exome	yes	ASE outlier	6
+Case	samp41	exome	yes	ASE outlier	15
+Case	samp42	exome	yes	ASE outlier	14
+Case	samp43	exome	yes	ASE outlier	42
+Control	samp44	exome	yes	ASE outlier	11
+Control	samp45	exome	yes	ASE outlier	4
+Case	samp46	exome	yes	ASE outlier	13
+Control	samp47	exome	yes	ASE outlier	18
+Case	samp48	exome	yes	ASE outlier	2
+Case	samp49	exome	yes	ASE outlier	1
+Case	samp50	exome	yes	ASE outlier	3
+Control	samp51	exome	yes	ASE outlier	3
+Case	samp52	exome	yes	ASE outlier	7
+Control	samp53	exome	yes	ASE outlier	8
+Case	samp54	exome	yes	ASE outlier	25
+Case	samp55	exome	yes	ASE outlier	14
+Case	samp56	genome	yes	ASE outlier	64
+Control	samp57	genome	yes	ASE outlier	46
+Control	samp58	exome	yes	ASE outlier	3
+Control	samp59	exome	yes	ASE outlier	5
+Case	samp60	exome	yes	ASE outlier	3
+Case	samp61	exome	yes	ASE outlier	13
+Control	samp62	exome	yes	ASE outlier	5
+Control	samp63	exome	yes	ASE outlier	5
+Case	samp64	genome	yes	ASE outlier	95
+Case	samp65	genome	yes	ASE outlier	42
+Control	samp66	genome	yes	ASE outlier	32
+Control	samp67	genome	yes	ASE outlier	41
+Control	samp68	genome	yes	ASE outlier	52
+Case	samp69	exome	yes	ASE outlier	0
+Case	samp70	exome	yes	ASE outlier	12
+Control	samp71	exome	yes	ASE outlier	9
+Control	samp72	exome	yes	ASE outlier	14
+Control	samp73	exome	yes	ASE outlier	15
+Case	samp74	exome	yes	ASE outlier	5
+Control	samp75	exome	yes	ASE outlier	9
+Control	samp76	genome	yes	ASE outlier	51
+Control	samp77	genome	yes	ASE outlier	243
+Case	samp78	genome	yes	ASE outlier	242
+Case	samp79	genome	yes	ASE outlier	318
+Case	samp80	exome	yes	ASE outlier	22
+Case	samp81	genome	yes	ASE outlier	59
+Case	samp82	genome	yes	ASE outlier	241
+Case	samp83	genome	yes	ASE outlier	38
+Control	samp84	genome	yes	ASE outlier	241
+Control	samp85	genome	yes	ASE outlier	27
+Case	samp86	exome	yes	ASE outlier	21
+Case	samp87	genome	yes	ASE outlier	263
+Case	samp88	exome	yes	ASE outlier	40
+Case	samp89	exome	yes	ASE outlier	21
+Case	samp90	exome	yes	ASE outlier	1
+Case	samp91	exome	yes	ASE outlier	28
+Control	samp92	exome	yes	ASE outlier	21
+Control	samp93	exome	yes	ASE outlier	27
+Case	samp94	genome	yes	ASE outlier	215
+Case	samp95	genome	yes	ASE outlier	254
+Control	samp96	genome	yes	ASE outlier	217
+Control	samp97	genome	yes	ASE outlier	266
+Case	samp98	exome	yes	ASE outlier	22
+Case	samp99	genome	yes	ASE outlier	281
+Case	samp100	genome	yes	ASE outlier	321
+Case	samp101	exome	yes	ASE outlier	12
+Case	samp102	exome	yes	ASE outlier	17
+Case	samp103	exome	yes	ASE outlier	16
+Case	samp104	exome	yes	ASE outlier	16
+Case	samp105	genome	yes	ASE outlier	256
+Control	samp106	exome	yes	ASE outlier	79
+Case	samp107	exome	yes	ASE outlier	16
+Case	samp108	exome	yes	ASE outlier	7
+Case	samp109	genome	yes	ASE outlier	451
+Case	samp110	genome	yes	ASE outlier	797
+Case	samp111	exome	yes	ASE outlier	77
+Case	samp112	exome	yes	ASE outlier	33
