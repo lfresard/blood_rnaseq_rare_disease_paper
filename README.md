@@ -3,3 +3,5 @@ This repository contains the code used to generate results presented in "Identif
 You can use our proposed pipeline to highlight candidate genes by following this [code](./pipeline.md)
 
 You can find the code and data to reproduce the main figures [here](./main_figures)
+
+You can find the code and data to reproduce the Extended Data Figures [here](./sup_figures)
