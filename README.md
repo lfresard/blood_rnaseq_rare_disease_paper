@@ -9,4 +9,4 @@ You can find the code and data to reproduce the main figures [here](./main_figur
 You can find the code and data to reproduce the Extended Data Figures [here](./sup_figures)
 
 ## Citations
-For citing code or the paper, please use this [Nature Medicine Paper](https://www.nature.com/articles/s41591-019-0457-8)
+For citing code or the paper, please use this [paper](https://www.nature.com/articles/s41591-019-0457-8)
