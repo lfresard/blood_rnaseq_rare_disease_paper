@@ -171,7 +171,7 @@ def get_outlier_zscore_affected_status(outlier_index_list,samples,affected_statu
 def process_junctions(annot,junctions_dict,dict_ref_junctions,direction, rundir, outPrefix,list_of_files, samples,affected_status_dict):
 	outFile = "%s/%s_junc_outliers.txt"%(rundir,outPrefix)
 	outratio="%s/%s_junc_ratios.txt"%(rundir,outPrefix)
-	with open(annot, 'r') as ref_junc, open(outFile, 'w') as OUT, open(outratio, 'w') as OUTratio:
+	with open(annot, 'r') as ref_junc, open(outFile, 'w') as OUT, open(outratio, 'a+') as OUTratio:
 		#header= ['gene', 'chr', 'junction', 'annotation_status','Cluster', 'OutlierCase', 'OutlierControl']+samples#+[(str(e)) for e in range(len(list_of_files))]
 		header= [ 'chr', 'junction_start', 'junction_end','gene', 'annotation_status','Cluster', 'OutlierCase', 'OutlierControl']+samples
 		OUT.write('\t'.join(header) + '\n')
